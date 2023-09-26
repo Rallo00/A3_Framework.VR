@@ -20,6 +20,5 @@ for "_i" from 0 to _cratersCount - 1 do {
   };
   _soilPos = _randomPosAGL;
   _soilPos set [2, _posHeightAGL];
-  hint format["%1", _posHeightAGL];
   _soil createVehicle _soilPos;
 }
