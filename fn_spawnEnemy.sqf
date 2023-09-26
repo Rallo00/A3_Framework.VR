@@ -1,3 +1,5 @@
+/* SCRIPT IS STILL FAULTY */
+
 /* Make some (random) units of a side spawn in area */
 params["_pos", "_patrolledAreaSize", "_criticalLevel"];
 

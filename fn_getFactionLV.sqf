@@ -1,38 +1,4 @@
-/*	Returns a list of infantry or vehicles or air vehicles per desired faction
-*
-*	VEHICLES TYPES
-*	infantry
-*	static					AA/AT/Brownings
-*	light					IFV/APC/Armed cars
-*	artillery
-*	boat					
-*	heavy					Tanks
-*	support					Trucks (support)
-*	gunship					Helicopters (attack)
-*	helo					Helicopters (transport)
-*	air						Aeroplanes
-*	aa						Anti-Air
-*	
-*	SUPPORTED VANILLA FACTIONS:
-*	BLU_F					NATO (standard)
-*	OPF_F					CSAT (standard)
-*	IND_F					AAF (standard)
-*	BLU_T_F					NATO (Apex, pacific)
-*	OPF_T_F					CSAT (Apex, pacific)
-*	BLU_W_F					NATO Woodland (Contact)
-*	OPF_R_F					Specnaz (Contact
-*	IND_E_F					LDF (Contact)
-*	
-*	SUPPORTED MODS FACTIONS:
-*	rhs_faction_usarmy_d		RHS USAF (USA Army D OCP)
-*	rhs_faction_usarmy_wd		RHS USAF (USA Army D UCP)
-*	rhs_faction_usmc_d			RHS USAF (USA Army D MARPAT)
-*	rhs_faction_usmc_wd			RHS USAF (USA Army WD MARPAT)
-*	rhs_faction_msv				RHS AFRF (Russia MSV EMR)
-*	rhs_faction_vdv				RHS AFRF (Russia VDV DES)
-*	rhssaf_faction_army			RHS SAF (KOV Digital)
-*	Tban						EricJ Taliban Units
-*/
+/*	Returns a list of infantry or vehicles or air vehicles per desired faction */
 params["_faction"];
 _resultArray = [];
 
