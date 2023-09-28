@@ -20,9 +20,9 @@ _windSpeedE = 0;
 _windDirection = 0;
 
 switch (_currentMap) do
-{   //Calculating weather for desert terrains
-    case "MCN_Aliabad";
-    case "takistan";
+{ //Calculating weather for desert terrains
+  case "MCN_Aliabad";
+  case "takistan";
 	case "zargabad";
 	case "Mountains_ACR";
 	case "fallujah";
@@ -41,8 +41,7 @@ switch (_currentMap) do
 		_windSpeedN = random[0,10,30];
 		_windSpeedE = random[0,10,30];
 		_windDirection = random[0, 180, 360];
-	}; 
-	//Calculating weather for european terrains (Vanilla and CUP)
+	}; //Calculating weather for european terrains (Vanilla and CUP)
 	case "Bootcamp_ACR";
 	case "Woodland_ACR";
 	case "chernarus";
@@ -63,8 +62,7 @@ switch (_currentMap) do
 		_windSpeedN = random[0,10,20];
 		_windSpeedE = random[0,10,20];
 		_windDirection = random[0, 180, 360];
-	}; 
-	//Calculating weather for mediterranean terrains
+	}; //Calculating weather for mediterranean terrains
 	case "Stratis";
 	case "Altis";
 	case "Malden":
@@ -82,7 +80,6 @@ switch (_currentMap) do
 		_windSpeedE = random[0,20,40];
 		_windDirection = random[0, 180, 360];
 	};
-	//Calculating weather for tropical terrains
 	case "Tanoa":
 	{
 		//Probability of 80% for jungle areas to encounter overcast (and therefore rain)

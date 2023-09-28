@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project name="AITA_Scenario">
+	<Package name="">
+		<Container name="scenario_info">
+			<Key ID="STR_INF_scenario_title">
+				<Original>TITOLO</Original>
+			</Key>
+			<Key ID="STR_INF_scenario_description">
+				<Original>Description</Original>
+				<Italian>Descrizione</Italian>
+			</Key>
+			<Key ID="STR_INF_scenario_author">
+				<Original>Ombra</Original>
+			</Key>
+			<Key ID="STR_INF_scenario_date">
+				<Original>Date</Original>
+			</Key>
+			<Key ID="STR_INF_scenario_town">
+				<Original>City</Original>
+			</Key>
+			<Key ID="STR_INF_scenario_country">
+				<Original>Country</Original>
+			</Key>
+			<Key ID="STR_INF_squad_army">
+				<Original>SquadronOriginal>
+			</Key>
+			<Key ID="STR_INF_briefing">
+				<Original>&lt;br/&gt;&lt;br/&gt;Stratis is a mediterranean paradise situated in the Aegean Sea. The island is full of rich minerals like cobalt, gold, lythium and iron.&lt;br/&gt;The AAF (Altis Armed Forces) decided to invade Stratis to gain control of the numerous extraction sites.&lt;br/&gt;&lt;br/&gt;After a month of diplomatic attempts UNO also condamned the invasion of the island that escalated into a conflict with NATO.&lt;br/&gt;Shortly before the war broke out, AAF secretly managed to ally with the CSAT (Canton Protocol Strategic Alliance Treaty) a faction that sees Iran, China, Russia altogether.&lt;br/&gt;&lt;br/&gt;Your mission today is to infiltrate Stratis island via sea and get rid of all the Anti-Air and Infantry defenses on the eastern side of Stratis, thus allowing us different fire bases to start our liberation of the island.&lt;br/&gt;&lt;br/&gt;Good luck.&lt;br/&gt;</Original>
+				<Italian>Stratis è un paradiso mediterraneo situato nel mar dell'Egeo. L'isola è ricca di minerali quali cobalto, oro, litio e ferro.&lt;br/&gt;L'AAF (Altis Armed Forces) ha deciso di invadere Stratis per ottenere il controllo delle numerose cave e siti di estrazione.&lt;br/&gt;Dopo un mese di tentativi diplomatici anche l'ONU ha condannato l'invasione dell'isola, dando così origine ad un escalation che ha portato alla guerra con la NATO.&lt;br/&gt;&lt;br/&gt;Poco prima dello scoppio della guerra l'AAF ha segretamente stretto un'alleanza con la CSAT (Canton Protocol Strategic Alliance Treaty) una fazione che vede Iran, Cina, Russia sulla stessa asse.&lt;br/&gt;La vostra missione oggi è quella di infiltrarvi sull'isola di Stratis via mare e sbarazzarvi delle difese antiaeree nella fascia orientale dell'isola, dandoci cosi possibilità di installare diverse basi di fuoco in modo da poter avere un appoggio per la liberazione dell'isola.&lt;br/&gt;&lt;br/&gt;Buona fortuna.</Italian>
+			</Key>
+		</Container>
+		<Container name="framework_revive">
+			<Key ID="STR_revive_heal">
+				<Original>+ Heal</Original>
+				<Italian>+ Cura</Italian>
+			</Key>
+			<Key ID="STR_revive_drag">
+				<Original>+ Drag</Original>
+				<Italian>+ Trascina</Italian>
+			</Key>
+			<Key ID="STR_revive_release">
+				<Original>+ Release</Original>
+				<Italian>+ Lascia</Italian>
+			</Key>
+			<Key ID="STR_revive_suicide">
+				<Original>+ Suicide</Original>
+				<Italian>+ Suicidati</Italian>
+			</Key>
+			<Key ID="STR_revive_killedby">
+				<Original>has been killed by</Original>
+				<Italian>e' stato ucciso da</Italian>
+			</Key>
+			<Key ID="STR_revive_bleedout">
+				<Original>You will bleedout in</Original>
+				<Italian>Morte per dissanguamento in</Italian>
+			</Key>
+			<Key ID="STR_revive_seconds">
+				<Original>seconds.</Original>
+				<Italian>secondi.</Italian>
+			</Key>
+			<Key ID="STR_revive_medicnearby">
+				<Original>Nearby medic:</Original>
+				<Italian>Medico vicino:</Italian>
+			</Key>
+			<Key ID="STR_revive_nomedicnearby">
+				<Original>No medic nearby.</Original>
+				<Italian>Nessun medico nelle vicinanze.</Italian>
+			</Key>
+			<Key ID="STR_revive_stuck">
+				<Original>Press 'C' if you cannot move.</Original>
+				<Italian>Premi 'C' se non riesci a muoverti.</Italian>
+			</Key>
+		</Container>
+		<Container name="framework_functions">
+			<Key ID="STR_misc_frameworkloaded">
+				<Original>Rallo Framework loaded succesfully.</Original>
+				<Italian>Rallo Framework caricato con successo.</Italian>
+			</Key>
+			<Key ID="STR_misc_arsenal">
+				<Original>Virtual Arsenal</Original>
+				<Italian>Arsenale Virtuale</Italian>
+			</Key>
+		</Container>
+		<Container name="scenario_tasks">
+			<Key ID="STR_tsk_1_main">
+				<Original>TASK</Original>
+				<Italian>TASK</Italian>
+			</Key>
+			<Key ID="STR_tsk_1_desc">
+				<Original>TASK &lt;marker name="marker1"&gt;TEXT&lt;/marker&gt;.</Original>
+				<Italian>TASK &lt;marker name="marker1"&gt;TEXT&lt;/marker&gt;.</Italian>
+			</Key>
+		</Container>
+	</Package>
+</Project>

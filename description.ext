@@ -1,0 +1,50 @@
+//DETTAGLI SCENARIO
+onLoadName = "$STR_INF_scenario_title";
+onLoadMission = "$STR_INF_scenario_description";
+author = "$STR_INF_scenario_author";
+loadScreen = "RalloFramework\images\loadScreen.jpg";
+overviewPicture = "RalloFramework\images\loadScreen.jpg";
+disabledAI=1;
+enableDebugConsole = 2;
+
+class Header
+{
+	gameType = COOP; 
+	minPlayers = 1; 
+	maxPlayers = 8;
+};
+
+#include "RalloFramework\definitions\descriptionDefinitions.h"
+
+//PARAMETRI DI GIOCO
+class Params
+{
+	class OmbraRandomWeather
+	{
+		title = "Weather"; 
+		values[] = {0,1}; 
+		texts[] = {"Random","Mission default"};
+		default = 0; 
+	};
+	class OmbraStamina
+	{
+		title = "Stamina";
+		values[] = {0,1};
+		texts[] = {"Off","On"};
+		default = 0;
+	};	
+	class OmbraRealtime
+	{
+		title = "Mission time";
+		values[] = {0,1,2};
+		texts[] = {"Random","Real-Time","Mission default"};
+		default = 0;
+	};
+	class OmbraRevive
+	{
+		title = "Revive";
+		values[] = {0,1,2,3};
+		texts[] = {"Only medics can revive","All players can revive (FAK)","All player can revive (Medkit)","No revive"};
+		default = 1;
+	};
+};

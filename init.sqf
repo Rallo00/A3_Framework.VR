@@ -1,0 +1,1 @@
+[] execVM "RalloFramework\launchFramework.sqf";
