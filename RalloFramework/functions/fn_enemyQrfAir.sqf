@@ -23,19 +23,10 @@ _landWp setWaypointType "TR UNLOAD";
 _landWp setWaypointSpeed "FULL";
 _landWp setWaypointBehaviour "CARELESS";
 _landWp setWaypointStatements["true", "(vehicle this) land 'GET OUT';"];
-
-//Go away waypoint for helo
-_awayWp = _heloGrp addWaypoint [[0,0,0], 0];
-_awayWp setWaypointType "MOVE";
-_awayWp setWaypointSpeed "FULL";
-_awayWp setWaypointBehaviour "CARELESS";
-_awayWp setWaypointStatements["true", "[vehicle this] spawn FWK_fnc_deleteVehicle;"];
 _heloGrp setCurrentWaypoint _landWp;
 
 //Waiting for all troops to disembark
 waitUntil { {_x in _heloObj} count (units _qrfGrp) == 0; };
-hint "sbloccato";
-_heloGrp setCurrentWaypoint _awayWp;
 
 //Defend waypoint for QRF
 _defendWp = _qrfGrp addWaypoint [_destination, 20];
@@ -44,3 +35,11 @@ _defendWp setWaypointSpeed "FULL";
 _defendWp setWaypointBehaviour "COMBAT";
 _defendWp setWaypointStatements["true", ""];
 _qrfGrp setCurrentWaypoint _defendWp;
+
+//Make helo go away
+_heloPilot = leader _heloGrp;
+_heloPilot doMove ([0,0,0]);
+
+//After 40 seconds delete helo and crew inside
+sleep 40;
+{deleteVehicle _x} forEach (crew _heloObj) + [_heloObj]; 
