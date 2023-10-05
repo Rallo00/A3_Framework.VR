@@ -38,6 +38,17 @@ FAR_Player_Unconscious =
 	private["_unit", "_killer"];
 	_unit = _this select 0;
 	_killer = _this select 1;
+	_soundArray = ["a3\missions_f_epa\data\sounds\woundedguya_01.wss",
+					"a3\missions_f_epa\data\sounds\woundedguya_02.wss",
+					"a3\missions_f_epa\data\sounds\woundedguya_03.wss",
+					"a3\missions_f_epa\data\sounds\woundedguya_04.wss",
+					"a3\missions_f_epa\data\sounds\woundedguya_05.wss",
+					"a3\missions_f_epa\data\sounds\woundedguya_06.wss",
+					"a3\missions_f_epa\data\sounds\woundedguya_07.wss",
+					"a3\missions_f_epa\data\sounds\woundedguya_08.wss"
+		];
+	playSound3D [selectRandom _soundArray, _unit];
+	[3000] call BIS_fnc_bloodEffect;
 	// Death message
 	if (FAR_EnableDeathMessages && !isNil "_killer" && isPlayer _killer && _killer != _unit) then
 	{
@@ -47,8 +58,9 @@ FAR_Player_Unconscious =
 	};
 	if (isPlayer _unit) then
 	{
+		
 		disableUserInput true;
-		[3000] call BIS_fnc_bloodEffect;
+		sleep 2;
 		[0, "BLACK", 0.5, 1] spawn BIS_fnc_fadeEffect;
 	};
 	// Eject unit if inside vehicle
@@ -63,7 +75,7 @@ FAR_Player_Unconscious =
     _unit allowDamage false;
 	_unit setCaptive true;
     _unit playMove "AinjPpneMstpSnonWrflDnon_rolltoback";
-    sleep 4;
+    sleep 2;
 	if (isPlayer _unit) then
 	{
 		titleText ["", "BLACK IN", 1];

@@ -17,6 +17,9 @@ class CfgFunctions
 			class deleteVehicle {};				//[object] spawn FWK_fnc_deleteVehicle; (also deletes Crew inside)
 			class eastWestTruce {};				//[0 or 1] spawn FWK_fnc_eastWestTruce;
 			class ending {};					//[] spawn FWK_fnc_ending;
+			class enemyQrfTransport {};			//[position] spawn FWK_fnc_enemyQrfTransport;
+			class enemyQrfLand {};				//[position] spawn FWK_fnc_enemyQrfLand;
+			class enemyQrfParatroopers {};		//[position] spawn FWK_fnc_enemyQrfParatroopers;
 			class explosiveUAV {};				//[obj] spawn FWK_fnc_explosiveUAV;
 			class getCurrentOwnership {};		//[position, distanceRange] call FWK_fnc_getCurrentOwnership;
 			class getFactionAir {};				//[faction] call FWK_fnc_getFaction;
@@ -41,8 +44,6 @@ class CfgFunctions
 			class localPlayerInit {};			//[] spawn FWK_fnc_localPlayerInit;
 			class mapCleanup {};				//[position, range] spawn FWK_fnc_mapCleanup;
 			class minefield {};					//[position, int minMines, int maxMines] spawn FWK_fnc_minefield;
-			class enemyQrfAir {};				//[destination] spawn FWK_fnc_enemyQrfAir;
-			class enemyQrfLand {};				//[destination] spawn FWK_fnc_enemyQrfLand;
 			class raiseAlarm {};				//[object, int totalNumbersOfAlarmSound] spawn FWK_fnc_raiseAlarm;
 			class randomVehicleStatus {};		//[object, bool forceSomeFuelInVehicle, bool forceSomeAmmoInVehicle] spawn FWK_fnc_randomVehicleStatus;
 			class randomWeather {};				//[] spawn FWK_fnc_randomWeather;
@@ -52,6 +53,7 @@ class CfgFunctions
 			class surrenderUnits {};			//[position, distanceRange, side] spawn FWK_fnc_surrenderUnits;
 			class supportVehicleDrop {};		//[player] spawn FWK_fnc_supportVehicleDrop;
 			class teleportToLeader {};			//[player] spawn FWK_fnc_teleportToLeader;
+			class teleportToGrid {};
 			class tfarRadioUnbug {};			//[this] spawn FWK_fnc_tfarRadioUnbug;
 		};
 	};
