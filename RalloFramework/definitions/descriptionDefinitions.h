@@ -57,6 +57,7 @@ class CfgFunctions
 			class teleportToLeader {};			//[player] spawn FWK_fnc_teleportToLeader;
 			class teleportToGrid {};
 			class tfarRadioUnbug {};			//[this] spawn FWK_fnc_tfarRadioUnbug;
+			class unitKamikaze {};				//[unit] spawn FWK_fnc_unitKamikaze;
 		};
 	};
 };
