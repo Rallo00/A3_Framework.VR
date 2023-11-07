@@ -6,9 +6,9 @@ FAR_Player_Actions =
 	if (alive player && player isKindOf "Man") then
 	{
 		// addAction args: title, filename, (arguments, priority, showWindow, hideOnUse, shortcut, condition, positionInModel, radius, radiusView, showIn3D, available, textDefault, textToolTip)
-		player addAction ["<t color=""#FF0000"">" + localize 'STR_revive_heal' + "</t>", "RalloFramework\FAR_revive\FAR_handleAction.sqf", ["action_revive"], 10, true, true, "", "call FAR_Check_Revive"]; //+ Heal
-		player addAction ["<t color=""#FF0000"">" + localize 'STR_revive_suicide' + "</t>", "RalloFramework\FAR_revive\FAR_handleAction.sqf", ["action_suicide"], 9, false, true, "", "call FAR_Check_Suicide"]; //+ Suicide
-		player addAction ["<t color=""#FF0000"">" + localize 'STR_revive_drag' + "</t>", "RalloFramework\FAR_revive\FAR_handleAction.sqf", ["action_drag"], 9, false, true, "", "call FAR_Check_Dragging"]; //+ Drag
+		player addAction ["<img size='1.5' image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa'/> <t color=""#FF0000"">" + localize 'STR_revive_heal' + "</t>", "RalloFramework\FAR_revive\FAR_handleAction.sqf", ["action_revive"], 10, true, true, "", "call FAR_Check_Revive"]; //+ Heal
+		player addAction ["<img size='1.5' image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_forceRespawn_ca.paa'/> <t color=""#FF0000"">" + localize 'STR_revive_suicide' + "</t>", "RalloFramework\FAR_revive\FAR_handleAction.sqf", ["action_suicide"], 9, false, true, "", "call FAR_Check_Suicide"]; //+ Suicide
+		player addAction ["<img size='1.5' image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff1_ca.paa'/> <t color=""#FF0000"">" + localize 'STR_revive_drag' + "</t>", "RalloFramework\FAR_revive\FAR_handleAction.sqf", ["action_drag"], 9, false, true, "", "call FAR_Check_Dragging"]; //+ Drag
 	};
 };
 ////////////////////////////////////////////////
@@ -185,7 +185,7 @@ FAR_Drag =
 	FAR_isDragging_EH = _target;
 	publicVariable "FAR_isDragging_EH";
 	// Add release action and save its id so it can be removed
-	_id = player addAction ["<t color=""#FF0000"">" + localize 'STR_revive_release' + "</t>", "RalloFramework\FAR_revive\FAR_handleAction.sqf", ["action_release"], 10, true, true, "", "true"];
+	_id = player addAction ["<img size='1.5' image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_loaddevice_ca.paa'/> <t color=""#FF0000"">" + localize 'STR_revive_release' + "</t>", "RalloFramework\FAR_revive\FAR_handleAction.sqf", ["action_release"], 10, true, true, "", "true"];
 	hint format["%1", localize "STR_revive_stuck"]; //Press C if you cannot move
 	// Wait until release action is used
 	waitUntil

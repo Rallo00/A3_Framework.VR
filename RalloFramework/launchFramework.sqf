@@ -54,6 +54,8 @@ if (isServer || isDedicated) then
 	publicVariable "FWK_IsWeatherRandom";
 	publicVariable "FWK_PlayerFaction";
 	publicVariable "FWK_PlayerSide";
+	publicVariable "FWK_IsReviveEnabled";
+	publicVariable "FWK_ReviveType";
 	
 	//--- LOADING SETTINGS ---//
 	[FWK_DateTime] spawn FWK_fnc_setDateTime;
@@ -63,6 +65,9 @@ if (isServer || isDedicated) then
 	if (FWK_EastWestTruce) then { [1] spawn FWK_fnc_eastWestTruce; };
 	if (FWK_IsWeatherRandom) then { [] spawn FWK_fnc_randomWeather; };
 	if (!FWK_IsStaminaActive) then { { _x enableStamina false; }forEach allUnits; };
+	
+	//Handle Revive
+	//if (FWK_IsReviveEnabled) then {  };
 };
 
 //--- HANDLING CLIENT SIDE ---//
@@ -74,8 +79,8 @@ if(hasInterface) then
 //--- HANDLING BOTH SERVER AND CLIENT SIDE ---//
 //Briefing
 [] execVM "briefing.sqf";
-//Handle Revive
-if (FWK_IsReviveEnabled) then { [] execVM "RalloFramework\FAR_revive\FAR_FrameworkLaunch.sqf"; };
+[] execVM "RalloFramework\FAR_revive\FAR_FrameworkLaunch.sqf";
+{ [_x] spawn FWK_fnc_vehicleUnflip; }forEach vehicles;
 
 //Messaggio caricamento framework a buon fine
 systemChat localize "STR_misc_frameworkloaded";

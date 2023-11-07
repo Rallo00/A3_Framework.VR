@@ -43,9 +43,11 @@ class CfgFunctions
 			class localAmbientSounds {};		//[] spawn FWK_fnc_localAmbientSounds;
 			class localPlayerInit {};			//[] spawn FWK_fnc_localPlayerInit;
 			class mapCleanup {};				//[position, range] spawn FWK_fnc_mapCleanup;
+			class mortarFire {};				//[position, shellType] spawn FWK_fnc_mortarFire; (1=82mm/2=155mm/3=230mm)
 			class minefield {};					//[position, int minMines, int maxMines] spawn FWK_fnc_minefield;
 			class raiseAlarm {};				//[object, int totalNumbersOfAlarmSound] spawn FWK_fnc_raiseAlarm;
-			class randomVehicleStatus {};		//[object, bool forceSomeFuelInVehicle, bool forceSomeAmmoInVehicle] spawn FWK_fnc_randomVehicleStatus;
+			class vehicleRandomStatus{};		//[object, bool forceSomeFuelInVehicle, bool forceSomeAmmoInVehicle] spawn FWK_fnc_vehicleRandomStatus;
+			class vehicleUnflip {};				//[vehicle] spawn FWK_fnc_vehicleUnflip;
 			class randomWeather {};				//[] spawn FWK_fnc_randomWeather;
 			class reinforcements {};			//[side, spawnPosition, int rangeSpawn, bool spawnVehicle] spawn FWK_fnc_reinfocements;
 			class setDateTime {};				//[int] spawn FWK_fnc_setDateTime;

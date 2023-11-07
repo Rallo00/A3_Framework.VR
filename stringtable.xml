@@ -31,20 +31,20 @@
 		</Container>
 		<Container name="framework_revive">
 			<Key ID="STR_revive_heal">
-				<Original>+ Heal</Original>
-				<Italian>+ Cura</Italian>
+				<Original>Heal</Original>
+				<Italian>Cura</Italian>
 			</Key>
 			<Key ID="STR_revive_drag">
-				<Original>+ Drag</Original>
-				<Italian>+ Trascina</Italian>
+				<Original>Drag</Original>
+				<Italian>Trascina</Italian>
 			</Key>
 			<Key ID="STR_revive_release">
-				<Original>+ Release</Original>
-				<Italian>+ Lascia</Italian>
+				<Original>Release</Original>
+				<Italian>Lascia</Italian>
 			</Key>
 			<Key ID="STR_revive_suicide">
-				<Original>+ Suicide</Original>
-				<Italian>+ Suicidati</Italian>
+				<Original>Suicide</Original>
+				<Italian>Suicidati</Italian>
 			</Key>
 			<Key ID="STR_revive_killedby">
 				<Original>has been killed by</Original>
@@ -79,6 +79,10 @@
 			<Key ID="STR_misc_arsenal">
 				<Original>Virtual Arsenal</Original>
 				<Italian>Arsenale Virtuale</Italian>
+			</Key>
+			<Key ID="STR_misc_vehicle_unflip">
+				<Original>Unflip</Original>
+				<Italian>Gira veicolo</Italian>
 			</Key>
 		</Container>
 		<Container name="scenario_tasks">
