@@ -53,7 +53,7 @@ class CfgFunctions
 			class setDateTime {};				//[int] spawn FWK_fnc_setDateTime;
 			class spawnEnemy {}; 				//[position, areaSize, criticalLevel] spawn FWK_fnc_spawnEnemy;
 			class surrenderUnits {};			//[position, distanceRange, side] spawn FWK_fnc_surrenderUnits;
-			class supportVehicleDrop {};		//[player] spawn FWK_fnc_supportVehicleDrop;
+			class vehicleDrop {};				//[position, isFriendlyVehicle] spawn FWK_fnc_vehicleDrop;
 			class teleportToLeader {};			//[player] spawn FWK_fnc_teleportToLeader;
 			class teleportToGrid {};
 			class tfarRadioUnbug {};			//[this] spawn FWK_fnc_tfarRadioUnbug;

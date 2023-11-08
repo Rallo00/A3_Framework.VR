@@ -3,8 +3,8 @@ if (isServer || isDedicated) then
 { 
 	//Configurable
 	FWK_AllowCustomSupports = false;
-	FWK_EnemySide = independent;
 	FWK_EastWestTruce = true;
+	FWK_EnemySide = independent;
 	FWK_EnemyFaction = "IND_F";
 	FWK_IsReviveEnabled = true;
 	FWK_IsStealthActive = false;

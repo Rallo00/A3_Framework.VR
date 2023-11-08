@@ -1,9 +1,16 @@
 params["_pos", "_shellSel"];
 _shellType = 0;
-if (_shellSel == 1) then { _shellType = "8Rnd_82mm_Mo_shells"; };
-if (_shellSel == 2) then { _shellType = "32Rnd_155mm_Mo_shells"; };
-if (_shellSel == 3) then { _shellType = "12Rnd_230mm_rockets"; };
+switch (_shellSel) do
+{
+	case 1: { _shellType = "Sh_82mm_AMOS"; };
+	case 2: { _shellType = "Sh_155mm_AMOS"; };
+	case 3: { _shellType = "Cluster_155mm_AMOS"; };
+	default { _shellType = "Sh_82mm_AMOS"; };
+};
 _shellCount = [1, 8] call BIS_fnc_randomInt;
 _radius = 100;
 _delay = 5;
 [_pos, _shellType, _radius, _shellCount, _delay] spawn BIS_fnc_fireSupportVirtual;
+
+//Debug
+hint format["Shell count: %1\nRadius: %2\nDelay: %3\nShell type: %4\nPosition: %5", _shellCount, _radius, _delay, _shellType, _pos];
