@@ -20,7 +20,7 @@ class CfgFunctions
 			class enemyQrfTransport {};			//[position] spawn FWK_fnc_enemyQrfTransport;
 			class enemyQrfLand {};				//[position] spawn FWK_fnc_enemyQrfLand;
 			class enemyQrfParatroopers {};		//[position] spawn FWK_fnc_enemyQrfParatroopers;
-			class explosiveUAV {};				//[obj] spawn FWK_fnc_explosiveUAV;
+			class mvUAV {};						//[obj] spawn FWK_fnc_multicapabilitiesUAV;
 			class getCurrentOwnership {};		//[position, distanceRange] call FWK_fnc_getCurrentOwnership;
 			class getFactionAir {};				//[faction] call FWK_fnc_getFaction;
 			class getFactionAntiAir {};			//[faction] call FWK_fnc_getFaction;

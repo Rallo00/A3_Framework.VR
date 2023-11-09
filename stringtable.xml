@@ -84,6 +84,19 @@
 				<Original>Unflip</Original>
 				<Italian>Gira veicolo</Italian>
 			</Key>
+			
+			<Key ID="STR_misc_drone_drop">
+				<Original>Drop</Original>
+				<Italian>Sgancia esplosivo</Italian>
+			</Key>
+			<Key ID="STR_misc_drone_resupply">
+				<Original>Resupply drone</Original>
+				<Italian>Carica esplosivo</Italian>
+			</Key>
+			<Key ID="STR_misc_drone_unable">
+				<Original>Unable to resupply drone. Make sure you have valid ammunitions available in your inventory.</Original>
+				<Italian>Impossibile ricaricare drone. Assicurati di avere delle munizioni adeguate nel tuo inventario.</Italian>
+			</Key>
 		</Container>
 		<Container name="scenario_tasks">
 			<Key ID="STR_tsk_1_main">
