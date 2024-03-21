@@ -20,7 +20,6 @@ class CfgFunctions
 			class enemyQrfTransport {};			//[position] spawn FWK_fnc_enemyQrfTransport;
 			class enemyQrfLand {};				//[position] spawn FWK_fnc_enemyQrfLand;
 			class enemyQrfParatroopers {};		//[position] spawn FWK_fnc_enemyQrfParatroopers;
-			class mvUAV {};						//[obj] spawn FWK_fnc_multicapabilitiesUAV;
 			class getCurrentOwnership {};		//[position, distanceRange] call FWK_fnc_getCurrentOwnership;
 			class getFactionAir {};				//[faction] call FWK_fnc_getFaction;
 			class getFactionAntiAir {};			//[faction] call FWK_fnc_getFaction;
@@ -45,6 +44,7 @@ class CfgFunctions
 			class mapCleanup {};				//[position, range] spawn FWK_fnc_mapCleanup;
 			class mortarFire {};				//[position, shellType] spawn FWK_fnc_mortarFire; (1=82mm/2=155mm/3=230mm)
 			class minefield {};					//[position, int minMines, int maxMines] spawn FWK_fnc_minefield;
+			class multicapabilitiesUAV {};		//[obj] spawn FWK_fnc_multicapabilitiesUAV;
 			class raiseAlarm {};				//[object, int totalNumbersOfAlarmSound] spawn FWK_fnc_raiseAlarm;
 			class vehicleRandomStatus{};		//[object, bool forceSomeFuelInVehicle, bool forceSomeAmmoInVehicle] spawn FWK_fnc_vehicleRandomStatus;
 			class vehicleUnflip {};				//[vehicle] spawn FWK_fnc_vehicleUnflip;

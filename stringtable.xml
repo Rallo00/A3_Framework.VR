@@ -10,7 +10,7 @@
 				<Italian>Descrizione</Italian>
 			</Key>
 			<Key ID="STR_INF_scenario_author">
-				<Original>Ombra</Original>
+				<Original>Rallo</Original>
 			</Key>
 			<Key ID="STR_INF_scenario_date">
 				<Original>Date</Original>
@@ -22,11 +22,11 @@
 				<Original>Country</Original>
 			</Key>
 			<Key ID="STR_INF_squad_army">
-				<Original>SquadronOriginal>
+				<Original>Squadron</Original>
 			</Key>
 			<Key ID="STR_INF_briefing">
-				<Original>&lt;br/&gt;&lt;br/&gt;Stratis is a mediterranean paradise situated in the Aegean Sea. The island is full of rich minerals like cobalt, gold, lythium and iron.&lt;br/&gt;The AAF (Altis Armed Forces) decided to invade Stratis to gain control of the numerous extraction sites.&lt;br/&gt;&lt;br/&gt;After a month of diplomatic attempts UNO also condamned the invasion of the island that escalated into a conflict with NATO.&lt;br/&gt;Shortly before the war broke out, AAF secretly managed to ally with the CSAT (Canton Protocol Strategic Alliance Treaty) a faction that sees Iran, China, Russia altogether.&lt;br/&gt;&lt;br/&gt;Your mission today is to infiltrate Stratis island via sea and get rid of all the Anti-Air and Infantry defenses on the eastern side of Stratis, thus allowing us different fire bases to start our liberation of the island.&lt;br/&gt;&lt;br/&gt;Good luck.&lt;br/&gt;</Original>
-				<Italian>Stratis è un paradiso mediterraneo situato nel mar dell'Egeo. L'isola è ricca di minerali quali cobalto, oro, litio e ferro.&lt;br/&gt;L'AAF (Altis Armed Forces) ha deciso di invadere Stratis per ottenere il controllo delle numerose cave e siti di estrazione.&lt;br/&gt;Dopo un mese di tentativi diplomatici anche l'ONU ha condannato l'invasione dell'isola, dando così origine ad un escalation che ha portato alla guerra con la NATO.&lt;br/&gt;&lt;br/&gt;Poco prima dello scoppio della guerra l'AAF ha segretamente stretto un'alleanza con la CSAT (Canton Protocol Strategic Alliance Treaty) una fazione che vede Iran, Cina, Russia sulla stessa asse.&lt;br/&gt;La vostra missione oggi è quella di infiltrarvi sull'isola di Stratis via mare e sbarazzarvi delle difese antiaeree nella fascia orientale dell'isola, dandoci cosi possibilità di installare diverse basi di fuoco in modo da poter avere un appoggio per la liberazione dell'isola.&lt;br/&gt;&lt;br/&gt;Buona fortuna.</Italian>
+				<Original>A seguito delle tensioni della guerra in Ucraina due Su-35 sono stati abbattuti in territorio NATO mentre volavano da San Pietroburgo all'enclave Russo di Kalilingrad.&lt;br/&gt;La Federazione Russa sostiene che i velivoli stessero effettuando un regolare volo di pattuglia mentre la NATO sostiene di aver subito una violazione del proprio spazio aereo con velivoli in assetto da guerra.&lt;br/&gt;&lt;br/&gt;Tale situazione ha dato luogo a diverse provocazioni reciproche che hanno portato ad un conflitto latente nei paesi Baltici senza un'ufficiale dichiarazione di guerra.&lt;br/&gt;&lt;br/&gt;La nostra missione è quella di difendere il territorio NATO.&lt;br/&gt;La Federazione Russa è riuscita ad effettuare avanzamenti nella zona di confine tra Lettonia, Lituania e Russia, in particolare nella regione di Livonia.&lt;br/&gt;&lt;br/&gt;E' necessario liberare le zone chiave dalla presenza nemica, tali zone sono indicate nei vostri obiettivi.&lt;br/&gt;&lt;br/&gt;Buona fortuna.</Original>
+				<Italian>A seguito delle tensioni della guerra in Ucraina due Su-35 sono stati abbattuti in territorio NATO mentre volavano da San Pietroburgo all'enclave Russo di Kalilingrad.&lt;br/&gt;La Federazione Russa sostiene che i velivoli stessero effettuando un regolare volo di pattuglia mentre la NATO sostiene di aver subito una violazione del proprio spazio aereo con velivoli in assetto da guerra.&lt;br/&gt;&lt;br/&gt;Tale situazione ha dato luogo a diverse provocazioni reciproche che hanno portato ad un conflitto latente nei paesi Baltici senza un'ufficiale dichiarazione di guerra.&lt;br/&gt;&lt;br/&gt;La nostra missione è quella di difendere il territorio NATO.&lt;br/&gt;La Federazione Russa è riuscita ad effettuare avanzamenti nella zona di confine tra Lettonia, Lituania e Russia, in particolare nella regione di Livonia.&lt;br/&gt;&lt;br/&gt;E' necessario liberare le zone chiave dalla presenza nemica, tali zone sono indicate nei vostri obiettivi.&lt;br/&gt;&lt;br/&gt;Buona fortuna.</Italian>
 			</Key>
 		</Container>
 		<Container name="framework_revive">

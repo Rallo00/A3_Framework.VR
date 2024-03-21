@@ -44,7 +44,7 @@ _handleDrone = {
 			_pos = getPosATL _gren;
 			//Bigger explosion
 			waitUntil { !alive _gren };
-			_bombType = "IEDLandSmall_Remote_Ammo" createVehicle [_pos select 0, _pos select 1, 0];
+			_bombType = "IEDLandBig_Remote_Ammo" createVehicle [_pos select 0, _pos select 1, 0];
 			_bombType setDamage 1;
 		}, [_configDrone, _handleDrone]];
 	}forEach [gunner _vehicle, driver _vehicle];
