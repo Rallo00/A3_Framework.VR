@@ -1,4 +1,6 @@
-params["_pos","_isFriendly"];
+params["_isFriendly"];
+_pos = [] call FWK_fnc_getMapClickPos;
+_debug = false;
 _randomTransportPos = [[_pos select 0, _pos select 1, 800], 3000, random 360] call BIS_fnc_relPos;
 _faction = 0;
 _side = 0;
@@ -27,7 +29,7 @@ switch(_faction) do
 };
 
 //Debug
-hint format ["Position: %1\nSide: %2\nFaction: %3\nVehicle type: %4\nTransport type: %5", _pos, _side, _faction, _vehicleType, _transportType];
+if(_debug) then { hint format ["Position: %1\nSide: %2\nFaction: %3\nVehicle type: %4\nTransport type: %5", _pos, _side, _faction, _vehicleType, _transportType]; };
 
 //Creating transport for cargo drop
 _transportArray = [_randomTransportPos, random 360, _transportType, _side] call BIS_fnc_spawnVehicle;

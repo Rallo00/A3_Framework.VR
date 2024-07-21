@@ -1,12 +1,7 @@
 _unit = param[0];
 _haloAltitude = 1000;
-//Opening map and handling click
-openMap true;
-mapclick = false;
-onMapSingleClick "clickpos = _pos; mapclick = true; onMapSingleClick """";true;";
-waituntil {mapclick};
 
-_haloLocation = clickpos;
+_haloLocation = [] call FWK_fnc_getMapClickPos;
 _unitLoadout = getUnitLoadout _unit;
 cutText ["H.A.L.O. in progress...", "BLACK OUT", 1];
 sleep 1;

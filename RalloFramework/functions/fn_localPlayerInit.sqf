@@ -1,4 +1,5 @@
 /* Scenario introduction for every player. Call it from initPLayerLocal.sqf */
+private _debug = true;
 ["InitializePlayer", [player]] call BIS_FNC_DYNAMICGROUPS;
 //Intro
 [] spawn
@@ -15,12 +16,16 @@
 	"dynamicBlur" ppEffectCommit 3;
 	//Date handling
 	_nowDate = date;
-	_day = _nowDate select 2;
-	_month = _nowDate select 1;
+	_day = (if (_nowDate select 2 < 10) then { "0" } else { "" }) + str (_nowDate select 2);
+	_month = (if (_nowDate select 1 < 10) then { "0" } else { "" }) + str (_nowDate select 1);
 	_year = _nowDate select 0;
-	_hour = _nowDate select 3;
-	_minutes = _nowDate select 4;
+	_hour = (if (_nowDate select 3 < 10) then { "0" } else { "" }) + str (_nowDate select 3);
+	_minutes = (if (_nowDate select 4 < 10) then { "0" } else { "" }) + str (_nowDate select 4);
 	_dateToShow = format["%1\%2\%3 %4:%5", _day, _month, _year, _hour, _minutes];
+	
+	//DEBUG
+	if(_debug) then { hint format["Date: %1", date]; };
+
 	_introText=
 	[
 		[_dateToShow,"<t size='0.9' font='puristaLight'>%1</t><br/>",2],

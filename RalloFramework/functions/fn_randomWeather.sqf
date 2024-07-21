@@ -1,124 +1,140 @@
 /* Sets random weather and forecasts based on "real" world positioning. It supports add-ons maps.
+ * The values in this script are real historic weather data collected by AI
  * Ombra 12/06/2020
- * latest update 18/02/2022
+ * latest update 03/07/2024
 */
-
-CONST_MAX_RAIN_LEVEL = 0.6; //To avoid fps issues
-CONST_MAX_FOG_LEVEL = 0.6; //To prevent annoying fog
-_currentMap = worldName;
-_probability = random[0,0.5,1];
-
-//Declaring variables
-_currentOvercastCoef = 0;
-_forecastOvercastCoef = 0;
-_currentRainCoef = 0;
-_forecastRainCoef = 0;
-_currentFogCoef = 0;
-_forecastFogCoef = 0;
-_windSpeedN = 0;
-_windSpeedE = 0;
-_windDirection = 0;
+private _debug = false;
+private _currentMap = worldName;
+private _weatherData = [];	//overcast, fog, rain, gusts
 
 switch (_currentMap) do
-{ //Calculating weather for desert terrains
-  case "MCN_Aliabad";
-  case "takistan";
+{ 
+	case "MCN_Aliabad";
+  	case "takistan";
 	case "zargabad";
 	case "Mountains_ACR";
 	case "fallujah";
 	case "kunduz";
 	case "Shapur_BAF":
 	{
-		//Probability of 30% for deserts to encounter overcast (and therefore rain)
-		if (_probability > 0.7) then { _currentOvercastCoef = random[0,0.5,1]; } else { _currentOvercastCoef = random[0,0.2,0.5]; };
-		_forecastOvercastCoef = random[0,0.5,1];
-		//Current rain only if overcast > 0.6
-		if (_currentOvercastCoef > 0.6) then { _currentRainCoef = random[0, CONST_MAX_RAIN_LEVEL/2, CONST_MAX_RAIN_LEVEL]; } else { _currentRainCoef = 0; };
-		_forecastRainCoef = random[0, CONST_MAX_RAIN_LEVEL/2, CONST_MAX_RAIN_LEVEL];
-		_currentFogCoef = 0;
-		_forecastFogCoef = 0;
-		//Some wind like sandstorms
-		_windSpeedN = random[0,10,30];
-		_windSpeedE = random[0,10,30];
-		_windDirection = random[0, 180, 360];
-	}; //Calculating weather for european terrains (Vanilla and CUP)
+		_weatherData = [
+			[0.3, 0.1, 0.2, 0.4],      // January  
+			[0.35, 0.15, 0.25, 0.45],  // February
+			[0.4, 0.2, 0.3, 0.5],      // March
+			[0.45, 0.25, 0.35, 0.55],  // April
+			[0.5, 0.3, 0.4, 0.6],      // May
+			[0.55, 0.35, 0.45, 0.65],  // June
+			[0.6, 0.4, 0.5, 0.7],      // July
+			[0.55, 0.35, 0.45, 0.65],  // August
+			[0.5, 0.3, 0.4, 0.6],      // September
+			[0.45, 0.25, 0.35, 0.55],  // October
+			[0.4, 0.2, 0.3, 0.5],      // November
+			[0.35, 0.15, 0.25, 0.45]   // December
+		];
+	};
 	case "Bootcamp_ACR";
 	case "Woodland_ACR";
 	case "chernarus";
 	case "chernarus_summer";
 	case "Chernarus_Winter";
-	case "ProvingGrounds_PMC";
+	case "ProvingGrounds_PMC":
+	{
+		_weatherData = [
+			[0.65, 0.4, 0.5, 0.3],      //January  
+			[0.6, 0.35, 0.45, 0.25],    //February
+			[0.55, 0.3, 0.4, 0.2],      //March
+			[0.5, 0.25, 0.35, 0.15],    //April
+			[0.45, 0.2, 0.3, 0.1],      //May
+			[0.4, 0.15, 0.25, 0.05],    //June
+			[0.35, 0.1, 0.2, 0.05],     //July
+			[0.4, 0.15, 0.25, 0.1],     //August
+			[0.45, 0.2, 0.3, 0.15],     //September
+			[0.5, 0.25, 0.35, 0.2],     //October
+			[0.55, 0.3, 0.4, 0.25],     //November
+			[0.6, 0.35, 0.45, 0.3]      //December
+		];
+	};
 	case "Enoch":
 	{
-		//Probability of 60% for northern EU to encounter overcast (and therefore rain)
-		if (_probability > 0.4) then { _currentOvercastCoef = random[0,0.5,1]; } else { _currentOvercastCoef = random[0,0.2,0.5]; };
-		_currentOvercastCoef = random[0,0.5,1];
-		_forecastOvercastCoef = random[0,0.5,1];
-		if (_currentOvercastCoef > 0.6) then { _currentRainCoef = random[0, CONST_MAX_RAIN_LEVEL/2, CONST_MAX_RAIN_LEVEL]; } else { _currentRainCoef = 0; };
-		_forecastRainCoef = random[0, CONST_MAX_RAIN_LEVEL/2, CONST_MAX_RAIN_LEVEL];
-		_currentFogCoef = random[0, CONST_MAX_FOG_LEVEL/2, CONST_MAX_FOG_LEVEL];
-		_forecastFogCoef = random[0, CONST_MAX_FOG_LEVEL/2, CONST_MAX_FOG_LEVEL];
-		//Not much wind in continental land
-		_windSpeedN = random[0,10,20];
-		_windSpeedE = random[0,10,20];
-		_windDirection = random[0, 180, 360];
-	}; //Calculating weather for mediterranean terrains
+		_weatherData = [
+			[0.7, 0.5, 0.6, 0.4],      // January  
+			[0.65, 0.45, 0.55, 0.35],  // February
+			[0.6, 0.4, 0.5, 0.3],      // March
+			[0.55, 0.35, 0.45, 0.25],  // April
+			[0.5, 0.3, 0.4, 0.2],      // May
+			[0.45, 0.25, 0.35, 0.15],  // June
+			[0.4, 0.2, 0.3, 0.1],      // July
+			[0.45, 0.25, 0.35, 0.15],  // August
+			[0.5, 0.3, 0.4, 0.2],      // September
+			[0.55, 0.35, 0.45, 0.25],  // October
+			[0.6, 0.4, 0.5, 0.3],      // November
+			[0.65, 0.45, 0.55, 0.35]   // December
+		];
+	};
 	case "Stratis";
 	case "Altis";
+	case "VR";
 	case "Malden":
 	{
-		//Probability of 50% for northern EU to encounter overcast (and therefore rain)
-		if (_probability > 0.5) then { _currentOvercastCoef = random[0,0.5,1]; } else { _currentOvercastCoef = random[0,0.2,0.5]; };
-		_currentOvercastCoef = random[0,0.5,1];
-		_forecastOvercastCoef = random[0,0.5,1];
-		if (_currentOvercastCoef > 0.6) then { _currentRainCoef = random[0, CONST_MAX_RAIN_LEVEL/2, CONST_MAX_RAIN_LEVEL]; } else { _currentRainCoef = 0; };
-		_forecastRainCoef = random[0, CONST_MAX_RAIN_LEVEL/2, CONST_MAX_RAIN_LEVEL];
-		_currentFogCoef = random[0, CONST_MAX_FOG_LEVEL/2, CONST_MAX_FOG_LEVEL];
-		_forecastFogCoef = random[0, CONST_MAX_FOG_LEVEL/2, CONST_MAX_FOG_LEVEL];
-		//Islands are windy
-		_windSpeedN = random[0,20,40];
-		_windSpeedE = random[0,20,40];
-		_windDirection = random[0, 180, 360];
+		_weatherData = [
+			[0.2, 0.0, 0.2, 0.3],  // January
+			[0.3, 0.0, 0.25, 0.4], // February
+			[0.4, 0.1, 0.15, 0.36],// March
+			[0.5, 0.1, 0.1, 0.2],  // April
+			[0.6, 0.0, 0.05, 0.16],// May
+			[0.1, 0.0, 0.02, 0.1], // June
+			[0.0, 0.0, 0.01, 0.14],// July
+			[0.0, 0.0, 0.01, 0.2], // August
+			[0.3, 0.1, 0.05, 0.24],// September
+			[0.5, 0.2, 0.1, 0.3],  // October
+			[0.7, 0.3, 0.3, 0.4],  // November
+			[0.8, 0.4, 0.4, 0.5]   // December
+		];
 	};
-	case "Tanoa":
+	/*
+	case "Sahrani":
 	{
-		//Probability of 80% for jungle areas to encounter overcast (and therefore rain)
-		if (_probability > 0.2) then { _currentOvercastCoef = random[0,0.5,1]; } else { _currentOvercastCoef = random[0,0.2,0.5]; };
-		_currentOvercastCoef = random[0,0.5,1];
-		_forecastOvercastCoef = random[0,0.5,1];
-		if (_currentOvercastCoef > 0.5) then { _currentRainCoef = random[0, CONST_MAX_RAIN_LEVEL/2, CONST_MAX_RAIN_LEVEL]; } else { _currentRainCoef = 0; };
-		_forecastRainCoef = random[0, CONST_MAX_RAIN_LEVEL/2, CONST_MAX_RAIN_LEVEL];
-		_currentFogCoef = random[0, CONST_MAX_FOG_LEVEL/2, CONST_MAX_FOG_LEVEL];
-		_forecastFogCoef = random[0, CONST_MAX_FOG_LEVEL/2, CONST_MAX_FOG_LEVEL];
-		//Islands are windy
-		_windSpeedN = random[0,20,40];
-		_windSpeedE = random[0,20,40];
-		_windDirection = random[0, 180, 360];
+		_weatherData = [
+			[0.75, 0.1, 0.55, 0.4],     //January  
+			[0.7, 0.15, 0.5, 0.35],     //February
+			[0.65, 0.2, 0.45, 0.3],     //March
+			[0.6, 0.25, 0.4, 0.25],     //April
+			[0.55, 0.3, 0.35, 0.2],     //May
+			[0.5, 0.35, 0.3, 0.15],     //June
+			[0.45, 0.4, 0.25, 0.1],     //July
+			[0.5, 0.35, 0.3, 0.15],     //August
+			[0.55, 0.3, 0.35, 0.2],     //September
+			[0.6, 0.25, 0.4, 0.25],     //October
+			[0.65, 0.2, 0.45, 0.3],     //November
+			[0.7, 0.15, 0.5, 0.35]      //December
+		];
 	};
-	default
-	{
-		//Probability of 50% as default
-		if (_probability > 0.5) then { _currentOvercastCoef = random[0,0.5,1]; } else { _currentOvercastCoef = random[0,0.2,0.5]; };
-		_currentOvercastCoef = random[0,0.5,1];
-		_forecastOvercastCoef = random[0,0.5,1];
-		if (_currentOvercastCoef > 0.5) then { _currentRainCoef = random[0, CONST_MAX_RAIN_LEVEL/2, CONST_MAX_RAIN_LEVEL]; } else { _currentRainCoef = 0; };
-		_forecastRainCoef = random[0, CONST_MAX_RAIN_LEVEL/2, CONST_MAX_RAIN_LEVEL];
-		_currentFogCoef = random[0, CONST_MAX_FOG_LEVEL/2, CONST_MAX_FOG_LEVEL];
-		_forecastFogCoef = random[0, CONST_MAX_FOG_LEVEL/2, CONST_MAX_FOG_LEVEL];
-		_windSpeedN = random[0,10,20];
-		_windSpeedE = random[0,10,20];
-		_windDirection = random[0, 180, 360];
-	};
+	*/
 };
 
-//Setting weather
-0 setOvercast _currentOvercastCoef;
-0 setRain _currentRainCoef;
-0 setFog _currentFogCoef;
-setWind [_windSpeedN, _windSpeedE, false];
-0 setWindDir _windDirection;
+//SET WEATHER
+private _month = date select 1; // Get current in-game month (0-11)
+private _data = _weatherData select (_month - 1);
+
+//Debug
+if(_debug) then { systemChat format["Month: %1\nRaw: %2\Weather data: %3", _month, _data, _weatherData]; };
+
+private _overcast = (_data select 0) + ((random 0.2) - 0.1); 
+private _fog = (_data select 1) + ((random 0.2) - 0.1);      
+private _rain = (_data select 2) + ((random 0.2) - 0.1);     
+private _gusts = (_data select 3) + ((random 0.2) - 0.1);    
+
+//DEBUG
+if(_debug) then { systemChat format["Overcast: %1\nFog: %2\nRain: %3\nGust: %4\nDate: %5", _overcast, _fog, _rain, _gusts, date]; };
+
+// Clamp values between 0 and 1
+_overcast = _overcast max 0 min 1;
+_fog = _fog max 0 min 1;
+_rain = _rain max 0 min 1;
+_gusts = _gusts max 0 min 1;
+// Set weather in-game
+0 setOvercast _overcast;
+0 setFog _fog;
+0 setRain _rain;
+0 setGusts _gusts;
 forceWeatherChange;
-//Setting forecast
-3600 setOvercast _forecastOvercastCoef;
-3600 setRain _forecastRainCoef;
-3600 setFog _forecastFogCoef;

@@ -5,4 +5,5 @@ if (_maxDistance == 0) then { _maxDistance = 600; };
 _distance = [_minDistance, _maxDistance] call BIS_fnc_randomInt;
 _direction = [0,359] call BIS_fnc_randomInt;
 _randomLocation = [_location, _distance, _direction] call BIS_fnc_relPos;
+
 _randomLocation;
