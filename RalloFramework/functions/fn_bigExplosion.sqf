@@ -27,18 +27,6 @@ _building addEventHandler ["Hit", {
             private _randomPos = [_building, _distance, _direction] call BIS_fnc_relPos;
             private _debris = selectRandom _debrisArray;
             _debris createVehicle _randomPos;
-            //sleep 0.4;
-        };
-
-        // Spawning fire
-        for "_i" from 1 to (_debrisCount / 4) do {
-            private _distance = random [2, 7, 12];
-            private _direction = random [0, 180, 359];
-            private _randomPos = [_building, _distance, _direction] call BIS_fnc_relPos;
-            private _debris = selectRandom _debrisArray;
-            _randomPos set [2, getTerrainHeight getPosWorld BIS_fnc_randomPosò];
-            "FirePlace" createVehicle _randomPos;
-            //sleep 0.4;
         };
     };
 }];

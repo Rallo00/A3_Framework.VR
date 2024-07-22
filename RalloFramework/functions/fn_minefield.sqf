@@ -1,6 +1,6 @@
 /* It creates a minefield with a random number of mines and IED and positioned in random way. Every mine adds IED explosion effect for better scenery */
 params ["_position", "_diameter"];
-private _debug = true;
+private _debug = false;
 
 _minesArray = ["ATMine", "APERSBoundingMine", "APERSMine", "IEDLandBig_F", "IEDUrbanBig_F", "IEDUrbanSmall_F", "IEDLandSmall_F"];
 _density = 0.1;
