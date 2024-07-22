@@ -1,1 +1,0 @@
-[] spawn FWK_fnc_localPlayerInit;

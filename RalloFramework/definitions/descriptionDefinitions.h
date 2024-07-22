@@ -17,9 +17,11 @@ class CfgFunctions
 			class deleteVehicle {};				//[object] spawn FWK_fnc_deleteVehicle; (also deletes Crew inside)
 			class eastWestTruce {};				//[0 or 1] spawn FWK_fnc_eastWestTruce;
 			class ending {};					//[] spawn FWK_fnc_ending;
+			class enemyControlledArea {};		//[position, areaSize, criticalLevel] spawn FWK_fnc_enemyControlledArea;
 			class enemyQrfTransport {};			//[position] spawn FWK_fnc_enemyQrfTransport;
 			class enemyQrfLand {};				//[position] spawn FWK_fnc_enemyQrfLand;
 			class enemyQrfParatroopers {};		//[position] spawn FWK_fnc_enemyQrfParatroopers;
+			class enemyPatrols {};				//[position, range, patrolsCount] spawn FWK_fnc_enemyPatrols;
 			class getCurrentOwnership {};		//[position, distanceRange] call FWK_fnc_getCurrentOwnership;
 			class getFactionAir {};				//[faction] call FWK_fnc_getFactionAir;
 			class getFactionAntiAir {};			//[faction] call FWK_fnc_getFactionAntiAir;
@@ -50,7 +52,6 @@ class CfgFunctions
 			class randomWeather {};				//[] spawn FWK_fnc_randomWeather;
 			class reinforcements {};			//[side, spawnPosition, int rangeSpawn, bool spawnVehicle] spawn FWK_fnc_reinfocements;
 			class setDateTime {};				//[int] spawn FWK_fnc_setDateTime;
-			class spawnEnemy {}; 				//[position, areaSize, criticalLevel] spawn FWK_fnc_spawnEnemy;
 			class surrenderUnits {};			//[position, distanceRange, side] spawn FWK_fnc_surrenderUnits;
 			class vehicleDrop {};				//[position, isFriendlyVehicle] spawn FWK_fnc_vehicleDrop;
 			class vehicleRandomStatus{};		//[object, bool forceSomeFuelInVehicle, bool forceSomeAmmoInVehicle] spawn FWK_fnc_vehicleRandomStatus;

@@ -7,12 +7,10 @@ private _unitsCount = 0;
 private _minimumCoveragePerUnit = 20;
 
 // Adjusted to be proportional to the total area
-if(_patrolledAreaSize <= 100) then { _minimumCoveragePerUnit = 10; _unitsCount = _minimumCoveragePerUnit + (_patrolledAreaSize / _minimumCoveragePerUnit * 0.3); };
-if(_patrolledAreaSize <= 200 && _patrolledAreaSize > 100) then { _minimumCoveragePerUnit = 15; _unitsCount = _minimumCoveragePerUnit + (_patrolledAreaSize / _minimumCoveragePerUnit * 0.3); };
-if(_patrolledAreaSize <= 500 && _patrolledAreaSize > 200) then { _minimumCoveragePerUnit = 25; _unitsCount = _minimumCoveragePerUnit + (_patrolledAreaSize / _minimumCoveragePerUnit * 0.3); };
-if(_patrolledAreaSize > 500) then { _minimumCoveragePerUnit = 35; _unitsCount = _minimumCoveragePerUnit + (_patrolledAreaSize / _minimumCoveragePerUnit * 0.3); };
-
-//TROVARE SAFE SPOT PER SPAWN
+if(_patrolledAreaSize <= 100) then { _minimumCoveragePerUnit = 20; _unitsCount = _minimumCoveragePerUnit + (_patrolledAreaSize / _minimumCoveragePerUnit * 0.3); };
+if(_patrolledAreaSize <= 200 && _patrolledAreaSize > 100) then { _minimumCoveragePerUnit = 30; _unitsCount = _minimumCoveragePerUnit + (_patrolledAreaSize / _minimumCoveragePerUnit * 0.3); };
+if(_patrolledAreaSize <= 500 && _patrolledAreaSize > 200) then { _minimumCoveragePerUnit = 35; _unitsCount = _minimumCoveragePerUnit + (_patrolledAreaSize / _minimumCoveragePerUnit * 0.3); };
+if(_patrolledAreaSize > 500) then { _minimumCoveragePerUnit = 40; _unitsCount = _minimumCoveragePerUnit + (_patrolledAreaSize / _minimumCoveragePerUnit * 0.3); };
 
 //Handle vehicles with critical level
 private _lv = 0;	//Light vehicle
@@ -26,7 +24,7 @@ if (_criticalLevel == 3) then { _sv = 6; _lv = 2; _hv = 2; };
 if(_debug) then { hint format["Area: %1\nPlayers count: %2\nEnemy count: %3\nStatic count: %4\nLV count: %5\nHV count: %6", _patrolledAreaSize, _playersCount, _unitsCount, _sv, _lv, _hv]; };
 
 //Spawning infantry
-for "_i" from 0 to (_unitsCount / 8) do
+for "_i" from 1 to (_unitsCount / 8) do
 {
 	private _randomSpawnPos = [_pos, 1, _patrolledAreaSize, 5, 0, 360, 0] call BIS_fnc_findSafePos;
 	private _groupUnitsCount = 8;
@@ -50,7 +48,8 @@ for "_z" from 1 to _lv do
 {
 	private _randomTypeLV = selectRandom ([FWK_EnemyFaction] call FWK_fnc_getFactionLV);
 	private _randomSpawnPos = [_pos, 1, _patrolledAreaSize, 10, 0, 360, 0] call BIS_fnc_findSafePos;
-	[_randomSpawnPos, random 360, _randomTypeLV, FWK_EnemySide] call BIS_fnc_spawnVehicle;
+	_veh = [_randomSpawnPos, random 360, _randomTypeLV, FWK_EnemySide] call BIS_fnc_spawnVehicle;
+	[group (_veh select 0), _randomSpawnPos, _patrolledAreaSize] call BIS_fnc_taskPatrol;
 	sleep 3;
 };
 //Spawning HV
@@ -58,6 +57,7 @@ for "_y" from 1 to _hv do
 {
 	private _randomTypeHV = selectRandom ([FWK_EnemyFaction] call FWK_fnc_getFactionHV);
 	private _randomSpawnPos = [_pos, 1, _patrolledAreaSize, 10, 0, 360, 0] call BIS_fnc_findSafePos;
-	[_randomSpawnPos, random 360, _randomTypeHV, FWK_EnemySide] call BIS_fnc_spawnVehicle;
+	_veh = [_randomSpawnPos, random 360, _randomTypeHV, FWK_EnemySide] call BIS_fnc_spawnVehicle;
+	[group (_veh select 0), _randomSpawnPos, _patrolledAreaSize] call BIS_fnc_taskPatrol;
 	sleep 3;
 };
