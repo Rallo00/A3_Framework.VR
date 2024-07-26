@@ -51,6 +51,7 @@ class CfgFunctions
 			class raiseAlarm {};				//[object, int totalNumbersOfAlarmSound] spawn FWK_fnc_raiseAlarm;
 			class randomWeather {};				//[] spawn FWK_fnc_randomWeather;
 			class reinforcements {};			//[side, spawnPosition, int rangeSpawn, bool spawnVehicle] spawn FWK_fnc_reinfocements;
+			class roadblock {};					//[pos] spawn FWK_fnc_roadblock;
 			class setDateTime {};				//[int] spawn FWK_fnc_setDateTime;
 			class surrenderUnits {};			//[position, distanceRange, side] spawn FWK_fnc_surrenderUnits;
 			class vehicleDrop {};				//[position, isFriendlyVehicle] spawn FWK_fnc_vehicleDrop;
