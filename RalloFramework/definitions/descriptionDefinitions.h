@@ -14,6 +14,7 @@ class CfgFunctions
 			class bigExplosion {};				//[object] spawn FWK_fnc_bigExplosion;
 			class centerScreenText {}; 			//["TEXT"] spawn FWK_fnc_centerScreenText;
 			class craterArea {};				//["markerName", numOfCraters] spawn FWK_fnc_craterArea;
+			class customTask {};				//["task1", 1] spawn FWK_fnc_customTask;
 			class deleteVehicle {};				//[object] spawn FWK_fnc_deleteVehicle; (also deletes Crew inside)
 			class eastWestTruce {};				//[0 or 1] spawn FWK_fnc_eastWestTruce;
 			class ending {};					//[] spawn FWK_fnc_ending;

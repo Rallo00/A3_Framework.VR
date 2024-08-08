@@ -26,14 +26,4 @@ if (_timeChoice == 1) then
 	_Hours = _missionTime select 3;
 	_Minutes = _missionTime select 4;
 };
-//Leaves standard scenario date and time
-if (_timeChoice == 2) then 
-{
-	_missionTime = date;
-	_Day = _missionTime select 2;
-	_Month = _missionTime select 1;
-	_Year = _missionTime select 0;
-	_Hours = _missionTime select 3;
-	_Minutes = _missionTime select 4;
-};
 setDate[_Year, _Month, _Day, _Hours, _Minutes];

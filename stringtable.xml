@@ -12,9 +12,6 @@
 			<Key ID="STR_INF_scenario_author">
 				<Original>Rallo</Original>
 			</Key>
-			<Key ID="STR_INF_scenario_date">
-				<Original>Date</Original>
-			</Key>
 			<Key ID="STR_INF_scenario_town">
 				<Original>City</Original>
 			</Key>
@@ -25,8 +22,8 @@
 				<Original>Squadron</Original>
 			</Key>
 			<Key ID="STR_INF_briefing">
-				<Original>A seguito delle tensioni della guerra in Ucraina due Su-35 sono stati abbattuti in territorio NATO mentre volavano da San Pietroburgo all'enclave Russo di Kalilingrad.&lt;br/&gt;La Federazione Russa sostiene che i velivoli stessero effettuando un regolare volo di pattuglia mentre la NATO sostiene di aver subito una violazione del proprio spazio aereo con velivoli in assetto da guerra.&lt;br/&gt;&lt;br/&gt;Tale situazione ha dato luogo a diverse provocazioni reciproche che hanno portato ad un conflitto latente nei paesi Baltici senza un'ufficiale dichiarazione di guerra.&lt;br/&gt;&lt;br/&gt;La nostra missione è quella di difendere il territorio NATO.&lt;br/&gt;La Federazione Russa è riuscita ad effettuare avanzamenti nella zona di confine tra Lettonia, Lituania e Russia, in particolare nella regione di Livonia.&lt;br/&gt;&lt;br/&gt;E' necessario liberare le zone chiave dalla presenza nemica, tali zone sono indicate nei vostri obiettivi.&lt;br/&gt;&lt;br/&gt;Buona fortuna.</Original>
-				<Italian>A seguito delle tensioni della guerra in Ucraina due Su-35 sono stati abbattuti in territorio NATO mentre volavano da San Pietroburgo all'enclave Russo di Kalilingrad.&lt;br/&gt;La Federazione Russa sostiene che i velivoli stessero effettuando un regolare volo di pattuglia mentre la NATO sostiene di aver subito una violazione del proprio spazio aereo con velivoli in assetto da guerra.&lt;br/&gt;&lt;br/&gt;Tale situazione ha dato luogo a diverse provocazioni reciproche che hanno portato ad un conflitto latente nei paesi Baltici senza un'ufficiale dichiarazione di guerra.&lt;br/&gt;&lt;br/&gt;La nostra missione è quella di difendere il territorio NATO.&lt;br/&gt;La Federazione Russa è riuscita ad effettuare avanzamenti nella zona di confine tra Lettonia, Lituania e Russia, in particolare nella regione di Livonia.&lt;br/&gt;&lt;br/&gt;E' necessario liberare le zone chiave dalla presenza nemica, tali zone sono indicate nei vostri obiettivi.&lt;br/&gt;&lt;br/&gt;Buona fortuna.</Italian>
+				<Original>Briefing.&lt;br/&gt;New Line.&lt;br/&gt;&lt;br/&gt;Double line.</Original>
+				<Italian>Briefing.&lt;br/&gt;A capo.&lt;br/&gt;&lt;br/&gt;Doppio a capo.</Italian>
 			</Key>
 		</Container>
 		<Container name="framework_revive">
