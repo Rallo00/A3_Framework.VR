@@ -3,7 +3,7 @@ waitUntil { player == player };
 
 //BRIEFING DI MISSIONE
 player createDiaryRecord ["Diary", ["BRIEFING","
-<font size='25' color='#C48214'>TITOLO</font><br/><br/>" + 
+<font size='25' color='#C48214'>" + localize "STR_INF_scenario_title" + "</font><br/><br/>" + 
 localize "STR_INF_briefing" + 
 "<br/><img image='RalloFramework\images\signature.paa' width='128' height='128'/>
 "]];
