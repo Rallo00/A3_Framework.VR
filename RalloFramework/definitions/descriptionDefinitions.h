@@ -10,6 +10,7 @@ class CfgFunctions
 			//Actions
 			class activateStealth {};			//[0 to 1] spawn FWK_fnc_activateStealth; (allUnits)
 			class addVA {};						//[object] spawn FWK_fnc_addVA;
+			class addVG {};						//[object, markerName] spawn FWK_fnc_addVG;
 			class allowCustomSupports {};		//[] spawn FWK_fnc_allowCustomSupports;
 			class bigExplosion {};				//[object] spawn FWK_fnc_bigExplosion;
 			class centerScreenText {}; 			//["TEXT"] spawn FWK_fnc_centerScreenText;
@@ -61,47 +62,7 @@ class CfgFunctions
 			class teleportToLeader {};			//[player] spawn FWK_fnc_teleportToLeader;
 			class teleportToGrid {};
 			class unitKamikaze {};				//[unit] spawn FWK_fnc_unitKamikaze;
-			class virtualGarage {};				//[this, markername] spawn FWK_fnc_virtualGarage;
+			class virtualGarage {};				//[markerName] spawn FWK_fnc_virtualGarage;
 		};
-	};
-};
-class CfgSounds
-{
-	sounds[] = {alarm,electricity,flare,radio1a,radio1b,radiochatter};
-	class alarm
-	{
-		name = "alarm";
-		titles[] = {"speech1"};
-		sound[] = { "RalloFramework\sounds\alarm.ogg", 1, 1, 20 };	// file, volume, pitch, maxDistance
-	};
-	class electricity
-	{
-		name = "electricity";
-		titles[] = {"electricity"};
-		sound[] = { "RalloFramework\sounds\electricity.ogg", 1, 1, 20 };	// file, volume, pitch, maxDistance
-	};
-	class flare
-	{
-		name = "flare";
-		titles[] = {"flare"};
-		sound[] = { "RalloFramework\sounds\flare.ogg", 1, 1, 20 };	// file, volume, pitch, maxDistance
-	};
-	class radio1a
-	{
-		name = "radio1a";
-		titles[] = {"radio1a"};
-		sound[] = { "RalloFramework\sounds\radio1a.ogg", 1, 1, 20 };	// file, volume, pitch, maxDistance
-	};
-	class radio1b
-	{
-		name = "radio1b";
-		titles[] = {"radio1b"};
-		sound[] = { "RalloFramework\sounds\radio1b.ogg", 1, 1, 20 };	// file, volume, pitch, maxDistance
-	};
-	class radiochatter
-	{
-		name = "radiochatter";
-		titles[] = {"radiochatter"};
-		sound[] = { "RalloFramework\sounds\radiochatter.ogg", 1, 1, 20 };	// file, volume, pitch, maxDistance
 	};
 };
