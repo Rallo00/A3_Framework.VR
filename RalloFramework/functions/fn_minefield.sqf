@@ -1,5 +1,8 @@
 /* It creates a minefield with a random number of mines and IED and positioned in random way. Every mine adds IED explosion effect for better scenery */
 params ["_position", "_diameter"];
+if(isNil "_position") exitWith { systemChat "fn_mineField: _position not defined"; };
+if(isNil "_diameter") exitWith { systemChat "fn_mineField: _diameter not defined"; };
+
 private _debug = false;
 
 _minesArray = ["ATMine", "APERSBoundingMine", "APERSMine", "IEDLandBig_F", "IEDUrbanBig_F", "IEDUrbanSmall_F", "IEDLandSmall_F"];
@@ -25,4 +28,13 @@ for "_i" from 1 to _numMines do {
     _minePos = [(_position select 0) + _xOffset, (_position select 1) + _yOffset, 0];
     // Create the mine at the calculated position
     _mine = createMine [_mineType, _minePos, [], 0];
+
+    //Debug marker
+    if (_debug) then 
+    {
+        _marker = createMarker [format ["mine_marker_%1", _mine], _minePos];
+        _marker setMarkerType "hd_dot";
+        _marker setMarkerColor "ColorRed";
+        _marker setMarkerSize [0.5, 0.5];
+    };
 };

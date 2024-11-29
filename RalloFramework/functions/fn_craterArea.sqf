@@ -1,4 +1,8 @@
 params["_marker","_cratersCount", "_range"];
+if(isNil "_marker") exitWith { systemChat "fn_craterArea: _marker not defined"; };
+if(isNil "_cratersCount") exitWith { systemChat "fn_craterArea: _cratersCount not defined"; };
+if(isNil "_range") exitWith { systemChat "fn_craterArea: _range not defined"; };
+
 
 _soilArray = ["Land_ShellCrater_02_extralarge_F","Land_ShellCrater_02_large_F","Land_ShellCrater_02_small_F","Land_ShellCrater_01_F"];
 _debrisClass = "Land_ShellCrater_02_debris_F";

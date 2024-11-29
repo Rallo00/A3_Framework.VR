@@ -1,5 +1,7 @@
 /* Adds virtual arsenal to the given object */
 _object = param[0];
+if(isNil "_object") exitWith { systemChat "fn_addVA: _object not defined"; };
+
 clearMagazineCargo _object;
 clearItemCargo _object;
 clearWeaponCargo _object;

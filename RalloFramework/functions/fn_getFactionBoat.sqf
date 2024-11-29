@@ -64,8 +64,11 @@ if (_faction == "rhs_faction_usmc_d") then { _resultArray = ["rhsusf_mkvsoc"] };
 //RHS USAF (USMC WD MARPAT)
 if (_faction == "rhs_faction_usmc_wd") then { _resultArray = ["rhsusf_mkvsoc"] };
 //RHS AFRF (Russia MSV)
+if (_faction == "rhs_faction_msv") then { _resultArray = ["rhs_bmk_t"] };
 //RHS AFRF (Russia VDV)
+if (_faction == "rhs_faction_vdv") then { _resultArray = ["rhs_bmk_t"] };
 //Eric J Taliban Units
 //RHS SAF (ChDHZ)
+if (_faction == "rhssaf_faction_army") then { _resultArray = ["rhssaf_army_o_pts"] };
 
 _resultArray;

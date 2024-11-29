@@ -64,8 +64,11 @@ if (_faction == "rhs_faction_usmc_d") then { _resultArray = ["rhsusf_M997A4_REPA
 //RHS USAF (USMC WD MARPAT)
 if (_faction == "rhs_faction_usmc_wd") then { _resultArray = ["rhsusf_M997A4_REPAIR_BKIT_usarmy_wd","rhsusf_M997A4_AMMO_BKIT_usarmy_wd","rhsusf_M978A4_BKIT_usarmy_wd"] };
 //RHS AFRF (Russia MSV)
+if (_faction == "rhs_faction_msv") then { _resultArray = ["rhs_gaz66_ammo_msv","RHS_Ural_Repair_MSV_01","RHS_Ural_MSV_01","RHS_Ural_Ammo_MSV_01","rhs_kraz_255b1_fuel_msv"]; };
 //RHS AFRF (Russia VDV)
+if (_faction == "rhs_faction_vdv") then { _resultArray = ["rhs_gaz66_ammo_vdv","RHS_Ural_Repair_VDV_01","RHS_Ural_VDV_01","RHS_Ural_Ammo_VDV_01","rhs_kraz_255b1_fuel_vdv"]; };
 //Eric J Taliban Units
-//RHS SAF (ChDHZ)
+//RHS SAF (ChDHZ)	
+if (_faction == "rhssaf_faction_army") then { _resultArray = ["rhsgref_ins_g_ural_repair","rhsgref_ins_g_gaz66_ammo","rhsgref_ins_g_kraz255b1_fuel"]; };
 
 _resultArray;

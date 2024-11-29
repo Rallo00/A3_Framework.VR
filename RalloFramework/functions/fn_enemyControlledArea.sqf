@@ -18,7 +18,7 @@ private _hv = 0;	//Heavy vehicle
 private _sv = 0;	//Static vehicle
 if (_criticalLevel == 1) then { _sv = 2; _lv = 1; };
 if (_criticalLevel == 2) then { _sv = 4; _lv = 2; };
-if (_criticalLevel == 3) then { _sv = 6; _lv = 2; _hv = 2; };
+if (_criticalLevel == 3 || _criticalLevel > 3) then { _sv = 6; _lv = 2; _hv = 2; };
 
 //Debug
 if(_debug) then { hint format["Area: %1\nPlayers count: %2\nEnemy count: %3\nStatic count: %4\nLV count: %5\nHV count: %6", _patrolledAreaSize, _playersCount, _unitsCount, _sv, _lv, _hv]; };
@@ -34,6 +34,8 @@ for "_i" from 1 to (_unitsCount / 8) do
 	sleep 5;
 	//Patrol area
 	[_grp, _pos, _patrolledAreaSize] call BIS_fnc_taskPatrol;
+	//Enabling dynamic simulation
+	_grp enableDynamicSimulation true;
 };
 //Spawning statics
 for "_j" from 1 to _sv do 
@@ -50,6 +52,8 @@ for "_z" from 1 to _lv do
 	private _randomSpawnPos = [_pos, 1, _patrolledAreaSize, 10, 0, 360, 0] call BIS_fnc_findSafePos;
 	_veh = [_randomSpawnPos, random 360, _randomTypeLV, FWK_EnemySide] call BIS_fnc_spawnVehicle;
 	[group (_veh select 0), _randomSpawnPos, _patrolledAreaSize] call BIS_fnc_taskPatrol;
+	//Enabling dynamic simulation
+	group (_veh select 0) enableDynamicSimulation true;
 	sleep 3;
 };
 //Spawning HV
@@ -59,5 +63,7 @@ for "_y" from 1 to _hv do
 	private _randomSpawnPos = [_pos, 1, _patrolledAreaSize, 10, 0, 360, 0] call BIS_fnc_findSafePos;
 	_veh = [_randomSpawnPos, random 360, _randomTypeHV, FWK_EnemySide] call BIS_fnc_spawnVehicle;
 	[group (_veh select 0), _randomSpawnPos, _patrolledAreaSize] call BIS_fnc_taskPatrol;
+	//Enabling dynamic simulation
+	group (_veh select 0) enableDynamicSimulation true;
 	sleep 3;
 };

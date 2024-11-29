@@ -15,6 +15,7 @@ switch (_currentMap) do
 	case "Mountains_ACR";
 	case "fallujah";
 	case "kunduz";
+	case "juju_sahatra";
 	case "Shapur_BAF":
 	{
 		_weatherData = [
@@ -117,21 +118,20 @@ private _month = date select 1; // Get current in-game month (0-11)
 private _data = _weatherData select (_month - 1);
 
 //Debug
-if(_debug) then { systemChat format["Month: %1\nRaw: %2\Weather data: %3", _month, _data, _weatherData]; };
+if(_debug) then { 
+	systemChat format["Month: %1\nRaw: %2\nWeather data: %3\nOvercast: %4\nFog: %5\nRain: %6\nGust: %7\nDate: %8", _month, _data, _weatherData, _overcast, _fog, _rain, _gusts, date]; 
+	systemChat "fn_weatherRandom.sqf is in debug mode.";
+};
 
 private _overcast = (_data select 0) + ((random 0.2) - 0.1); 
 private _fog = (_data select 1) + ((random 0.2) - 0.1);      
 private _rain = (_data select 2) + ((random 0.2) - 0.1);     
 private _gusts = (_data select 3) + ((random 0.2) - 0.1);    
 
-//DEBUG
-if(_debug) then { systemChat format["Overcast: %1\nFog: %2\nRain: %3\nGust: %4\nDate: %5", _overcast, _fog, _rain, _gusts, date]; };
-
 // Clamp values between 0 and 1
 _overcast = _overcast max 0 min 1;
 _fog = _fog max 0 min 1;
 _rain = _rain max 0 min 1;
-_gusts = _gusts max 0 min 1;
 // Set weather in-game
 0 setOvercast _overcast;
 0 setFog _fog;

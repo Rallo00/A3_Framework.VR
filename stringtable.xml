@@ -67,6 +67,10 @@
 				<Original>Press 'C' if you cannot move.</Original>
 				<Italian>Premi 'C' se non riesci a muoverti.</Italian>
 			</Key>
+			<Key ID="STR_support_vehicle_airdrop_dropping">
+				<Original>Charon 1-1 dropping package. Good luck.</Original>
+				<Italian>Charon 1-1 al rilascio. Buona fortuna.</Italian>
+			</Key>
 		</Container>
 		<Container name="framework_functions">
 			<Key ID="STR_misc_frameworkloaded">

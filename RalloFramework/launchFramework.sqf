@@ -2,24 +2,26 @@
 if (isServer || isDedicated) then 
 { 
 	//Configurable
-	FWK_AllowCustomSupports = false;
-	FWK_EastWestTruce = true;
-	FWK_EnemySide = independent;
-	FWK_EnemyFaction = "IND_F";
-	FWK_IsReviveEnabled = true;
-	FWK_IsStealthActive = false;
+	FWK_EnemySide = east;
+	FWK_EnemyFaction = "OPF_F";
 	FWK_PlayerFaction = "BLU_F";
-	
-	FWK_ReviveType = paramsArray select 3;	//0=Only medics, 1=FAK, 2=Everyone(Medkit), 3=No revive);
-	if (FWK_ReviveType == 4) then { FWK_IsReviveEnabled = false; };
-	
-	//Automated
-	FWK_DateTime = paramsArray select 2; //0=Random; 1=RealTime; 2=DefaultScenario
-	FWK_IsWeatherRandom = if (paramsArray select 0 == 0) then { true } else { false };
-	FWK_IsRhsActive = ["USAF"] call FWK_fnc_isModActive;
-	FWK_IsStaminaActive = if (paramsArray select 1 == 1) then { true } else { false };
-	FWK_IsTfarActive = ["TFAR"] call FWK_fnc_isModActive;
-	FWK_PlayerSide = side (allPlayers select 0);
+	FWK_PlayerSide = west;
+	publicVariable "FWK_EnemySide";
+	publicVariable "FWK_EnemyFaction";
+	publicVariable "FWK_PlayerFaction";
+	publicVariable "FWK_PlayerSide";
+	//Scenario Parameters
+	FWK_WeatherRandom = paramsArray select 0;
+	FWK_StaminaEnabled = paramsArray select 1;
+	FWK_DateTime = paramsArray select 2;
+	FWK_ReviveType = paramsArray select 3;
+	if(FWK_StaminaEnabled == 0) then { {_x enableFatigue false} forEach allPlayers; };
+	if(FWK_DateTime != 2) then { [FWK_DateTime] spawn FWK_fnc_setDateTime; };	//No need client-side
+	publicVariable "FWK_WeatherRandom";
+	publicVariable "FWK_StaminaEnabled";
+	publicVariable "FWK_DateTime";
+	publicVariable "FWK_ReviveType";
+	//Ready-to-use arrays
 	FWK_EnemyInfantryArray = [FWK_EnemyFaction] call FWK_fnc_getFactionInfantry;
 	FWK_EnemyStaticArray = [FWK_EnemyFaction] call FWK_fnc_getFactionStatic;
 	FWK_EnemyLightArray = [FWK_EnemyFaction] call FWK_fnc_getFactionLV;
@@ -31,7 +33,7 @@ if (isServer || isDedicated) then
 	FWK_EnemyHeloArray = [FWK_EnemyFaction] call FWK_fnc_getFactionHelo;
 	FWK_EnemyAirArray = [FWK_EnemyFaction] call FWK_fnc_getFactionAir;
 	FWK_EnemyAntiAirArray = [FWK_EnemyFaction] call FWK_fnc_getFactionAntiAir;
-	publicVariable "FWK_AllowCustomSupports";
+	FWK_EnemyTransportArray = [FWK_EnemyFaction] call FWK_fnc_getFactionTransport;
 	publicVariable "FWK_EnemyInfantryArray";
 	publicVariable "FWK_EnemyStaticArray";
 	publicVariable "FWK_EnemyLightArray";
@@ -43,44 +45,42 @@ if (isServer || isDedicated) then
 	publicVariable "FWK_EnemyHeloArray";
 	publicVariable "FWK_EnemyAirArray";
 	publicVariable "FWK_EnemyAntiairArray";
-	publicVariable "FWK_EastWestTruce";
-	publicVariable "FWK_EnemyFaction";
-	publicVariable "FWK_EnemySide";
-	publicVariable "FWK_EnemySpawnCoef";
-	publicVariable "FWK_IsRhsActive";
-	publicVariable "FWK_IsStaminaActive";
-	publicVariable "FWK_IsStealthActive";
-	publicVariable "FWK_IsTfarActive";
-	publicVariable "FWK_IsWeatherRandom";
-	publicVariable "FWK_PlayerFaction";
-	publicVariable "FWK_PlayerSide";
-	publicVariable "FWK_IsReviveEnabled";
-	publicVariable "FWK_ReviveType";
-	
-	//--- LOADING SETTINGS ---//
-	[FWK_DateTime] spawn FWK_fnc_setDateTime;
-	if (FWK_IsTfarActive) then { [] spawn FWK_fnc_loadSettingsTFAR; };
-	if (FWK_IsStealthActive) then { [0.4] spawn FWK_fnc_activateStealth; };
-	if (FWK_AllowCustomSupports) then { [] spawn FWK_fnc_allowCustomSupports; };
-	if (FWK_EastWestTruce) then { [1] spawn FWK_fnc_eastWestTruce; };
-	if (FWK_IsWeatherRandom) then { [] spawn FWK_fnc_randomWeather; };
-	if (!FWK_IsStaminaActive) then { { _x enableStamina false; }forEach allUnits; };
-	
-	//Handle Revive
-	//if (FWK_IsReviveEnabled) then {  };
-};
-
-//--- HANDLING CLIENT SIDE ---//
-if(hasInterface) then
-{
-	if ([] call BIS_fnc_didJIP) then { [player] spawn FWK_fnc_teleportToLeader; };
+	publicVariable "FWK_EnemyTransportArray";
+	FWK_FriendlyInfantryArray = [FWK_PlayerFaction] call FWK_fnc_getFactionInfantry;
+	FWK_FriendlyStaticArray = [FWK_PlayerFaction] call FWK_fnc_getFactionStatic;
+	FWK_FriendlyLightArray = [FWK_PlayerFaction] call FWK_fnc_getFactionLV;
+	FWK_FriendlyArtilleryArray = [FWK_PlayerFaction] call FWK_fnc_getFactionArtillery;
+	FWK_FriendlyBoatArray = [FWK_PlayerFaction] call FWK_fnc_getFactionBoat;
+	FWK_FriendlyHeavyArray = [FWK_PlayerFaction] call FWK_fnc_getFactionHV;
+	FWK_FriendlySupportArray = [FWK_PlayerFaction] call FWK_fnc_getFactionSupport;
+	FWK_FriendlyGunshipArray = [FWK_PlayerFaction] call FWK_fnc_getFactionGunship;
+	FWK_FriendlyHeloArray = [FWK_PlayerFaction] call FWK_fnc_getFactionHelo;
+	FWK_FriendlyAirArray = [FWK_PlayerFaction] call FWK_fnc_getFactionAir;
+	FWK_FriendlyAntiAirArray = [FWK_PlayerFaction] call FWK_fnc_getFactionAntiAir;
+	FWK_FriendlyTransportArray = [FWK_PlayerFaction] call FWK_fnc_getFactionTransport;
+	publicVariable "FWK_FriendlyInfantryArray";
+	publicVariable "FWK_FriendlyStaticArray";
+	publicVariable "FWK_FriendlyLightArray";
+	publicVariable "FWK_FriendlyArtilleryArray";
+	publicVariable "FWK_FriendlyBoatArray";
+	publicVariable "FWK_FriendlyHeavyArray";
+	publicVariable "FWK_FriendlySupportArray";
+	publicVariable "FWK_FriendlyGunshipArray";
+	publicVariable "FWK_FriendlyHeloArray";
+	publicVariable "FWK_FriendlyAirArray";
+	publicVariable "FWK_FriendlyAntiAirArray";
+	publicVariable "FWK_FriendlyTransportArray";
 };
 
 //--- HANDLING BOTH SERVER AND CLIENT SIDE ---//
 //Briefing
 [] execVM "briefing.sqf";
-[] execVM "RalloFramework\FAR_revive\FAR_FrameworkLaunch.sqf";
 { [_x] spawn FWK_fnc_vehicleUnflip; }forEach vehicles;
+enableSaving [false,false];
+//Revive (needs also client-side)
+if(FWK_ReviveType != 3) then { call compileFinal preprocessFileLineNumbers 'RalloFramework\FAR_revive\FAR_revive_init.sqf'; };
+
+["Initialize", [true]] call BIS_fnc_dynamicGroups;
 
 //Messaggio caricamento framework a buon fine
 systemChat localize "STR_misc_frameworkloaded";

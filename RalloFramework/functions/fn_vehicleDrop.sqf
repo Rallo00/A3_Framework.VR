@@ -42,6 +42,9 @@ _cargoVehicle2 = _vehicleType createVehicle [20,20,1000];
 if ((_transportVeh canVehicleCargo _cargoVehicle2) select 1) then
 { _transportVeh setVehicleCargo _cargoVehicle2; }
 else { deleteVehicle _cargoVehicle2; };
+_transportVeh allowDamage false;
+_transportVeh setCaptive true;
+_cargoVehicle allowDamage false;
 
 //Setting waypoints
 _waypoint = _transportGrp addWaypoint [_pos, 0];
@@ -57,6 +60,8 @@ waitUntil { (_transportVeh distance _pos) < 200 };
 _transportVeh sideChat format["%1", localize "STR_support_vehicle_airdrop_dropping"];
 _transportVeh setVehicleCargo objNull;
 _transportVeh setVehicleCargo objNull;
+_cargoVehicle allowDamage true;
+
 //Go away
 _pilot = leader _transportGrp;
 _pilot doMove ([0,0,0]);

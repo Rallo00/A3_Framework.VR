@@ -16,13 +16,9 @@ class CfgFunctions
 			class craterArea {};				//["markerName", numOfCraters] spawn FWK_fnc_craterArea;
 			class customTask {};				//["task1", 1] spawn FWK_fnc_customTask;
 			class deleteVehicle {};				//[object] spawn FWK_fnc_deleteVehicle; (also deletes Crew inside)
-			class eastWestTruce {};				//[0 or 1] spawn FWK_fnc_eastWestTruce;
 			class ending {};					//[] spawn FWK_fnc_ending;
 			class enemyControlledArea {};		//[position, areaSize, criticalLevel] spawn FWK_fnc_enemyControlledArea;
-			class enemyQrfTransport {};			//[position] spawn FWK_fnc_enemyQrfTransport;
-			class enemyQrfLand {};				//[position] spawn FWK_fnc_enemyQrfLand;
-			class enemyQrfParatroopers {};		//[position] spawn FWK_fnc_enemyQrfParatroopers;
-			class enemyPatrols {};				//[position, range, patrolsCount] spawn FWK_fnc_enemyPatrols;
+			class enemyPatrols {};				//[position, range, patrolsGroupCount, hasVehicle] spawn FWK_fnc_enemyPatrols;
 			class getCurrentOwnership {};		//[position, distanceRange] call FWK_fnc_getCurrentOwnership;
 			class getFactionAir {};				//[faction] call FWK_fnc_getFactionAir;
 			class getFactionAntiAir {};			//[faction] call FWK_fnc_getFactionAntiAir;
@@ -35,6 +31,7 @@ class CfgFunctions
 			class getFactionInfantry {};		//[faction] call FWK_fnc_getFactionInfantry;
 			class getFactionStatic {};			//[faction] call FWK_fnc_getFactionStatic;
 			class getFactionSupport {};			//[faction] call FWK_fnc_getFactionSupport;
+			class getFactionTransport {};		//[faction] call FWK_fnc_getFactionTransport;
 			class getMapClickPos {};			//[] call FWK_fnc_getMapClickPos;
 			class getRandomAO {};				//[] call FWK_fnc_getRandomAO;
 			class getRandomAOLocation {};		//[AO, minDistanceRange, maxDistanceRange] [] call FWK_fnc_getRandomAOLocation;
@@ -42,13 +39,16 @@ class CfgFunctions
 			class halo {};						//[player] spawn FWK_fnc_halo;
 			class isModActive {};				//["mod"] call FWK_fnc_isModActive;
 			class isPlayerVanillaFaction {};	//[] call FWK_fnc_isPlayerVanillaFaction;
-			class loadSettingsTFAR {};			//[] spawn FWK_fnc_loadSettingsTFAR;
 			class localAmbientSounds {};		//[] spawn FWK_fnc_localAmbientSounds;
 			class localPlayerInit {};			//[] spawn FWK_fnc_localPlayerInit;
 			class mapCleanup {};				//[position, range] spawn FWK_fnc_mapCleanup;
 			class mortarFire {};				//[position, shellType] spawn FWK_fnc_mortarFire; (1=82mm/2=155mm/3=230mm)
 			class minefield {};					//[position, int minMines, int maxMines] spawn FWK_fnc_minefield;
 			class multicapabilitiesUAV {};		//[obj] spawn FWK_fnc_multicapabilitiesUAV;
+			class QrfAir {};					//[position, bool isFriendly] spawn FWK_fnc_QrfAir;
+			class QrfLand {};					//[position, bool isFriendly] spawn FWK_fnc_QrfLand;
+			class QrfParatroopers {};			//[position, bool isFriendly] spawn FWK_fnc_QrfParatroopers;
+			class QrfTransport {};				//[position, bool isFriendly] spawn FWK_fnc_QrfTransport;
 			class raiseAlarm {};				//[object, int totalNumbersOfAlarmSound] spawn FWK_fnc_raiseAlarm;
 			class randomWeather {};				//[] spawn FWK_fnc_randomWeather;
 			class reinforcements {};			//[side, spawnPosition, int rangeSpawn, bool spawnVehicle] spawn FWK_fnc_reinfocements;
@@ -60,8 +60,48 @@ class CfgFunctions
 			class vehicleUnflip {};				//[vehicle] spawn FWK_fnc_vehicleUnflip;
 			class teleportToLeader {};			//[player] spawn FWK_fnc_teleportToLeader;
 			class teleportToGrid {};
-			class tfarRadioUnbug {};			//[this] spawn FWK_fnc_tfarRadioUnbug;
 			class unitKamikaze {};				//[unit] spawn FWK_fnc_unitKamikaze;
+			class virtualGarage {};				//[this, markername] spawn FWK_fnc_virtualGarage;
 		};
+	};
+};
+class CfgSounds
+{
+	sounds[] = {alarm,electricity,flare,radio1a,radio1b,radiochatter};
+	class alarm
+	{
+		name = "alarm";
+		titles[] = {"speech1"};
+		sound[] = { "RalloFramework\sounds\alarm.ogg", 1, 1, 20 };	// file, volume, pitch, maxDistance
+	};
+	class electricity
+	{
+		name = "electricity";
+		titles[] = {"electricity"};
+		sound[] = { "RalloFramework\sounds\electricity.ogg", 1, 1, 20 };	// file, volume, pitch, maxDistance
+	};
+	class flare
+	{
+		name = "flare";
+		titles[] = {"flare"};
+		sound[] = { "RalloFramework\sounds\flare.ogg", 1, 1, 20 };	// file, volume, pitch, maxDistance
+	};
+	class radio1a
+	{
+		name = "radio1a";
+		titles[] = {"radio1a"};
+		sound[] = { "RalloFramework\sounds\radio1a.ogg", 1, 1, 20 };	// file, volume, pitch, maxDistance
+	};
+	class radio1b
+	{
+		name = "radio1b";
+		titles[] = {"radio1b"};
+		sound[] = { "RalloFramework\sounds\radio1b.ogg", 1, 1, 20 };	// file, volume, pitch, maxDistance
+	};
+	class radiochatter
+	{
+		name = "radiochatter";
+		titles[] = {"radiochatter"};
+		sound[] = { "RalloFramework\sounds\radiochatter.ogg", 1, 1, 20 };	// file, volume, pitch, maxDistance
 	};
 };

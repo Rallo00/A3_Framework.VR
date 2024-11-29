@@ -3,7 +3,10 @@ params["_pos", "_patrolledAreaSize", "_patrolCount", "_hasVehicle"];
 private _debug = false;
 
 //Debug
-if(_debug) then { hint format["", _patrolledAreaSize, count allPlayers, _unitsCount, _sv, _lv, _hv]; };
+if(_debug) then { 
+	hint format["", _patrolledAreaSize, count allPlayers, _unitsCount, _sv, _lv, _hv]; 
+	systemChat "fn_enemyPatrols is in debug mode.";
+};
 
 //Spawning infantry
 for "_i" from 1 to _patrolCount do
