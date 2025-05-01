@@ -1,4 +1,4 @@
-/*	Spawn random reinforcements (group from 4 to 10) of the desired faction at the given position */
+//Infantry QRF of _side from random far start position to _destination
 params["_pos", "_isFriendly"];
 if(isNil "_pos") exitWith { systemChat "fn_qrfLand: _pos not defined"; };
 if(isNil "_isFriendly") exitWith { systemChat "fn_qrfLand: _isFriendly not defined"; };
@@ -17,6 +17,7 @@ _unitsArray resize _groupSize;
 //Random position around given position
 _randomSpawnPosition = [_pos, 800, 1000] call BIS_fnc_findSafePos;
 _spawnedGroup = [_randomSpawnPosition, _side, _unitsArray] call BIS_fnc_spawnGroup;
+
 //Setting waypoint towards first player
 _waypoint = _spawnedGroup addWaypoint [position (allPlayers select 0), 0];
 _waypoint setWaypointBehaviour "AWARE";

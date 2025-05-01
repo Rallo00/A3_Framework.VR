@@ -1,10 +1,12 @@
-params["_pos","_addVehicle", "_isFriendly"];
-if(isNil "_pos") exitWith { systemChat "fn_qrfParatroopers: _pos not defined"; };
-if(isNil "_addVehicle") exitWith { systemChat "fn_qrfParatroopers: _addVehicle not defined"; };
+//Paratroopers QRF of _side from random far start position to _destination
+params["_destination","_isFriendly"];
+if(isNil "_destination") exitWith { systemChat "fn_qrfParatroopers: _destination not defined"; };
 if(isNil "_isFriendly") exitWith { systemChat "fn_qrfParatroopers: _isFriendly not defined"; };
-private _heloArray;
-private _side;
-private _infantryArray;
+private _heloArray = [];
+private _side = 0;
+private _infantryArray = [];
+private _debug = false;
+
 //Handling friendly or enemy
 if(_isFriendly) then { 
 	_heloArray = + FWK_FriendlyHeloArray; 
@@ -14,6 +16,14 @@ if(_isFriendly) then {
 	_heloArray = + FWK_EnemyHeloArray; 
 	_side = FWK_EnemySide; 
 	_infantryArray = + FWK_EnemyInfantryArray; 
+};
+
+//debug
+if(_debug) then {
+	systemChat format["Destination: %1", _destination];
+	systemChat format["IsFriendly: %1", _isFriendly];
+	systemChat format["Side: %1", _side];
+	hint format["HELO ARRAY:\n%1\n\nINFANTRY ARRAY:\n%2", _heloArray, _infantryArray];
 };
 
 _startPos = [_destination, 3000, 5000] call FWK_fnc_getRandomAOLocation;

@@ -7,19 +7,13 @@ class CfgFunctions
 		class Framework
 		{
 			file = "RalloFramework\functions";
-			//Actions
+
+			//Editing
 			class activateStealth {};			//[0 to 1] spawn FWK_fnc_activateStealth; (allUnits)
-			class addVA {};						//[object] spawn FWK_fnc_addVA;
-			class addVG {};						//[object, markerName] spawn FWK_fnc_addVG;
-			class allowCustomSupports {};		//[] spawn FWK_fnc_allowCustomSupports;
-			class bigExplosion {};				//[object] spawn FWK_fnc_bigExplosion;
 			class centerScreenText {}; 			//["TEXT"] spawn FWK_fnc_centerScreenText;
-			class craterArea {};				//["markerName", numOfCraters] spawn FWK_fnc_craterArea;
 			class customTask {};				//["task1", 1] spawn FWK_fnc_customTask;
 			class deleteVehicle {};				//[object] spawn FWK_fnc_deleteVehicle; (also deletes Crew inside)
 			class ending {};					//[] spawn FWK_fnc_ending;
-			class enemyControlledArea {};		//[position, areaSize, criticalLevel] spawn FWK_fnc_enemyControlledArea;
-			class enemyPatrols {};				//[position, range, patrolsGroupCount, hasVehicle] spawn FWK_fnc_enemyPatrols;
 			class getCurrentOwnership {};		//[position, distanceRange] call FWK_fnc_getCurrentOwnership;
 			class getFactionAir {};				//[faction] call FWK_fnc_getFactionAir;
 			class getFactionAntiAir {};			//[faction] call FWK_fnc_getFactionAntiAir;
@@ -37,31 +31,50 @@ class CfgFunctions
 			class getRandomAO {};				//[] call FWK_fnc_getRandomAO;
 			class getRandomAOLocation {};		//[AO, minDistanceRange, maxDistanceRange] [] call FWK_fnc_getRandomAOLocation;
 			class getUnitsCount {};				//[position, distanceRange, side] spawn FWK_fnc_getUnitsCount;
-			class halo {};						//[player] spawn FWK_fnc_halo;
 			class isModActive {};				//["mod"] call FWK_fnc_isModActive;
 			class isPlayerVanillaFaction {};	//[] call FWK_fnc_isPlayerVanillaFaction;
-			class localAmbientSounds {};		//[] spawn FWK_fnc_localAmbientSounds;
 			class localPlayerInit {};			//[] spawn FWK_fnc_localPlayerInit;
-			class mapCleanup {};				//[position, range] spawn FWK_fnc_mapCleanup;
-			class mortarFire {};				//[position, shellType] spawn FWK_fnc_mortarFire; (1=82mm/2=155mm/3=230mm)
-			class minefield {};					//[position, int minMines, int maxMines] spawn FWK_fnc_minefield;
-			class multicapabilitiesUAV {};		//[obj] spawn FWK_fnc_multicapabilitiesUAV;
-			class QrfAir {};					//[position, bool isFriendly] spawn FWK_fnc_QrfAir;
-			class QrfLand {};					//[position, bool isFriendly] spawn FWK_fnc_QrfLand;
-			class QrfParatroopers {};			//[position, bool isFriendly] spawn FWK_fnc_QrfParatroopers;
-			class QrfTransport {};				//[position, bool isFriendly] spawn FWK_fnc_QrfTransport;
-			class raiseAlarm {};				//[object, int totalNumbersOfAlarmSound] spawn FWK_fnc_raiseAlarm;
-			class randomWeather {};				//[] spawn FWK_fnc_randomWeather;
-			class reinforcements {};			//[side, spawnPosition, int rangeSpawn, bool spawnVehicle] spawn FWK_fnc_reinfocements;
-			class roadblock {};					//[pos] spawn FWK_fnc_roadblock;
-			class setDateTime {};				//[int] spawn FWK_fnc_setDateTime;
-			class surrenderUnits {};			//[position, distanceRange, side] spawn FWK_fnc_surrenderUnits;
-			class vehicleDrop {};				//[position, isFriendlyVehicle] spawn FWK_fnc_vehicleDrop;
+			class teleportToLeader {};			//[player] spawn FWK_fnc_teleportToLeader;
+			class teleportToGrid {};			//[unit, destinationGrid] spawn FWK_fnc_teleportToGrid;
 			class vehicleRandomStatus{};		//[object, bool forceSomeFuelInVehicle, bool forceSomeAmmoInVehicle] spawn FWK_fnc_vehicleRandomStatus;
 			class vehicleUnflip {};				//[vehicle] spawn FWK_fnc_vehicleUnflip;
-			class teleportToLeader {};			//[player] spawn FWK_fnc_teleportToLeader;
-			class teleportToGrid {};
+
+			//Actions
+			class bigExplosion {};				//[object] spawn FWK_fnc_bigExplosion;
+			class halo {};						//[player] spawn FWK_fnc_halo;
+			class multicapabilitiesUAV {};		//[obj] spawn FWK_fnc_multicapabilitiesUAV;
+			
+			//Terrain areas customization
+			class craterArea {};				//["markerName", numOfCraters] spawn FWK_fnc_craterArea;
+			class mortarFire {};				//[position, shellType] spawn FWK_fnc_mortarFire; (1=82mm/2=155mm/3=230mm)
+			class minefield {};					//[position, int minMines, int maxMines] spawn FWK_fnc_minefield;
+
+			//QRF and reinforcements
+			class enemyControlledArea {};		//[position, areaSize, criticalLevel] spawn FWK_fnc_enemyControlledArea;
+			class enemyPatrols {};				//[position, range, patrolsGroupCount, hasVehicle] spawn FWK_fnc_enemyPatrols;
+			class qrfAir {};					//[position, bool isFriendly] spawn FWK_fnc_qrfAir;
+			class qrfLand {};					//[position, bool isFriendly] spawn FWK_fnc_qrfLand;
+			class qrfParatroopers {};			//[position, bool isFriendly] spawn FWK_fnc_qrfParatroopers;
+			class qrfTransport {};				//[position, bool isFriendly] spawn FWK_fnc_qrfTransport;
+			class roadblock {};					//[pos] spawn FWK_fnc_roadblock;
+			class surrenderUnits {};			//[position, distanceRange, side] spawn FWK_fnc_surrenderUnits;
 			class unitKamikaze {};				//[unit] spawn FWK_fnc_unitKamikaze;
+
+			//Ambient
+			class ambientMapCleanup {};			//[position, range] spawn FWK_fnc_ambientMapCleanup;
+			class ambientMortarFire {};			//[position, shellType] spawn FWK_fnc_ambientMortarFire; (1=82mm/2=155mm/3=230mm)
+			class ambientRaiseAlarm {};			//[object, int totalNumbersOfAlarmSound] spawn FWK_fnc_ambientRaiseAlarm;
+			class ambientRandomWeather {};		//[] spawn FWK_fnc_ambientRandomWeather;
+			class ambientSetDateTime {};		//[int] spawn FWK_fnc_ambientSetDateTime;
+			class ambientSounds {};				//[] spawn FWK_fnc_ambientSounds;
+
+			//Supports
+			class supportsAllowCustom {};		//[] spawn FWK_fnc_supportsAllowCustom;
+			class supportsVehicleDrop {};		//[position, isFriendlyVehicle] spawn FWK_fnc_supportsVehicleDrop;
+			class supportsAmmoCache {};			//[_this] spawn FWK_fnc_supportsAmmoCache; (if used in support module)
+
+			//Virtual
+			class virtualArsenal {};			//[object] spawn FWK_fnc_virtualArsenal;
 			class virtualGarage {};				//[markerName] spawn FWK_fnc_virtualGarage;
 		};
 	};

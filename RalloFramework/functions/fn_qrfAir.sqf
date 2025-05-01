@@ -1,33 +1,43 @@
 //Helicopter QRF of _side from random far start position to _destination
 params["_destination", "_isFriendly"];
-private _heloArray;
-private _side;
-private _infantryArray;
+private _debug = true;
+private _heloArray = [];
+private _side = 0;
+private _infantryArray = [];
+private _heloType = 0;
 //Handling friendly or enemy
 if(_isFriendly) then { 
-	_heloArray = + FWK_FriendlyHeloArray; 
 	_side = FWK_PlayerSide; 
 	_infantryArray = + FWK_FriendlyInfantryArray; 
+	_heloType = selectRandom FWK_FriendlyHeloArray;
 } else { 
-	_heloArray = + FWK_EnemyHeloArray; 
 	_side = FWK_EnemySide; 
 	_infantryArray = + FWK_EnemyInfantryArray; 
+	_heloType = selectRandom FWK_FriendlyHeloArray;
 };
 
 //Spawning transport
 _startPos = [_destination, 3000, 5000] call FWK_fnc_getRandomAOLocation;
 _landingPos = [_destination, 25, 75] call FWK_fnc_getRandomAOLocation;
-_heloType = selectRandom _heloArray;
 _helipad = "Land_HelipadEmpty_F" createVehicle _landingPos;
+
+//Debug
+if(_debug) then {
+	_randomPosMarker = createMarker [format ["%1", _startPos], _startPos];
+    _randomPosMarker setMarkerText format ["RANDOM START POS: %1 units", count _infantryArray];
+    _randomPosMarker setMarkerSize [1,1];
+    _randomPosMarker setMarkerType "hd_dot";
+	hint format["Position: %1\nLanding Pos: %2\nFriendly: %3\nGroup size: %4\nSide: %5\nVehicle Type: %6\nVehicle obj: %7\nUnits Array: %8", _startPos, _landingPos, _isFriendly, count _groupUnitsArray, _side, _heloType, _heloObj, _infantryArray];
+};
+
 _spawnHelo = [_startPos, random 360, _heloType, _side] call BIS_fnc_spawnVehicle;
 _heloObj = _spawnHelo select 0;
 _heloGrp = _spawnHelo select 2;
 
 //Spawning units in transport based on free seats
 _cargoSize = _heloObj emptyPositions "cargo";
-_groupUnitsArray = + _infantryArray;
-_groupUnitsArray resize _cargoSize;
-_qrfGrp = [_startPos, _side, _groupUnitsArray] call BIS_fnc_spawnGroup;
+_infantryArray resize _cargoSize;
+_qrfGrp = [_startPos, _side, _infantryArray] call BIS_fnc_spawnGroup;
 { _x moveInCargo _heloObj } forEach units _qrfGrp;
 
 //Helo waypoint and unload

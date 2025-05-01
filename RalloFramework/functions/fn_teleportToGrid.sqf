@@ -1,4 +1,4 @@
-_unit = params["_unit", "_destinationGrid"];
+params["_unit", "_destinationGrid"];
 //Calculating new position
 _gridPos = (_destinationGrid call BIS_fnc_gridToPos) select 0;
 _gridPos pushBack 0;
