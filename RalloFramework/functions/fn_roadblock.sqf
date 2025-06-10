@@ -3,7 +3,8 @@ _debug = false;
 _vehicleArray = [];
 _unitsArray = [];
 _side = 0;
-_safePos = [_pos, 0, 15] call BIS_fnc_findSafePos;
+_safePos = position ([_pos, 10] call BIS_fnc_nearestRoad);
+if(_safePos select 0 == 0) then { _safePos = _pos; }; //Check if not found
 
 //Check whether is friendly or not
 if(_isFriendly) then { _unitsArray = FWK_FriendlyInfantryArray; _vehicleArray = FWK_FriendlyLightArray; _side = FWK_PlayerSide; }

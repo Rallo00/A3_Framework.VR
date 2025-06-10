@@ -13,7 +13,7 @@ if(_isFriendly) then {
 } else { 
 	_side = FWK_EnemySide; 
 	_infantryArray = + FWK_EnemyInfantryArray; 
-	_heloType = selectRandom FWK_FriendlyHeloArray;
+	_heloType = selectRandom FWK_EnemyHeloArray;
 };
 
 //Spawning transport

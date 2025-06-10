@@ -38,6 +38,7 @@ switch (_currentMap) do
 	case "chernarus";
 	case "chernarus_summer";
 	case "Chernarus_Winter";
+	case "cup_chernarus_a3";
 	case "ProvingGrounds_PMC":
 	{
 		_weatherData = [
@@ -92,41 +93,38 @@ switch (_currentMap) do
 			[0.8, 0.4, 0.4, 0.5]   // December
 		];
 	};
-	/*
-	case "Sahrani":
-	{
+	default {
 		_weatherData = [
-			[0.75, 0.1, 0.55, 0.4],     //January  
-			[0.7, 0.15, 0.5, 0.35],     //February
-			[0.65, 0.2, 0.45, 0.3],     //March
-			[0.6, 0.25, 0.4, 0.25],     //April
-			[0.55, 0.3, 0.35, 0.2],     //May
-			[0.5, 0.35, 0.3, 0.15],     //June
-			[0.45, 0.4, 0.25, 0.1],     //July
-			[0.5, 0.35, 0.3, 0.15],     //August
-			[0.55, 0.3, 0.35, 0.2],     //September
-			[0.6, 0.25, 0.4, 0.25],     //October
-			[0.65, 0.2, 0.45, 0.3],     //November
-			[0.7, 0.15, 0.5, 0.35]      //December
+			[0.2, 0.0, 0.2, 0.3],  // January
+			[0.3, 0.0, 0.25, 0.4], // February
+			[0.4, 0.1, 0.15, 0.36],// March
+			[0.5, 0.1, 0.1, 0.2],  // April
+			[0.6, 0.0, 0.05, 0.16],// May
+			[0.1, 0.0, 0.02, 0.1], // June
+			[0.0, 0.0, 0.01, 0.14],// July
+			[0.0, 0.0, 0.01, 0.2], // August
+			[0.3, 0.1, 0.05, 0.24],// September
+			[0.5, 0.2, 0.1, 0.3],  // October
+			[0.7, 0.3, 0.3, 0.4],  // November
+			[0.8, 0.4, 0.4, 0.5]   // December
 		];
 	};
-	*/
 };
 
 //SET WEATHER
 private _month = date select 1; // Get current in-game month (0-11)
 private _data = _weatherData select (_month - 1);
 
+private _overcast = (_data select 0) + ((random 0.2) - 0.1); 
+private _fog = (_data select 1) + ((random 0.2) - 0.1);      
+private _rain = (_data select 2) + ((random 0.2) - 0.1);     
+private _gusts = (_data select 3) + ((random 0.2) - 0.1);    
+
 //Debug
 if(_debug) then { 
 	systemChat format["Month: %1\nRaw: %2\nWeather data: %3\nOvercast: %4\nFog: %5\nRain: %6\nGust: %7\nDate: %8", _month, _data, _weatherData, _overcast, _fog, _rain, _gusts, date]; 
 	systemChat "fn_weatherRandom.sqf is in debug mode.";
 };
-
-private _overcast = (_data select 0) + ((random 0.2) - 0.1); 
-private _fog = (_data select 1) + ((random 0.2) - 0.1);      
-private _rain = (_data select 2) + ((random 0.2) - 0.1);     
-private _gusts = (_data select 3) + ((random 0.2) - 0.1);    
 
 // Clamp values between 0 and 1
 _overcast = _overcast max 0 min 1;

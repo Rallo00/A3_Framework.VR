@@ -95,3 +95,5 @@ if(FWK_PlayerSide == independent) then
 		_cache addMagazineCargoGlobal ["DemoCharge_Remote_Mag", 5];
 	};
 };
+waitUntil { (getPosATL _cache) select 2 < 10 };
+Signal = "SmokeShellPurple" createVehicle position _cache;

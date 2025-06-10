@@ -1,5 +1,6 @@
 /* Scenario introduction for every player. Call it from initPLayerLocal.sqf */
 ["InitializePlayer", [player]] call BIS_FNC_DYNAMICGROUPS;
+if(FWK_ReviveType != 3) then { call compileFinal preprocessFileLineNumbers 'RalloFramework\FAR_revive\FAR_revive_init.sqf'; };
 //Intro
 [] spawn
 {
