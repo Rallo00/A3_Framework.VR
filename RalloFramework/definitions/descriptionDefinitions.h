@@ -38,7 +38,6 @@ class CfgFunctions
 			class vehicleRandomStatus{};		//[object, bool forceSomeFuelInVehicle, bool forceSomeAmmoInVehicle] spawn FWK_fnc_vehicleRandomStatus;
 			class vehicleUnflip {};				//[vehicle] spawn FWK_fnc_vehicleUnflip;
 			class virtualArsenal {};			//[object] spawn FWK_fnc_virtualArsenal;
-			class virtualGarage {};				//[markerName] spawn FWK_fnc_virtualGarage;
 		};
 		class Client
 		{
