@@ -1,10 +1,9 @@
 params["_isFriendly"];
 _pos = [] call FWK_fnc_getMapClickPos;
-_debug = false;
+_debug = true;
 _randomTransportPos = [[_pos select 0, _pos select 1, 800], 3000, random 360] call BIS_fnc_relPos;
-_faction = 0;
-_side = 0;
-if(_isFriendly) then { _faction = FWK_PlayerFaction; _side = FWK_PlayerSide; } else { _faction = FWK_EnemyFaction; _side = FWK_EnemySide; };
+_faction = FWK_PlayerFaction;
+_side = FWK_PlayerSide;
 _vehicleType = 0;
 _transportType = "B_T_VTOL_01_vehicle_F";
 

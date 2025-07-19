@@ -6,7 +6,7 @@ class CfgFunctions
 		tag = "FWK";
 		class Functions
 		{
-			file = "RalloFramework\functions";
+			file = "RalloFramework\functions\server";
 
 			class activateStealth {};			//[0 to 1] spawn FWK_fnc_activateStealth; (allUnits)
 			class bigExplosion {};				//[object] spawn FWK_fnc_bigExplosion;
