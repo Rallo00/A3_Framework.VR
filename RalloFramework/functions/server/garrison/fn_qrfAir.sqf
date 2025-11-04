@@ -1,6 +1,6 @@
 //Helicopter QRF of _side from random far start position to _destination
 params["_destination", "_isFriendly"];
-private _debug = true;
+private _debug = false;
 private _heloArray = [];
 private _side = 0;
 private _infantryArray = [];

@@ -85,3 +85,13 @@ class CfgFunctions
 		};
 	};
 };
+class CfgSounds
+{
+	sounds[] = {alarm};
+	class alarm
+	{
+		name = "alarm"; 
+		sound[] = {RalloFramework\sounds\alarm.ogg, 10, 1.0}; 
+		titles[] = {};
+	};
+};

@@ -2,7 +2,7 @@
 if (isServer || isDedicated) then 
 { 
 	//Configurable
-	private _debug = true;
+	private _debug = false;
 	FWK_EnemySide = east;
 	FWK_EnemyFaction = "OPF_F";
 	FWK_PlayerFaction = "BLU_F";

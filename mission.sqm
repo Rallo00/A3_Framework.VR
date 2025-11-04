@@ -8,7 +8,7 @@ class EditorData
 	toggles=1034;
 	class ItemIDProvider
 	{
-		nextID=380;
+		nextID=386;
 	};
 	class MarkerIDProvider
 	{
@@ -16,18 +16,18 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=148;
+		nextID=166;
 	};
 	class Camera
 	{
-		pos[]={6934.5449,15.341397,2093.2449};
-		dir[]={0.11537637,-0.25410062,0.96029842};
-		up[]={0.030313652,0.96717089,0.2523081};
-		aside[]={0.99288774,8.8525758e-07,-0.11928996};
+		pos[]={6921.8442,15.341397,2115.5728};
+		dir[]={-0.037343111,-0.63871676,0.76854002};
+		up[]={-0.030998576,0.76944047,0.63796484};
+		aside[]={0.9988234,6.4319465e-09,0.048532594};
 	};
 };
 binarizationWanted=0;
-sourceName="a3_framework";
+sourceName="A3_Framework";
 addons[]=
 {
 	"A3_Characters_F",
@@ -56,13 +56,14 @@ addons[]=
 	"A3_Armor_F_Gamma_MBT_02",
 	"A3_Soft_F_MRAP_02",
 	"A3_Modules_F_Multiplayer",
-	"A3_Drones_F_Air_F_Gamma_UAV_02"
+	"A3_Drones_F_Air_F_Gamma_UAV_02",
+	"A3_Air_F_Orange_UAV_06"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=14;
+		items=15;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -161,6 +162,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item14
+		{
+			className="A3_Air_F_Orange";
+			name="Arma 3 Orange - Aircraft";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 dlcs[]=
@@ -197,7 +205,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=146;
+		items=150;
 		class Item0
 		{
 			dataType="Group";
@@ -5164,6 +5172,136 @@ class Mission
 			{
 			};
 			id=377;
+		};
+		class Item146
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6918.2046,5.0014386,2127.3372};
+						angles[]={0,3.1600053,-0};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=382;
+					type="B_UAV_AI_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=382;
+						item1=381;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+				};
+			};
+			id=380;
+		};
+		class Item147
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6914.0117,5.2498164,2123.9819};
+				angles[]={0,3.1600053,-0};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+			};
+			id=381;
+			type="B_UAV_06_F";
+		};
+		class Item148
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6920.7773,5.0014386,2127.8508};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=385;
+					type="B_UAV_AI_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=1;
+				};
+				class Links
+				{
+					items=1;
+					class Item0
+					{
+						linkID=0;
+						item0=385;
+						item1=384;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+				};
+			};
+			id=383;
+		};
+		class Item149
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6914.1245,5.2498164,2125.9692};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+			};
+			id=384;
+			type="B_UAV_06_medical_F";
 		};
 	};
 	class Connections
