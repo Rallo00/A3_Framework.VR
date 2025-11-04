@@ -2,12 +2,36 @@ _configDrone = {
 	params["_vehicle","_configDrone","_handleDrone"];
 	_vehicle addAction ["<img size='1.5' image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_unloaddevice_ca.paa'/> <t color=""#37A9E7"">" + localize 'STR_misc_drone_resupply' + "</t>", {
 		params ["_target", "_caller", "_actionId", "_arguments"];
-		_hasRGO = [_caller, 'HandGrenade'] call BIS_fnc_hasItem;
-		_hasRGN = [_caller, 'MiniGrenade'] call BIS_fnc_hasItem;
-		if(_hasRGO or _hasRGN) then 
+
+		_grenadeTypes = [
+			"rhssaf_mag_br_m84"
+			,"rhs_grenade_m1939e_f_mag"
+			,"rhs_grenade_m1939l_f_mag"
+			,"rhs_mag_f1"
+			,"HandGrenade"
+			,"rhs_mag_m67"
+			,"rhs_grenade_m15_mag"
+			,"MiniGrenade"
+			,"rhs_grenade_mkii_mag"
+			,"rhs_grenade_nbhgr39_mag"
+			,"rhs_grenade_nbhgr39B_mag"
+			,"rhs_mag_plamyam"
+			,"rhs_mag_rgd5"
+			,"rhs_mag_rgn"
+			,"rhs_mag_rgo"
+			,"rhsgref_mag_rkg3em"
+			,"rhssaf_mag_rshb_p98"
+			,"rhs_grenade_sthgr43_mag"
+			,"rhs_grenade_sthgr43_heerfrag_mag"
+			,"rhs_grenade_sthgr43_SSfrag_mag"
+			,"rhs_grenade_khattabka_vog17_mag"
+			,"rhs_grenade_khattabka_vog25_mag"
+			,"rhs_mag_zarya2"
+		];
+		_foundGrenade = _grenadeTypes findIf { [_caller, _x] call BIS_fnc_hasItem };
+		if(_foundGrenade > -1) then 
 		{
-			if(_hasRGO) then { _caller removeItem "HandGrenade"; };
-			if(_hasRGN) then { _caller removeItem "MiniGrenade"; };
+			_caller removeItem (_grenadeTypes select _foundGrenade);
 			_configDrone = (_this select 3) select 0;
 			_handleDrone = (_this select 3) select 1;
 			_target removeAction _actionId;
