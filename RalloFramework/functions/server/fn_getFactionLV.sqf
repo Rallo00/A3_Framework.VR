@@ -68,6 +68,7 @@ if (_faction == "rhs_faction_msv") then { _resultArray = ["rhs_tigr_sts_msv","rh
 //RHS AFRF (Russia VDV)
 if (_faction == "rhs_faction_vdv") then { _resultArray = ["rhs_tigr_sts_vdv","rhs_tigr_sts_3camo_vdv"] }; 
 //Eric J Taliban Units
+if (_faction == "Tban") then { _resultArray = ["Tban_O_Offroad_01_F","Tban_Offroad_01_F","Tban_Offroad_AT_01_F"]; };
 //RHS SAF (ChDHZ)
 if (_faction == "rhssaf_faction_army") then { _resultArray = ["rhssaf_army_o_m1025_olive_m2","rhssaf_army_o_m1151_olive_pkm"] };
 

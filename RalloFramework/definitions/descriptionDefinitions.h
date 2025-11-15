@@ -95,3 +95,28 @@ class CfgSounds
 		titles[] = {};
 	};
 };
+class CfgCommunicationMenu
+{
+    class SupportVehicleAirdrop
+    {
+        text = localize "STR_support_vehicledrop";
+        submenu = "";
+        expression = "[true] spawn STR_support_vehicleairdrop";
+        icon = "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa";
+        cursor = "\A3\Ui_f\data\IGUI\Cfg\Cursors\iconSupport_ca.paa";
+        enable = "1";
+        removeAfterExpressionCall = 1;
+		//[player, "SupportVehicleAirdrop"] call BIS_fnc_addCommMenuItem;
+    };
+	class SupportGroundQRF
+    {
+        text = localize "STR_support_vehicledrop";
+        submenu = "";
+        expression = "[true] spawn STR_support_vehicleairdrop";
+        icon = "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa";
+        cursor = "\A3\Ui_f\data\IGUI\Cfg\Cursors\iconSupport_ca.paa";
+        enable = "1";
+        removeAfterExpressionCall = 1;
+		//[player, "SupportVehicleAirdrop"] call BIS_fnc_addCommMenuItem;
+    };
+};

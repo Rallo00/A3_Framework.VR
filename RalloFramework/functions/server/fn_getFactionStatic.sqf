@@ -68,6 +68,7 @@ if (_faction == "rhs_faction_msv") then { _resultArray = ["RHS_AGS30_TriPod_MSV"
 //RHS AFRF (Russia VDV)
 if (_faction == "rhs_faction_vdv") then { _resultArray = ["RHS_AGS30_TriPod_VDV","rhs_KORD_VDV","rhs_KORD_high_VDV","RHS_ZU23_VDV"]; };
 //Eric J Taliban Units
+if (_faction == "Tban") then { _resultArray = ["ej_DSHKM_mg"]; };
 //RHS SAF (ChDHZ)
 if (_faction == "rhssaf_faction_army") then { _resultArray = ["rhsgref_ins_g_AGS30_TriPod","rhsgref_ins_g_DSHKM","rhsgref_ins_g_DSHKM_Mini_TriPod","rhsgref_ins_g_NSV_TriPod","rhsgref_ins_g_ZU23"]; };
 

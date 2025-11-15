@@ -56,7 +56,7 @@ _waypoint setWaypointStatements ["_transportVeh flyInHeight 200",""];
 _transportGrp setCurrentWaypoint [_transportGrp, 0];
 waitUntil { (_transportVeh distance _pos) < 200 };
 //Drop cargo
-_transportVeh sideChat format["%1", localize "STR_support_vehicle_airdrop_dropping"];
+_transportVeh sideChat format["%1", localize "STR_support_vehicleairdrop_dropping"];
 _transportVeh setVehicleCargo objNull;
 _transportVeh setVehicleCargo objNull;
 _cargoVehicle allowDamage true;
@@ -69,4 +69,4 @@ Signal = "SmokeShellPurple" createVehicle position _cargoVehicle;
 Signal = "SmokeShellPurple" createVehicle position _cargoVehicle2;
 //Cleanup
 sleep 40;
-{deleteVehicle _x} forEach (crew _heloObj) + [_heloObj]; 
+{deleteVehicle _x} forEach (crew _transportVeh) + [_transportVeh]; 

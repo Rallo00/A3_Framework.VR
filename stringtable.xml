@@ -72,7 +72,7 @@
 				<Italian>Charon 1-1 al rilascio. Buona fortuna.</Italian>
 			</Key>
 		</Container>
-		<Container name="framework_functions">
+		<Container name="framework_misc">
 			<Key ID="STR_misc_frameworkloaded">
 				<Original>Rallo Framework loaded succesfully.</Original>
 				<Italian>Rallo Framework caricato con successo.</Italian>
@@ -85,7 +85,18 @@
 				<Original>Unflip</Original>
 				<Italian>Gira veicolo</Italian>
 			</Key>
-			
+		</Container>
+		<Container name="framework_supports">
+			<Key ID="STR_support_vehicleairdrop">
+				<Original>Vehicle drop</Original>
+				<Italian>Lancio del veicolo</Italian>
+			</Key>
+			<Key ID="STR_support_vehicleairdrop_dropping">
+				<Original>All units: package has been dropped.</Original>
+				<Italian>A tutte le unita': carico rilasciato.</Italian>
+			</Key>
+		</Container>
+		<Container name="drone_actions">
 			<Key ID="STR_misc_drone_drop">
 				<Original>Drop</Original>
 				<Italian>Sgancia esplosivo</Italian>
@@ -109,5 +120,6 @@
 				<Italian>TASK &lt;marker name="marker1"&gt;TEXT&lt;/marker&gt;.</Italian>
 			</Key>
 		</Container>
+		
 	</Package>
 </Project>
