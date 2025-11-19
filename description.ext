@@ -19,32 +19,39 @@ class Header
 //PARAMETRI DI GIOCO
 class Params
 {
-	class OmbraRandomWeather
+	class ParamRandomWeather
 	{
 		title = "Weather"; 
 		values[] = {0,1}; 
 		texts[] = {"Random","Mission default"};
 		default = 0; 
 	};
-	class OmbraStamina
+	class ParamStamina
 	{
 		title = "Stamina";
 		values[] = {0,1};
 		texts[] = {"Off","On"};
 		default = 0;
 	};	
-	class OmbraRealtime
+	class ParamRealtime
 	{
 		title = "Mission time";
 		values[] = {0,1,2};
 		texts[] = {"Random","Real-Time","Mission default"};
 		default = 0;
 	};
-	class OmbraRevive
+	class ParamRevive
 	{
 		title = "Revive";
 		values[] = {0,1,2,3};
 		texts[] = {"Only medics can revive","All players can revive (FAK)","All player can revive (Medkit)","No revive"};
 		default = 1;
+	};
+	class ParamSkill
+	{
+		title = "AI Skill";
+		values[] = {0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1};
+		texts[] = {"0 (Server default)","0.1","0.2","0.3","0.4","0.5","0.6","0.7","0.8","0.9","1"};
+		default = 0.7;
 	};
 };

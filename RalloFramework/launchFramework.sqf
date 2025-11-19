@@ -16,9 +16,11 @@ if (isServer || isDedicated) then
 	FWK_StaminaEnabled = paramsArray select 1;
 	FWK_DateTime = paramsArray select 2;
 	FWK_ReviveType = paramsArray select 3;
+	FWK_SkillAI = paramsArray select 4;
 	if(FWK_StaminaEnabled == 0) then { {_x enableFatigue false} forEach allPlayers; };
 	if(!_debug && FWK_DateTime != 2) then { [FWK_DateTime] spawn FWK_fnc_ambientSetDateTime; };	//No need client-side
 	if(FWK_WeatherRandom == 0) then { [] spawn FWK_fnc_ambientRandomWeather; };
+	if(FWK_SkillAI != 0) then { { _x setSkill FWK_SkillAI } forEach allUnits; };
 	publicVariable "FWK_WeatherRandom";
 	publicVariable "FWK_StaminaEnabled";
 	publicVariable "FWK_DateTime";
