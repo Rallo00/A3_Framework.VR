@@ -106,7 +106,7 @@ class CfgCommunicationMenu
         cursor = "\A3\Ui_f\data\IGUI\Cfg\Cursors\iconSupport_ca.paa";
         enable = "1";
         removeAfterExpressionCall = 1;
-		//[player, "SupportVehicleAirdrop"] call BIS_fnc_addCommMenuItem;
+		//for MP [player, "SupportVehicleAirdrop"] remoteExecCall ["BIS_fnc_addCommMenuItem", 0, true];
     };
 	class SupportGroundQRF
     {
@@ -117,6 +117,6 @@ class CfgCommunicationMenu
         cursor = "\A3\Ui_f\data\IGUI\Cfg\Cursors\iconSupport_ca.paa";
         enable = "1";
         removeAfterExpressionCall = 1;
-		//[player, "SupportVehicleAirdrop"] call BIS_fnc_addCommMenuItem;
+		//for MP [player, "SupportGroundQRF"] remoteExecCall ["BIS_fnc_addCommMenuItem", 0, true];
     };
 };
