@@ -48,7 +48,6 @@ FAR_Player_Unconscious =
 	};
 	if (isPlayer _unit) then
 	{
-		
 		disableUserInput true;
 		[0, "BLACK", 0.5, 1] spawn BIS_fnc_fadeEffect;
 	};
