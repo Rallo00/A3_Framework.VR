@@ -85,6 +85,10 @@
 				<Original>Unflip</Original>
 				<Italian>Gira veicolo</Italian>
 			</Key>
+			<Key ID="STR_misc_cutpower">
+				<Original>Cut power</Original>
+				<Italian>Taglia cavi della corrente</Italian>
+			</Key>
 		</Container>
 		<Container name="framework_supports">
 			<Key ID="STR_support_vehicleairdrop">
