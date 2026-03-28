@@ -87,11 +87,17 @@ class CfgFunctions
 };
 class CfgSounds
 {
-	sounds[] = {alarm};
+	sounds[] = {alarm,powerout};
 	class alarm
 	{
 		name = "alarm"; 
 		sound[] = {RalloFramework\sounds\alarm.ogg, 10, 1.0}; 
+		titles[] = {};
+	};
+	class powerout
+	{
+		name = "powerout"; 
+		sound[] = {RalloFramework\sounds\powerout.ogg, 10, 1.0}; 
 		titles[] = {};
 	};
 };
