@@ -101,17 +101,26 @@
 			</Key>
 		</Container>
 		<Container name="drone_actions">
-			<Key ID="STR_misc_drone_drop">
-				<Original>Drop</Original>
+			<Key ID="STR_misc_drone_drop_explosive">
+				<Original>Drop explosive</Original>
 				<Italian>Sgancia esplosivo</Italian>
+			</Key>
+			<Key ID="STR_misc_drone_drop_smoke">
+				<Original>Drop marking smoke</Original>
+				<Italian>Sgancia fumogeno</Italian>
 			</Key>
 			<Key ID="STR_misc_drone_resupply">
 				<Original>Resupply drone</Original>
 				<Italian>Carica esplosivo</Italian>
 			</Key>
 			<Key ID="STR_misc_drone_unable">
-				<Original>Unable to resupply drone. Make sure you have valid ammunitions available in your inventory.</Original>
-				<Italian>Impossibile ricaricare drone. Assicurati di avere delle munizioni adeguate nel tuo inventario.</Italian>
+				<Original>Unable to resupply drone. Make sure you have at least one demolition charge and one smoke grenade available in your inventory.</Original>
+				<Italian>Impossibile ricaricare drone. Assicurati di avere una carica di demolizione e una granata fumogena nel tuo inventario.</Italian>
+			</Key>
+			<Key ID="STR_misc_drone_ammo_remaining">
+				<Original>Rounds remaining: %1\nMarking smoke remaining: %2</Original>
+				<Italian>Cariche rimanenti: %1\nFumogeno da marcatura: %2</Italian>
+			</Key>
 			</Key>
 		</Container>
 		<Container name="scenario_tasks">
