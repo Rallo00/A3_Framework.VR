@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1034;
+	toggles=10;
 	class ItemIDProvider
 	{
-		nextID=386;
+		nextID=400;
 	};
 	class MarkerIDProvider
 	{
@@ -16,18 +16,18 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=175;
+		nextID=193;
 	};
 	class Camera
 	{
-		pos[]={6923.0586,13.725517,2100.7327};
-		dir[]={-0.0053368001,-0.33901507,0.94077492};
-		up[]={-0.0019230782,0.94077855,0.33901063};
-		aside[]={0.99998915,3.4761797e-08,0.0056723063};
+		pos[]={6926.438,5.9171338,2117.1104};
+		dir[]={0.066469043,-0.3407996,0.93778336};
+		up[]={0.024095053,0.94013602,0.33994681};
+		aside[]={0.99749762,-1.8626451e-09,-0.070701525};
 	};
 };
 binarizationWanted=0;
-sourceName="A3_Framework";
+sourceName="a3_framework";
 addons[]=
 {
 	"A3_Characters_F",
@@ -38,9 +38,9 @@ addons[]=
 	"A3_Drones_F_Weapons_F_Gamma_Items",
 	"A3_Weapons_F_Items",
 	"A3_Characters_F_Mark",
+	"A3_Weapons_F_Explosives",
 	"A3_Weapons_F_Ammoboxes",
 	"A3_Structures_F_Mil_Cargo",
-	"A3_Weapons_F_Explosives",
 	"A3_Modules_F_Curator_Mines",
 	"A3_Structures_F_Civ_InfoBoards",
 	"A3_Structures_F_Training",
@@ -205,7 +205,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=150;
+		items=152;
 		class Item0
 		{
 			dataType="Group";
@@ -219,6 +219,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6927.8667,5.0014391,2121.6848};
+						angles[]={0,6.2312436,-0};
 					};
 					side="West";
 					flags=7;
@@ -350,6 +351,27 @@ class Mission
 									};
 								};
 							};
+							class backpack
+							{
+								typeName="B_Messenger_Black_F";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=2;
+									class Item0
+									{
+										name="DemoCharge_Remote_Mag";
+										count=2;
+										ammoLeft=1;
+									};
+									class Item1
+									{
+										name="SmokeShellBlue";
+										count=2;
+										ammoLeft=1;
+									};
+								};
+							};
 							map="ItemMap";
 							compass="ItemCompass";
 							watch="ItemWatch";
@@ -442,14 +464,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6929.021,5.8924227,2136.0845};
+						position[]={6929.021,5.8924227,2136.084};
 						angles[]={0,3.1203694,0};
 					};
 					side="Empty";
 					flags=4;
 					class Attributes
 					{
-						init="[this] spawn FWK_fnc_addVA;";
+						init="[this] spawn FWK_fnc_virtualArsenal;";
 					};
 					id=5;
 					type="B_supplyCrate_F";
@@ -483,7 +505,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="[this] spawn FWK_fnc_supportsAmmoCache;";
 						name="crate";
 					};
 					id=379;
@@ -5302,6 +5323,103 @@ class Mission
 			};
 			id=384;
 			type="B_UAV_06_medical_F";
+		};
+		class Item150
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6933.8501,5.0014386,2114.4973};
+						angles[]={0,1.5496081,0};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+					};
+					id=392;
+					type="B_UAV_AI";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6933.8501,5.1519065,2114.4978};
+						angles[]={0,1.5496081,0};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+					};
+					id=393;
+					type="B_UAV_AI";
+					atlOffset=0.15046787;
+				};
+			};
+			class Attributes
+			{
+			};
+			class CrewLinks
+			{
+				class LinkIDProvider
+				{
+					nextID=2;
+				};
+				class Links
+				{
+					items=2;
+					class Item0
+					{
+						linkID=0;
+						item0=392;
+						item1=394;
+						class CustomData
+						{
+							role=1;
+						};
+					};
+					class Item1
+					{
+						linkID=1;
+						item0=393;
+						item1=394;
+						class CustomData
+						{
+							role=2;
+							turretPath[]={0};
+						};
+					};
+				};
+			};
+			id=391;
+		};
+		class Item151
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6923.9565,5.1504679,2121.7449};
+				angles[]={0,1.5496081,0};
+			};
+			side="West";
+			flags=6;
+			class Attributes
+			{
+				init="[this] spawn FWK_fnc_multicapabilitiesUAV;";
+				reportRemoteTargets=1;
+				reportOwnPosition=1;
+			};
+			id=394;
+			type="B_UAV_01_F";
 		};
 	};
 	class Connections
