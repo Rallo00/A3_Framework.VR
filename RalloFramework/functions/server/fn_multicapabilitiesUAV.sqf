@@ -20,7 +20,10 @@ _handleDrops = {
 
 			_droneVelocity = velocity _vehicle;
 			_pos = _target modelToWorld [0,0,-0.15];
-			_content = "Grenade" createvehicle _pos;
+			_content = "Grenade" createVehicle _pos;
+			_model = "\A3\Weapons_F_Tank\Launchers\MRAWS\rocket_MRAWS_HEAT_F.p3d";
+			_visual = createSimpleObject [_model, [0,0,0]];
+			_visual attachTo [_content, [0,0,0]];
 			_content setVectorDirandUp [[0,0,-1],[0.1,0.1,1]]; 
 			_content setVelocity [_droneVelocity select 0, _droneVelocity select 1,-1];
 			_pos = getPosATL _content;
