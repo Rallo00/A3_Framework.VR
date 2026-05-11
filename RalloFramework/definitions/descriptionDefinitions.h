@@ -44,9 +44,12 @@ class CfgFunctions
 			file = "RalloFramework\functions\client";
 			
 			class localPlayerInit {};			//[] spawn FWK_fnc_localPlayerInit;
+			class spawnMedicalTrash {};			//[medic, injuredUnit] spawn FWK_fnc_spawnMedicalTrash;
 			class teleportToLeader {};			//[player] spawn FWK_fnc_teleportToLeader;
 			class teleportToGrid {};			//[unit, destinationGrid] spawn FWK_fnc_teleportToGrid;
-			class warSounds {};				//[] spawn FWK_fnc_warSounds;
+			class warSounds {};					//[] spawn FWK_fnc_warSounds;
+			class reviveIncapacitatedHandler {};//[] spawn FWK_fnc_reviveIncapacitatedHandler;
+
 		};
 		class Ambient
 		{

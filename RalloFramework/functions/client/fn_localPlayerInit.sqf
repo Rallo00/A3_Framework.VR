@@ -39,4 +39,11 @@ if([player] call BIS_fnc_didJIP) then { [player] spawn FWK_fnc_teleportToLeader;
 	//Fade Black Out
 	cutText ["", "BLACK IN", 5];
 	5 fadeSound 1;
+
+	//Revive player local handler
+	if(FWK_ReviveType != 0) then 
+	{
+		systemChat "Revive player local handler";
+		[] spawn FWK_fnc_reviveIncapacitatedHandler;
+	};
 };

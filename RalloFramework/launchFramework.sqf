@@ -81,10 +81,30 @@ if (isServer || isDedicated) then
 [] execVM "briefing.sqf";
 { [_x] spawn FWK_fnc_vehicleUnflip; }forEach vehicles;
 enableSaving [false,false];
-//Revive (needs also client-side)
-if(FWK_ReviveType != 3) then { call compileFinal preprocessFileLineNumbers 'RalloFramework\FAR_revive\FAR_revive_init.sqf'; };
+//Handle Revive
+if(FWK_ReviveType != 0) then 
+{ 
+	ReviveMode = 1;						//0: disabled, 1: enabled, 2: controlled by player attributes
+	ReviveUnconsciousStateMode = 0;		//0: basic, 1: advanced, 2: realistic
+	
+	//Only medics can revive
+	if (FWK_ReviveType == 1) then
+	{
+		ReviveRequiredTrait = 1;			//0: none, 1: medic trait is required
+		ReviveRequiredItems = 1;			//0: none, 1: medkit, 2: medkit or first aid kit
+		ReviveRequiredItemsFakConsumed = 0;	//0: first aid kit is not consumed upon revive, 1: first aid kit is consumed 
+	}
+	else
+	{
+		ReviveRequiredTrait = 0;			//0: none, 1: medic trait is required
+		ReviveRequiredItems = 2;			//0: none, 1: medkit, 2: medkit or first aid kit
+		ReviveRequiredItemsFakConsumed = 1;	//0: first aid kit is not consumed upon revive, 1: first aid kit is consumed 
+	};	
+	ReviveDelay = 6;					//time needed to revive someone (in secs)
+	ReviveMedicSpeedMultiplier = 2;		//speed multiplier for revive performed by medic
+	ReviveBleedOutDelay = 600;			//unconscious state duration (in secs)
+};
 
 ["Initialize", [true]] call BIS_fnc_dynamicGroups;
-
 //Messaggio caricamento framework a buon fine
 systemChat localize "STR_misc_frameworkloaded";

@@ -4,7 +4,7 @@ onLoadMission = "$STR_INF_scenario_description";
 author = "$STR_INF_scenario_author";
 loadScreen = "RalloFramework\images\loadScreen.jpg";
 overviewPicture = "RalloFramework\images\loadScreen.jpg";
-disabledAI=1;
+disabledAI=0;
 enableDebugConsole = 2;
 
 class Header
@@ -43,9 +43,9 @@ class Params
 	class ParamRevive
 	{
 		title = "Revive";
-		values[] = {0,1,2,3};
-		texts[] = {"Only medics can revive","All players can revive (FAK)","All player can revive (Medkit)","No revive"};
-		default = 1;
+		values[] = {0,1,2};
+		texts[] = {"No revive","Only medics can revive","All players can revive (FAK)"};
+		default = 2;
 	};
 	class ParamSkill
 	{
