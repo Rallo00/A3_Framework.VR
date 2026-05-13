@@ -4,7 +4,7 @@ onLoadMission = "$STR_INF_scenario_description";
 author = "$STR_INF_scenario_author";
 loadScreen = "RalloFramework\images\loadScreen.jpg";
 overviewPicture = "RalloFramework\images\loadScreen.jpg";
-disabledAI=0;
+disabledAI = 1;
 enableDebugConsole = 2;
 
 class Header

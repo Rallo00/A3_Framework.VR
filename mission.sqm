@@ -16,18 +16,18 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=193;
+		nextID=211;
 	};
 	class Camera
 	{
-		pos[]={6919.7183,13.725517,2123.322};
+		pos[]={6882.5205,35.331497,2103.6367};
 		dir[]={0.66697985,-0.56657523,0.48387021};
 		up[]={0.45860398,0.82401001,0.33270091};
 		aside[]={0.58721399,0,-0.80943179};
 	};
 };
 binarizationWanted=0;
-sourceName="a3_framework";
+sourceName="A3_Framework";
 addons[]=
 {
 	"A3_Characters_F",
