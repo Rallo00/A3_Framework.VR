@@ -99,7 +99,14 @@ if (isServer || isDedicated) then
 		ReviveBleedOutDelay = 600;			//unconscious state duration (in secs)
 		ReviveForceRespawnDelay = 90;
 	};
+	["Initialize", [true]] call BIS_fnc_dynamicGroups;
 };
+
+//--- HANDLING CLIENT SIDE ---//
+if(hasInterface) then 
+{
+	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
+}
 
 //--- HANDLING BOTH SERVER AND CLIENT SIDE ---//
 //Briefing
@@ -107,6 +114,5 @@ if (isServer || isDedicated) then
 { [_x] spawn FWK_fnc_vehicleUnflip; } forEach vehicles;
 enableSaving [false,false];
 
-["Initialize", [true]] call BIS_fnc_dynamicGroups;
 //Messaggio caricamento framework a buon fine
 systemChat localize "STR_misc_frameworkloaded";

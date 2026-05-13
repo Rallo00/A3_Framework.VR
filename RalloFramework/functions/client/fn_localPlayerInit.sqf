@@ -1,6 +1,6 @@
-/* Scenario introduction for every player. Call it from initPLayerLocal.sqf */
 ["InitializePlayer", [player]] call BIS_FNC_DYNAMICGROUPS;
-//if(FWK_ReviveType != 3) then { call compileFinal preprocessFileLineNumbers 'RalloFramework\FAR_revive\FAR_revive_init.sqf'; };
+//Revive handler
+if (FWK_ReviveType != 0) then { [] spawn FWK_fnc_reviveIncapacitatedHandler; };
 //JIP
 if([player] call BIS_fnc_didJIP) then { [player] spawn FWK_fnc_teleportToLeader; };
 //Intro
@@ -40,5 +40,3 @@ if([player] call BIS_fnc_didJIP) then { [player] spawn FWK_fnc_teleportToLeader;
 	cutText ["", "BLACK IN", 5];
 	5 fadeSound 1;
 };
-//Revive handler
-if (FWK_ReviveType != 0) then { [] spawn FWK_fnc_reviveIncapacitatedHandler; };
