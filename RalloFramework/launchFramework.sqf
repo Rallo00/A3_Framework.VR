@@ -2,6 +2,7 @@
 if (isServer || isDedicated) then 
 { 
 	//Configurable
+	enableSaving[false, false];
 	private _debug = false;
 	FWK_EnemySide = east;
 	FWK_EnemyFaction = "OPF_F";
@@ -75,6 +76,7 @@ if (isServer || isDedicated) then
 	publicVariable "FWK_FriendlyAirArray";
 	publicVariable "FWK_FriendlyAntiAirArray";
 	publicVariable "FWK_FriendlyTransportArray";
+<<<<<<< Updated upstream
 };
 
 //--- HANDLING BOTH SERVER AND CLIENT SIDE ---//
@@ -85,5 +87,37 @@ enableSaving [false,false];
 
 ["Initialize", [true]] call BIS_fnc_dynamicGroups;
 
+=======
+
+	//Handle Revive
+	if(FWK_ReviveType != 0) then 
+	{ 
+		ReviveMode = 1;						//0: disabled, 1: enabled, 2: controlled by player attributes
+		ReviveUnconsciousStateMode = 0;		//0: basic (always incapacitated), 1: advanced (may die on massive wounds), 2: realistic (may as well always die)
+		
+		//Only medics can revive
+		if (FWK_ReviveType == 1) then
+		{
+			ReviveRequiredTrait = 1;			//0: none, 1: medic trait is required
+			ReviveRequiredItems = 1;			//0: none, 1: medkit, 2: medkit or first aid kit
+			ReviveRequiredItemsFakConsumed = 0;	//0: first aid kit is not consumed upon revive, 1: first aid kit is consumed 
+		}
+		else
+		{
+			ReviveRequiredTrait = 0;			//0: none, 1: medic trait is required
+			ReviveRequiredItems = 2;			//0: none, 1: medkit, 2: medkit or first aid kit
+			ReviveRequiredItemsFakConsumed = 1;	//0: first aid kit is not consumed upon revive, 1: first aid kit is consumed 
+		};	
+		ReviveDelay = 6;					//time needed to revive someone (in secs)
+		ReviveMedicSpeedMultiplier = 2;		//speed multiplier for revive performed by medic
+		ReviveBleedOutDelay = 600;			//unconscious state duration (in secs)
+		ReviveForceRespawnDelay = 90;
+	};
+	
+	["Initialize", [true]] call BIS_fnc_dynamicGroups;
+	{ [_x] spawn FWK_fnc_vehicleUnflip; } forEach vehicles;
+};
+
+>>>>>>> Stashed changes
 //Messaggio caricamento framework a buon fine
 systemChat localize "STR_misc_frameworkloaded";
