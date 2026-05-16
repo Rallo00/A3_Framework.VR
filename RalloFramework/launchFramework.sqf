@@ -21,6 +21,7 @@ if (isServer || isDedicated) then
 	if(!_debug && FWK_DateTime != 2) then { [FWK_DateTime] spawn FWK_fnc_ambientSetDateTime; };	//No need client-side
 	if(FWK_WeatherRandom == 0) then { [] spawn FWK_fnc_ambientRandomWeather; };
 	if(FWK_SkillAI != 0) then { { _x setSkill FWK_SkillAI } forEach allUnits; };
+	if(FWK_ReviveType != 3) then { call compileFinal preprocessFileLineNumbers 'RalloFramework\FAR_revive\FAR_revive_init.sqf'; };
 	publicVariable "FWK_WeatherRandom";
 	publicVariable "FWK_StaminaEnabled";
 	publicVariable "FWK_DateTime";
@@ -48,7 +49,7 @@ if (isServer || isDedicated) then
 	publicVariable "FWK_EnemyGunshipArray";
 	publicVariable "FWK_EnemyHeloArray";
 	publicVariable "FWK_EnemyAirArray";
-	publicVariable "FWK_EnemyAntiairArray";
+	publicVariable "FWK_EnemyAntiAirArray";
 	publicVariable "FWK_EnemyTransportArray";
 	FWK_FriendlyInfantryArray = [FWK_PlayerFaction] call FWK_fnc_getFactionInfantry;
 	FWK_FriendlyStaticArray = [FWK_PlayerFaction] call FWK_fnc_getFactionStatic;
@@ -79,10 +80,8 @@ if (isServer || isDedicated) then
 //--- HANDLING BOTH SERVER AND CLIENT SIDE ---//
 //Briefing
 [] execVM "briefing.sqf";
-{ [_x] spawn FWK_fnc_vehicleUnflip; }forEach vehicles;
+{ [_x] spawn FWK_fnc_vehicleUnflip; } forEach vehicles;
 enableSaving [false,false];
-//Revive (needs also client-side)
-if(FWK_ReviveType != 3) then { call compileFinal preprocessFileLineNumbers 'RalloFramework\FAR_revive\FAR_revive_init.sqf'; };
 
 ["Initialize", [true]] call BIS_fnc_dynamicGroups;
 

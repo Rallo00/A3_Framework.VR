@@ -3,10 +3,9 @@ _generator allowDamage false;
 
 /*this addAction[localize "STR_misc_cutpower", {
 	private _lampsInRadius = nearestObjects [player, ["Lamps_base_F", "PowerLines_base_F", "PowerLines_Small_base_F"], _radius];
-	{ [_x, false] call BIS_fn2c_switchLamp; } forEach _lampsIn200m;
+	{ [_x, false] call BIS_fn2c_switchLamp; } forEach _lampsInRadius;
 	playSound "powerout";
 }];*/
-
 
 [
     this,
@@ -16,7 +15,7 @@ _generator allowDamage false;
     "_this distance _target < 2", "_caller distance _target < 2",{},{},
     {
 		private _lampsInRadius = nearestObjects [player, ["Lamps_base_F", "PowerLines_base_F", "PowerLines_Small_base_F"], _radius];
-		{ [_x, false] call BIS_fn2c_switchLamp; } forEach _lampsIn200m;
+		{ [_x, false] call BIS_fn2c_switchLamp; } forEach _lampsInRadius;
 		playSound "powerout";
     },{},[],5,0,false,false
 ] call BIS_fnc_holdActionAdd;

@@ -9,7 +9,7 @@ openMap false;
 _unit setPos _haloLocation;
 _unit addBackpack "B_Parachute";
 //Halo
-[_unit, _haloAltitude] call bis_fnc_halo;
+[_unit, _haloAltitude] call BIS_fnc_halo;
 sleep 2;
 cutText ["", "BLACK IN", 1];
 waitUntil {(getpos _unit select 2) < 2};

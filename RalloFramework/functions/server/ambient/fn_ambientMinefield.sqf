@@ -9,7 +9,7 @@ _minesArray = ["ATMine", "APERSBoundingMine", "APERSMine", "IEDLandBig_F", "IEDU
 _density = 0.1;
 
 // Calculate the area of the circle
-_area = 3.14159 * _diameter;
+_area = 3.14159 * (_diameter / 2) ^ 2;
 
 // Calculate the number of mines based on area size and density
 _numMines = round (_area * _density);

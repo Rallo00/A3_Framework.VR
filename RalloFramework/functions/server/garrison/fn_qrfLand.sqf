@@ -31,5 +31,5 @@ if(_debug) then {
     _marker setMarkerText format ["QRF LAND: %1 units", _groupSize];
     _marker setMarkerSize [1,1];
     _marker setMarkerType "hd_dot";
-	hint format["Has vehicle: %1\nFriendly: %2\nGroup size: %3\nSide: %4\nPosition: %5\nUnits Array: %6", _addVehicle, _isFriendly, _groupSize, _side, _randomSpawnPosition, _unitsArray];
+	hint format["Friendly: %1\nGroup size: %2\nSide: %3\nPosition: %4\nUnits Array: %5", _isFriendly, _groupSize, _side, _randomSpawnPosition, _unitsArray];
 };

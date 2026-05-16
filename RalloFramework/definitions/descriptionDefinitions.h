@@ -52,9 +52,10 @@ class CfgFunctions
 		{
 			file = "RalloFramework\functions\server\ambient";
 
-			class ambientCraterArea {};			//["markerName", numOfCraters] spawn FWK_fnc_craterArea;
+			class ambientCraterArea {};			//["markerName", numOfCraters] spawn FWK_fnc_ambientCraterArea;
+			class ambientCutPower {};			//[_object, _radius] spawn FWK_fnc_ambientCutPower;	
 			class ambientMapCleanup {};			//[position, range] spawn FWK_fnc_ambientMapCleanup;
-			class ambientMinefield {};			//[position, int minMines, int maxMines] spawn FWK_fnc_minefield;
+			class ambientMinefield {};			//[position, int minMines, int maxMines] spawn FWK_fnc_ambientMinefield;
 			class ambientMortarFire {};			//[position, shellType] spawn FWK_fnc_ambientMortarFire; (1=82mm/2=155mm/3=230mm)
 			class ambientRaiseAlarm {};			//[object, int totalNumbersOfAlarmSound] spawn FWK_fnc_ambientRaiseAlarm;
 			class ambientRandomWeather {};		//[] spawn FWK_fnc_ambientRandomWeather;
@@ -91,13 +92,13 @@ class CfgSounds
 	class alarm
 	{
 		name = "alarm"; 
-		sound[] = {RalloFramework\sounds\alarm.ogg, 10, 1.0}; 
+		sound[] = {"RalloFramework\sounds\alarm.ogg", 10, 1.0}; 
 		titles[] = {};
 	};
 	class powerout
 	{
 		name = "powerout"; 
-		sound[] = {RalloFramework\sounds\powerout.ogg, 10, 1.0}; 
+		sound[] = {"RalloFramework\sounds\powerout.ogg", 10, 1.0}; 
 		titles[] = {};
 	};
 };

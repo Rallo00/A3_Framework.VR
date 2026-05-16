@@ -67,10 +67,6 @@
 				<Original>Press 'C' if you cannot move.</Original>
 				<Italian>Premi 'C' se non riesci a muoverti.</Italian>
 			</Key>
-			<Key ID="STR_support_vehicle_airdrop_dropping">
-				<Original>Charon 1-1 dropping package. Good luck.</Original>
-				<Italian>Charon 1-1 al rilascio. Buona fortuna.</Italian>
-			</Key>
 		</Container>
 		<Container name="framework_misc">
 			<Key ID="STR_misc_frameworkloaded">
@@ -91,13 +87,17 @@
 			</Key>
 		</Container>
 		<Container name="framework_supports">
-			<Key ID="STR_support_vehicleairdrop">
+			<Key ID="STR_support_vehicledrop">
 				<Original>Vehicle drop</Original>
 				<Italian>Lancio del veicolo</Italian>
 			</Key>
 			<Key ID="STR_support_vehicleairdrop_dropping">
 				<Original>All units: package has been dropped.</Original>
 				<Italian>A tutte le unita': carico rilasciato.</Italian>
+			</Key>
+			<Key ID="STR_support_vehicle_airdrop_dropping">
+				<Original>Charon 1-1 dropping package. Good luck.</Original>
+				<Italian>Charon 1-1 al rilascio. Buona fortuna.</Italian>
 			</Key>
 		</Container>
 		<Container name="drone_actions">
@@ -121,7 +121,6 @@
 				<Original>Rounds remaining: %1\nMarking smoke remaining: %2</Original>
 				<Italian>Cariche rimanenti: %1\nFumogeno da marcatura: %2</Italian>
 			</Key>
-			</Key>
 		</Container>
 		<Container name="scenario_tasks">
 			<Key ID="STR_tsk_1_main">
@@ -131,6 +130,30 @@
 			<Key ID="STR_tsk_1_desc">
 				<Original>TASK &lt;marker name="marker1"&gt;TEXT&lt;/marker&gt;.</Original>
 				<Italian>TASK &lt;marker name="marker1"&gt;TEXT&lt;/marker&gt;.</Italian>
+			</Key>
+			<Key ID="STR_tsk_2_main">
+				<Original>TASK</Original>
+				<Italian>TASK</Italian>
+			</Key>
+			<Key ID="STR_tsk_2_desc">
+				<Original>TASK &lt;marker name="marker2"&gt;TEXT&lt;/marker&gt;.</Original>
+				<Italian>TASK &lt;marker name="marker2"&gt;TEXT&lt;/marker&gt;.</Italian>
+			</Key>
+			<Key ID="STR_tsk_3_main">
+				<Original>TASK</Original>
+				<Italian>TASK</Italian>
+			</Key>
+			<Key ID="STR_tsk_3_desc">
+				<Original>TASK &lt;marker name="marker3"&gt;TEXT&lt;/marker&gt;.</Original>
+				<Italian>TASK &lt;marker name="marker3"&gt;TEXT&lt;/marker&gt;.</Italian>
+			</Key>
+			<Key ID="STR_tsk_4_main">
+				<Original>TASK</Original>
+				<Italian>TASK</Italian>
+			</Key>
+			<Key ID="STR_tsk_4_desc">
+				<Original>TASK &lt;marker name="marker4"&gt;TEXT&lt;/marker&gt;.</Original>
+				<Italian>TASK &lt;marker name="marker4"&gt;TEXT&lt;/marker&gt;.</Italian>
 			</Key>
 		</Container>
 		
