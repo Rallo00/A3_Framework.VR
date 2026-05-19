@@ -1,12 +1,6 @@
-<<<<<<< Updated upstream
 /* Scenario introduction for every player. Call it from initPLayerLocal.sqf */
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 if(FWK_ReviveType != 3) then { call compileFinal preprocessFileLineNumbers 'RalloFramework\FAR_revive\FAR_revive_init.sqf'; };
-=======
-["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
-//Revive handler
-if (FWK_ReviveType != 0) then { [] spawn FWK_fnc_reviveIncapacitatedHandler; };
->>>>>>> Stashed changes
 //JIP
 if([player] call BIS_fnc_didJIP) then { [] execVM "briefing.sqf"; [player] spawn FWK_fnc_teleportToLeader; };
 //Intro
