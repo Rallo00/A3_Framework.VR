@@ -22,7 +22,7 @@ if (isServer || isDedicated) then
 	if(!_debug && FWK_DateTime != 2) then { [FWK_DateTime] spawn FWK_fnc_ambientSetDateTime; };	//No need client-side
 	if(FWK_WeatherRandom == 0) then { [] spawn FWK_fnc_ambientRandomWeather; };
 	if(FWK_SkillAI != 0) then { { _x setSkill FWK_SkillAI } forEach allUnits; };
-	if(FWK_ReviveType != 3) then { call compileFinal preprocessFileLineNumbers 'RalloFramework\FAR_revive\FAR_revive_init.sqf'; };
+	if(FWK_ReviveType != 3) then { /* PARTE DI REVIVE */ };
 	publicVariable "FWK_WeatherRandom";
 	publicVariable "FWK_StaminaEnabled";
 	publicVariable "FWK_DateTime";
