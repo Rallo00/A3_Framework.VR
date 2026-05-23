@@ -6,6 +6,11 @@ loadScreen = "RalloFramework\images\loadScreen.jpg";
 overviewPicture = "RalloFramework\images\loadScreen.jpg";
 disabledAI=1;
 enableDebugConsole = 2;
+//Handling respawn
+respawn = 3;
+respawnDelay = 5;
+respawnTemplates[] = { "MenuPosition","Tickets" };
+respawnOnStart = -1;
 
 class Header
 {
@@ -40,12 +45,12 @@ class Params
 		texts[] = {"Random","Real-Time","Mission default"};
 		default = 0;
 	};
-	class ParamRevive
+	class ParamRespawnTickets
 	{
-		title = "Revive";
-		values[] = {0,1,2,3};
-		texts[] = {"Only medics can revive","All players can revive (FAK)","All player can revive (Medkit)","No revive"};
-		default = 1;
+		title = "Respawn permessi";
+		values[] = {0,5,10,15,20,999};
+		texts[] = {"0","5","10","15","20","Infiniti"};
+		default = 10;
 	};
 	class ParamSkill
 	{

@@ -85,6 +85,10 @@
 				<Original>Cut power</Original>
 				<Italian>Taglia cavi della corrente</Italian>
 			</Key>
+			<Key ID="STR_respawn_tickets_remaining">
+				<Original>%1 has respawned. %2 remaining respawn tickets.</Original>
+				<Italian>%1 ha fatto respawn. %2 respawn rimanenti.</Italian>
+			</Key>
 		</Container>
 		<Container name="framework_supports">
 			<Key ID="STR_support_vehicledrop">

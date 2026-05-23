@@ -16,17 +16,17 @@ if (isServer || isDedicated) then
 	FWK_WeatherRandom = paramsArray select 0;
 	FWK_StaminaEnabled = paramsArray select 1;
 	FWK_DateTime = paramsArray select 2;
-	FWK_ReviveType = paramsArray select 3;
+	FWK_RespawnTickets = paramsArray select 3;
 	FWK_SkillAI = paramsArray select 4;
 	if(FWK_StaminaEnabled == 0) then { {_x enableFatigue false} forEach allPlayers; };
 	if(!_debug && FWK_DateTime != 2) then { [FWK_DateTime] spawn FWK_fnc_ambientSetDateTime; };	//No need client-side
 	if(FWK_WeatherRandom == 0) then { [] spawn FWK_fnc_ambientRandomWeather; };
 	if(FWK_SkillAI != 0) then { { _x setSkill FWK_SkillAI } forEach allUnits; };
-	if(FWK_ReviveType != 3) then { /* PARTE DI REVIVE */ };
+	if(FWK_RespawnTickets != 0 && FWK_RespawnTickets != 999) then { [FWK_PlayerSide, FWK_RespawnTickets] call BIS_fnc_respawnTickets; };
 	publicVariable "FWK_WeatherRandom";
 	publicVariable "FWK_StaminaEnabled";
 	publicVariable "FWK_DateTime";
-	publicVariable "FWK_ReviveType";
+	publicVariable "FWK_RespawnTickets";
 	//Ready-to-use arrays
 	FWK_EnemyInfantryArray = [FWK_EnemyFaction] call FWK_fnc_getFactionInfantry;
 	FWK_EnemyStaticArray = [FWK_EnemyFaction] call FWK_fnc_getFactionStatic;

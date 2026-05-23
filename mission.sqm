@@ -8,22 +8,22 @@ class EditorData
 	toggles=10;
 	class ItemIDProvider
 	{
-		nextID=400;
+		nextID=412;
 	};
 	class MarkerIDProvider
 	{
-		nextID=5;
+		nextID=7;
 	};
 	class LayerIndexProvider
 	{
-		nextID=193;
+		nextID=229;
 	};
 	class Camera
 	{
-		pos[]={6926.438,5.9171338,2117.1104};
-		dir[]={0.066469043,-0.3407996,0.93778336};
-		up[]={0.024095053,0.94013602,0.33994681};
-		aside[]={0.99749762,-1.8626451e-09,-0.070701525};
+		pos[]={6921.459,15.209175,2119.4592};
+		dir[]={0.53293413,-0.53200668,0.65798956};
+		up[]={0.33484238,0.84674007,0.41341466};
+		aside[]={0.77708548,-1.4901161e-08,-0.62939507};
 	};
 };
 binarizationWanted=0;
@@ -57,13 +57,14 @@ addons[]=
 	"A3_Soft_F_MRAP_02",
 	"A3_Modules_F_Multiplayer",
 	"A3_Drones_F_Air_F_Gamma_UAV_02",
-	"A3_Air_F_Orange_UAV_06"
+	"A3_Air_F_Orange_UAV_06",
+	"A3_Soft_F_Beta_Truck_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=15;
+		items=16;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -169,6 +170,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item15
+		{
+			className="A3_Soft_F_Beta";
+			name="Arma 3 Beta - Unarmored Land Vehicles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 dlcs[]=
@@ -182,6 +190,95 @@ randomSeed=14707340;
 class ScenarioData
 {
 	author="Rallo";
+	respawnDialog=0;
+	respawn=3;
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Multiplayer";
+		class Attribute0
+		{
+			property="ReviveBleedOutDelay";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=300;
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					singleType="ARRAY";
+					class value
+					{
+						items=3;
+						class Item0
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Counter";
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								singleType="STRING";
+								value="MenuPosition";
+							};
+						};
+						class Item2
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Tickets";
+							};
+						};
+					};
+				};
+			};
+		};
+		class Attribute2
+		{
+			property="ReviveMode";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		class Attribute3
+		{
+			property="ReviveRequiredItems";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=2;
+				};
+			};
+		};
+		nAttributes=4;
+	};
 };
 class Mission
 {
@@ -205,7 +302,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=152;
+		items=155;
 		class Item0
 		{
 			dataType="Group";
@@ -218,8 +315,8 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6927.8667,5.0014391,2121.6848};
-						angles[]={0,6.2312436,-0};
+						position[]={6929.0479,5.0014391,2120.5269};
+						angles[]={0,0.013158483,-0};
 					};
 					side="West";
 					flags=7;
@@ -353,7 +450,7 @@ class Mission
 							};
 							class backpack
 							{
-								typeName="B_Messenger_Black_F";
+								typeName="B_AssaultPack_mcamo";
 								isBackpack=1;
 								class MagazineCargo
 								{
@@ -395,7 +492,7 @@ class Mission
 								class data
 								{
 									singleType="BOOL";
-									value=0;
+									value=1;
 								};
 							};
 						};
@@ -3754,6 +3851,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6936.0044,5.0014391,2133.9387};
+						angles[]={0,4.7054033,-0};
 					};
 					side="West";
 					flags=7;
@@ -3784,6 +3882,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6935.9624,5.0014391,2132.0339};
+						angles[]={0,4.702745,-0};
 					};
 					side="West";
 					flags=7;
@@ -3814,6 +3913,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6935.9819,5.0014391,2130.0974};
+						angles[]={0,4.6725869,-0};
 					};
 					side="West";
 					flags=7;
@@ -3969,13 +4069,14 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6933.4819,5.0014391,2299.5051};
-						angles[]={0,3.2040029,0};
+						angles[]={0,3.2040057,0};
 					};
 					side="Civilian";
 					flags=7;
 					class Attributes
 					{
 						init="[this] spawn FWK_fnc_unitKamikaze";
+						disableSimulation=1;
 					};
 					id=311;
 					type="C_Man_casual_8_F";
@@ -5420,6 +5521,48 @@ class Mission
 			};
 			id=394;
 			type="B_UAV_01_F";
+		};
+		class Item152
+		{
+			dataType="Marker";
+			position[]={6928.6948,5,2116.7949};
+			name="respawn_west";
+			text="Spawn";
+			type="respawn_inf";
+			colorName="ColorWEST";
+			id=400;
+		};
+		class Item153
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6950.1392,7.2247906,2109.5129};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this forceFlagTexture ""RalloFramework\images\mhqFlag.jpg"";";
+				name="respawn_west_mhq";
+			};
+			id=402;
+			type="B_Truck_01_covered_F";
+		};
+		class Item154
+		{
+			dataType="Trigger";
+			position[]={6955.6851,5,2109.6479};
+			class Attributes
+			{
+				text="MHQ Enabler";
+				condition="true";
+				onActivation="[missionNamespace, respawn_west_mhq,""MHQ""] call BIS_fnc_addRespawnPosition;";
+				sizeA=0;
+				sizeB=0;
+			};
+			id=408;
+			type="EmptyDetector";
 		};
 	};
 	class Connections
