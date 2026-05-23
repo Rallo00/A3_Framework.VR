@@ -16,18 +16,18 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=229;
+		nextID=247;
 	};
 	class Camera
 	{
-		pos[]={6921.459,15.209175,2119.4592};
+		pos[]={6919.0586,15.209175,2116.4949};
 		dir[]={0.53293413,-0.53200668,0.65798956};
 		up[]={0.33484238,0.84674007,0.41341466};
 		aside[]={0.77708548,-1.4901161e-08,-0.62939507};
 	};
 };
 binarizationWanted=0;
-sourceName="a3_framework";
+sourceName="A3_Framework";
 addons[]=
 {
 	"A3_Characters_F",
@@ -316,7 +316,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6929.0479,5.0014391,2120.5269};
-						angles[]={0,0.013158483,-0};
+						angles[]={0,0.013158483,0};
 					};
 					side="West";
 					flags=7;
@@ -466,6 +466,15 @@ class Mission
 										name="SmokeShellBlue";
 										count=2;
 										ammoLeft=1;
+									};
+								};
+								class ItemCargo
+								{
+									items=1;
+									class Item0
+									{
+										name="FirstAidKit";
+										count=4;
 									};
 								};
 							};
@@ -3851,7 +3860,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6936.0044,5.0014391,2133.9387};
-						angles[]={0,4.7054033,-0};
+						angles[]={0,4.7054033,0};
 					};
 					side="West";
 					flags=7;
@@ -3882,7 +3891,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6935.9624,5.0014391,2132.0339};
-						angles[]={0,4.702745,-0};
+						angles[]={0,4.702745,0};
 					};
 					side="West";
 					flags=7;
@@ -3913,7 +3922,7 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6935.9819,5.0014391,2130.0974};
-						angles[]={0,4.6725869,-0};
+						angles[]={0,4.6725869,0};
 					};
 					side="West";
 					flags=7;

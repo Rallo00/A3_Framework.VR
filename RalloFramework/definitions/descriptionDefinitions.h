@@ -43,6 +43,7 @@ class CfgFunctions
 		{
 			file = "RalloFramework\functions\client";
 			
+			class spawnMedicalTrash {};			//[unit, customCoef] spawn FWK_fnc_spawnMedicalTrash;
 			class teleportToLeader {};			//[player] spawn FWK_fnc_teleportToLeader;
 			class teleportToGrid {};			//[unit, destinationGrid] spawn FWK_fnc_teleportToGrid;
 			class warSounds {};				//[] spawn FWK_fnc_warSounds;

@@ -40,44 +40,45 @@ if([player] call BIS_fnc_didJIP) then { [] execVM "briefing.sqf"; [player] spawn
 */
 
 player addEventHandler ["HandleDamage", {
-    params ["_unit"];
-	if (lifeState _unit == "INCAPACITATED") then 
+	params ["_unit", "_selection", "_damage", "_source", "_projectile", "_hitPoint", "_specialAmmo"];
+	// Here the unit is not yet incapacitated
+	if (damage _unit >= 0.95) then 
 	{
-		params ["_unit"];
-		[3000] call BIS_fnc_bloodEffect;
-		//Camera
-		//["Initialize", [_unit, [], false, true, true, true, true, true, true, true]] call BIS_fnc_EGSpectator;
-		//No death
-		_unit allowdamage false;		
-	}
-	else { _unit allowdamage true; };
-}];
-/*player addEventHandler ["HandleHeal", {
-	_this spawn {
-		params ["_injured", "_healer", "_isMedic", "_atVehicle", "_action"];
-		if (_injured != _healer) then
-		{
-			_generalTrash = ["MedicalGarbage_01_5x5_v1_F",
-					 "MedicalGarbage_01_3x3_v1_F",
-				 	 "MedicalGarbage_01_3x3_v2_F"	
-			] call BIS_fnc_selectRandom;
-			// field medical bag open
-			if (random 1 > 0.5) then { randomPos = _healer getRelPos [1, 45 + random 90]; } // to the right
-			else { randomPos = _healer getRelPos [1, -(45 + random 90)]; }; // to the left 
-			_medBag = createSimpleObject ["Land_FirstAidKit_01_open_F", AGLtoASL randomPos];
-			_medBag setDir random 359; 
-			// bandage new
-			_randomPos = _healer getRelPos [0.5 + random 1, random 360]; 
-			_bandage = createSimpleObject ["Land_Bandage_F", AGLtoASL _randomPos];
-			_bandage setDir random 359;  
-			// bandage dirty
-			_randomPos = _healer getRelPos [0.5 + random 1, random 360]; 
-			_bandageDirty = createSimpleObject ["MedicalGarbage_01_Bandage_F", AGLtoASL _randomPos];
-			_bandageDirty setDir random 359;  
-			sleep 1;
-			// medical garbage 3x3
-			_medGarbage = createSimpleObject [_generalTrash, AGLtoASL getpos _injured];
-			_medGarbage setDir random 359; 
+		// if already spawning medical trash, skip
+		if (!(_unit getVariable ["FWK_medtrash_locked", false])) then {
+			_unit setVariable ["FWK_medtrash_locked", true];
+			[_unit] spawn {
+				params ["_player"];
+				[5000] call BIS_fnc_bloodEffect;
+				systemchat format ["3-Unit: %1", name _player];
+				// Blood pool
+				_randomPos = _player getRelPos [0.5 + random 1, random 360]; 
+				_blood = createSimpleObject ["BloodPool_01_Medium_New_F", AGLtoASL position _player];
+				_blood setDir random 359;  
+				// Camera
+				["Initialize", [_player, [], false, true, true, true, true, true, true, true]] call BIS_fnc_EGSpectator;
+				// No death while incapacitated
+				_player allowDamage false;
+				waitUntil { lifeState _player != "INCAPACITATED" };
+				_player allowDamage true;
+				["Terminate", [_player]] call BIS_fnc_EGSpectator;
+				// SPAWN MEDICAL GARBAGE
+				[_player, 1] spawn FWK_fnc_spawnMedicalTrash;
+				// release lock after a short delay to avoid duplicates
+				_player spawn {
+					params ["_u"];
+					sleep 6;
+					_u setVariable ["FWK_medtrash_locked", false];
+				};
+			};
 		};
 	};
-}];*/
+}];
+//EVENT - HEAL ACTION (SELF OR OTHER UNIT)
+player addEventHandler ["HandleHeal", {
+	_this spawn {
+		params ["_injured", "_healer", "_isMedic", "_atVehicle", "_action"];
+		[_injured, 0] spawn FWK_fnc_spawnMedicalTrash;
+		sleep 0.5;
+	};
+}];
