@@ -8,26 +8,26 @@ class EditorData
 	toggles=10;
 	class ItemIDProvider
 	{
-		nextID=412;
+		nextID=419;
 	};
 	class MarkerIDProvider
 	{
-		nextID=7;
+		nextID=8;
 	};
 	class LayerIndexProvider
 	{
-		nextID=247;
+		nextID=265;
 	};
 	class Camera
 	{
-		pos[]={6919.0586,15.209175,2116.4949};
-		dir[]={0.53293413,-0.53200668,0.65798956};
-		up[]={0.33484238,0.84674007,0.41341466};
-		aside[]={0.77708548,-1.4901161e-08,-0.62939507};
+		pos[]={6895.7202,60.128239,2065.8286};
+		dir[]={0.013638004,-0.9190101,-0.393998};
+		up[]={0.031791944,0.39423397,-0.91846007};
+		aside[]={-0.99940145,9.3132257e-10,-0.034593683};
 	};
 };
 binarizationWanted=0;
-sourceName="A3_Framework";
+sourceName="a3_framework";
 addons[]=
 {
 	"A3_Characters_F",
@@ -58,13 +58,16 @@ addons[]=
 	"A3_Modules_F_Multiplayer",
 	"A3_Drones_F_Air_F_Gamma_UAV_02",
 	"A3_Air_F_Orange_UAV_06",
-	"A3_Soft_F_Beta_Truck_01"
+	"A3_Soft_F_Beta_Truck_01",
+	"A3_Structures_F_Households_House_Big02",
+	"A3_Structures_F_Households_House_Small01",
+	"A3_Structures_F_Households_Stone_Small"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=16;
+		items=17;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -174,6 +177,13 @@ class AddonsMetaData
 		{
 			className="A3_Soft_F_Beta";
 			name="Arma 3 Beta - Unarmored Land Vehicles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item16
+		{
+			className="A3_Structures_F_Households";
+			name="Arma 3 - Houses";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -302,7 +312,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=155;
+		items=161;
 		class Item0
 		{
 			dataType="Group";
@@ -2651,9 +2661,9 @@ class Mission
 		class Item68
 		{
 			dataType="Marker";
-			position[]={6901.8799,5,2136.4768};
+			position[]={6901.8799,5,2136.4771};
 			name="marker_2";
-			text="Minefield";
+			text="fn_ambientMinefield";
 			type="mil_dot";
 			id=77;
 		};
@@ -3531,7 +3541,7 @@ class Mission
 			dataType="Marker";
 			position[]={6901.5249,5,2105.7661};
 			name="marker_3";
-			text="Craters";
+			text="fn_ambientCraters";
 			type="mil_dot";
 			id=142;
 		};
@@ -5572,6 +5582,95 @@ class Mission
 			};
 			id=408;
 			type="EmptyDetector";
+		};
+		class Item155
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6889.5137,7.8839674,2036.4504};
+				angles[]={0,4.7060618,-0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=412;
+			type="Land_i_House_Big_02_V1_F";
+		};
+		class Item156
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6889.4233,6.3420548,2047.0968};
+				angles[]={0,4.7168121,-0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=413;
+			type="Land_i_House_Small_01_V1_F";
+		};
+		class Item157
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6900.998,6.204607,2025.2892};
+				angles[]={0,3.1546166,-0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=414;
+			type="Land_u_House_Small_01_V1_F";
+		};
+		class Item158
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6909.7837,6.8623681,2042.0979};
+				angles[]={0,1.6051738,-0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=416;
+			type="Land_i_Stone_HouseSmall_V1_F";
+		};
+		class Item159
+		{
+			dataType="Trigger";
+			position[]={6889.6538,5,2041.489};
+			class Attributes
+			{
+				text="fn_enemyBuildingsPopulate";
+				condition="true";
+				onActivation="[getMarkerPos ""ebp_marker"", 20, 3] spawn FWK_fnc_enemyBuildingsPopulate;";
+				sizeA=0;
+				sizeB=0;
+				isServerOnly=1;
+			};
+			id=417;
+			type="EmptyDetector";
+		};
+		class Item160
+		{
+			dataType="Marker";
+			position[]={6899.7568,5,2039.267};
+			name="ebp_marker";
+			text="fn_enemyBuildingsPopulate";
+			type="mil_dot";
+			id=418;
 		};
 	};
 	class Connections

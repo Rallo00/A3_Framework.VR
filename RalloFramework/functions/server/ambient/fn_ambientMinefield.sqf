@@ -1,38 +1,58 @@
-/* It creates a minefield with a random number of mines and IED and positioned in random way. Every mine adds IED explosion effect for better scenery */
 params ["_position", "_diameter"];
-if(isNil "_position") exitWith { systemChat "fn_mineField: _position not defined"; };
-if(isNil "_diameter") exitWith { systemChat "fn_mineField: _diameter not defined"; };
+if (isNil "_position") exitWith { systemChat "fn_mineField: _position not defined"; };
+if (isNil "_diameter") exitWith { systemChat "fn_mineField: _diameter not defined"; };
 
 private _debug = false;
 
-_minesArray = ["ATMine", "APERSBoundingMine", "APERSMine", "IEDLandBig_F", "IEDUrbanBig_F", "IEDUrbanSmall_F", "IEDLandSmall_F"];
-_density = 0.1;
+private _minesArray = [
+    "ATMine", "APERSBoundingMine", "APERSMine",
+    "IEDLandBig_F", "IEDUrbanBig_F", "IEDUrbanSmall_F", "IEDLandSmall_F"
+];
 
-// Calculate the area of the circle
-_area = 3.14159 * (_diameter / 2) ^ 2;
+// DENSITY (tuning server-friendly)
+private _density = 0.0002;
+private _maxMines = 500;     // safe hard cap 
 
-// Calculate the number of mines based on area size and density
-_numMines = round (_area * _density);
+// Area
+private _area = 3.14159 * (_diameter / 2) ^ 2;
 
-//Debug
-if(_debug) then { hint format["Position: %1\nRadius: %2\nMines count: %3", _position, _diameter / 2, _numMines] };
+// mines count with limit
+private _numMines = round (_area * _density);
+_numMines = _numMines min _maxMines;
+
+// Debug
+if (_debug) then {
+    hint format [
+        "Radius: %1\nArea: %2\nMines: %3",
+        _diameter / 2,
+        _area,
+        _numMines
+    ];
+};
 
 for "_i" from 1 to _numMines do {
-    // Randomly select a mine type from the array
-    _mineType = selectRandom _minesArray;
-    // Generate a random position within the circle
-    _angle = random 360;
-    _distance = _diameter * sqrt random 1; // sqrt for uniform distribution in the circle
-    _xOffset = _distance * cos _angle;
-    _yOffset = _distance * sin _angle;
-    _minePos = [(_position select 0) + _xOffset, (_position select 1) + _yOffset, 0];
-    // Create the mine at the calculated position
-    _mine = createMine [_mineType, _minePos, [], 0];
 
-    //Debug marker
-    if (_debug) then 
-    {
-        _marker = createMarker [format ["mine_marker_%1", _mine], _minePos];
+    private _mineType = selectRandom _minesArray;
+
+    private _angle = random 360;
+    private _distance = (_diameter / 2) * sqrt random 1;
+
+    private _xOffset = _distance * cos _angle;
+    private _yOffset = _distance * sin _angle;
+
+    private _minePos = [
+        (_position select 0) + _xOffset,
+        (_position select 1) + _yOffset,
+        0
+    ];
+
+    private _mine = createMine [_mineType, _minePos, [], 0];
+
+    if (_debug) then {
+        private _marker = createMarker [
+            format ["mine_marker_%1", _i],
+            _minePos
+        ];
         _marker setMarkerType "hd_dot";
         _marker setMarkerColor "ColorRed";
         _marker setMarkerSize [0.5, 0.5];

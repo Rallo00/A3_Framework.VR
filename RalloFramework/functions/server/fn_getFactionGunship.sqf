@@ -68,6 +68,7 @@ if (_faction == "rhs_faction_msv") then { _resultArray = ["RHS_Mi24P_vdv","RHS_M
 //RHS AFRF (Russia VDV)
 if (_faction == "rhs_faction_vdv") then { _resultArray = ["RHS_Mi24P_vdv","RHS_Mi24V_vdv","RHS_Mi8MTV3_vdv"] };
 //Eric J Taliban Units
+if (_faction == "Tban") then { _resultArray = ["Tban_Heli_Light_01_armed_F"] };
 //RHS SAF (ChDHZ)
 	
 _resultArray;

@@ -26,48 +26,6 @@
 				<Italian>Briefing.&lt;br/&gt;A capo.&lt;br/&gt;&lt;br/&gt;Doppio a capo.</Italian>
 			</Key>
 		</Container>
-		<Container name="framework_revive">
-			<Key ID="STR_revive_heal">
-				<Original>Heal</Original>
-				<Italian>Cura</Italian>
-			</Key>
-			<Key ID="STR_revive_drag">
-				<Original>Drag</Original>
-				<Italian>Trascina</Italian>
-			</Key>
-			<Key ID="STR_revive_release">
-				<Original>Release</Original>
-				<Italian>Lascia</Italian>
-			</Key>
-			<Key ID="STR_revive_suicide">
-				<Original>Suicide</Original>
-				<Italian>Suicidati</Italian>
-			</Key>
-			<Key ID="STR_revive_killedby">
-				<Original>has been killed by</Original>
-				<Italian>e' stato ucciso da</Italian>
-			</Key>
-			<Key ID="STR_revive_bleedout">
-				<Original>You will bleedout in</Original>
-				<Italian>Morte per dissanguamento in</Italian>
-			</Key>
-			<Key ID="STR_revive_seconds">
-				<Original>seconds.</Original>
-				<Italian>secondi.</Italian>
-			</Key>
-			<Key ID="STR_revive_medicnearby">
-				<Original>Nearby medic:</Original>
-				<Italian>Medico vicino:</Italian>
-			</Key>
-			<Key ID="STR_revive_nomedicnearby">
-				<Original>No medic nearby.</Original>
-				<Italian>Nessun medico nelle vicinanze.</Italian>
-			</Key>
-			<Key ID="STR_revive_stuck">
-				<Original>Press 'C' if you cannot move.</Original>
-				<Italian>Premi 'C' se non riesci a muoverti.</Italian>
-			</Key>
-		</Container>
 		<Container name="framework_misc">
 			<Key ID="STR_misc_frameworkloaded">
 				<Original>Rallo Framework loaded succesfully.</Original>

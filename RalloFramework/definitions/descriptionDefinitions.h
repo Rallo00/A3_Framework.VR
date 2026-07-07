@@ -65,6 +65,7 @@ class CfgFunctions
 		{
 			file = "RalloFramework\functions\server\garrison";
 			
+			class enemyBuildingsPopulate {};	//[position, areaSize, criticalLevel] spawn FWK_fnc_enemyBuildingsPopulate;
 			class enemyControlledArea {};		//[position, areaSize, criticalLevel] spawn FWK_fnc_enemyControlledArea;
 			class enemyPatrols {};				//[position, range, patrolsGroupCount, hasVehicle] spawn FWK_fnc_enemyPatrols;
 			class enemyPosIntel {};				//[] spawn FWK_fnc_enemyPosIntel;
@@ -81,7 +82,6 @@ class CfgFunctions
 			file = "RalloFramework\functions\server\supports";
 			
 			class supportsAllowCustom {};		//[] spawn FWK_fnc_supportsAllowCustom;
-			class supportsAmmoCache {};			//[_this] spawn FWK_fnc_supportsAmmoCache; (if used in support module)
 			class supportsVehicleDrop {};		//[position, isFriendlyVehicle] spawn FWK_fnc_supportsVehicleDrop;
 		};
 	};

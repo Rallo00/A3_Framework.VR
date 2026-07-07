@@ -1,11 +1,16 @@
-params["_cache"];
-if (isNil "_cache") exitWith { systemChat "fn_supportsAmmoCache: _cache not defined"; };
+_crate = _this select 0;
+_smoke = _this select 1;
+private _debug = false;
+
+if (isNil "_crate") exitWith { systemChat "supplyCrate.sqf: _crate not defined"; };
 _isRhsLoaded = ["usaf"] call FWK_fnc_isModActive;
-private _debug = true;
 
 //Debug
 if(_debug) then { hint format["RHS Loaded: %1\nCache: %2\nSide: %3", _isRhsLoaded, _cache, FWK_PlayerSide]; };
 
+_crate allowDamage false;
+_crate enableSimulation true;
+clearItemCargoGlobal _crate;
 //Cleaning up cache
 _cache allowDamage false;
 clearWeaponCargoGlobal _cache;
@@ -57,17 +62,27 @@ if(FWK_PlayerSide == east) then
 {
 	//RHS
 	if(_isRhsLoaded) then {
-		_cache addWeaponCargoGlobal ["rhs_weap_rpg7", 2];
-		_cache addMagazineCargoGlobal ["rhs_rpg7_PG7VL_mag", 2];
-		_cache addMagazineCargoGlobal ["rhs_100Rnd_762x54mmR_green", 8];
-		_cache addMagazineCargoGlobal ["rhs_10Rnd_762x54mmR_7N14", 15];
-		_cache addMagazineCargoGlobal ["rhs_30Rnd_545x39_7N10_plum_AK", 30];
-		_cache addMagazineCargoGlobal ["rhs_30Rnd_545x39_7N6_AK", 30];
-		_cache addMagazineCargoGlobal ["rhs_mag_rdg2_white", 20];
-		_cache addMagazineCargoGlobal ["rhs_mag_rdg2_black", 15];
-		_cache addMagazineCargoGlobal ["rhs_mag_rgo", 15];
-		_cache addMagazineCargoGlobal ["rhs_VOG25", 30];
-		_cache addItemCargoGlobal ["FirstAidKit", 15];
+		_crate addWeaponCargoGlobal ["rhs_weap_m249_light_S_elcan", 2];
+		_crate addWeaponCargoGlobal ["rhs_weap_M136", 4];
+		_crate addWeaponCargoGlobal ["rhs_weap_fim92", 1];
+		_crate addWeaponCargoGlobal ["rhs_weap_fgm148", 1];
+		_crate addWeaponCargoGlobal ["rhs_fim92_mag", 3];
+		_crate addMagazineCargoGlobal ["rhs_fgm148_magazine_AT", 4];
+		_crate addmagazineCargoGlobal ["rhsusf_100Rnd_556x45_M855_mixed_soft_pouch", 20];
+		_crate addMagazineCargoGlobal ["rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red", 50];
+		_crate addMagazineCargoGlobal ["rhs_mag_30Rnd_556x45_M855_PMAG_Tan_Tracer_Red", 50];
+		_crate addMagazineCargoGlobal ["rhs_mag_100Rnd_556x45_M855_cmag", 20];
+		_crate addMagazineCargoGlobal ["rhsusf_mag_10Rnd_STD_50BMG_M33", 33];
+		_crate addMagazineCargoGlobal ["rhs_mag_m67", 20];
+		_crate addMagazineCargoGlobal ["rhs_mag_an_m8hc", 30];
+		_crate addMagazineCargoGlobal ["rhs_mag_m18_green", 10];
+		_crate addMagazineCargoGlobal ["rhs_mag_m18_red", 10];
+		_crate addMagazineCargoGlobal ["rhsusf_m112_mag", 10];
+		_crate addMagazineCargoGlobal ["rhsusf_m112x4_mag", 4];
+		_crate addItemCargoGlobal ["Laserbatteries", 3];
+		_crate addItemCargoGlobal ["Laserdesignator_01_khk_F", 3];
+		_crate addItemCargoGlobal ["FirstAidKit", 60];
+		_crate addItemCargoGlobal ["B_IR_Grenade", 5];
 	} else {
 	//Vanilla
 		_cache addMagazineCargoGlobal ["30Rnd_65x39_caseless_green_mag_Tracer", 50];
@@ -117,5 +132,6 @@ if(FWK_PlayerSide == independent) then
 		_cache addMagazineCargoGlobal ["DemoCharge_Remote_Mag", 5];
 	};
 };
-waitUntil { (getPosATL _cache) select 2 < 10 };
-Signal = "SmokeShellPurple" createVehicle position _cache;
+//Smoke where crate landed
+waitUntil { (getPosATL _crate) select 2 < 10 };
+if(_smoke) then { Signal = "SmokeShellPurple" createVehicle position _crate; };

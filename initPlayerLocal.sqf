@@ -50,7 +50,6 @@ player addEventHandler ["HandleDamage", {
 			[_unit] spawn {
 				params ["_player"];
 				[5000] call BIS_fnc_bloodEffect;
-				systemchat format ["3-Unit: %1", name _player];
 				// Blood pool
 				_randomPos = _player getRelPos [0.5 + random 1, random 360]; 
 				_blood = createSimpleObject ["BloodPool_01_Medium_New_F", AGLtoASL position _player];

@@ -67,3 +67,5 @@ for "_y" from 1 to _hv do
 	group (_veh select 0) enableDynamicSimulation true;
 	sleep 3;
 };
+//Spawning infantry in buildings;
+[_pos, _patrolledAreaSize, _criticalLevel] spawn FWK_fnc_enemyBuildingsPopulate;
