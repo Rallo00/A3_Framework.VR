@@ -32,6 +32,7 @@
 *	rhs_faction_vdv				RHS AFRF (Russia VDV DES)
 *	rhssaf_faction_army			RHS SAF (KOV Digital)
 *	Tban						EricJ Taliban Units
+*   PedagneMOD					Pedagne Italian Forces
 */
 params["_faction"];
 _resultArray = [];
@@ -70,5 +71,7 @@ if (_faction == "rhs_faction_vdv") then { _resultArray = ["rhs_gaz66_ammo_vdv","
 //Eric J Taliban Units
 //RHS SAF (ChDHZ)	
 if (_faction == "rhssaf_faction_army") then { _resultArray = ["rhsgref_ins_g_ural_repair","rhsgref_ins_g_gaz66_ammo","rhsgref_ins_g_kraz255b1_fuel"]; };
+//PEDAGNE MOD
+if (_faction == "PedagneMOD") then { _resultArray = ["ASZ_ACTL6x6_repair","ASZ_ACTL6x6_logistic","ASZ_ACTL6x6_fuel"]; };
 
 _resultArray;

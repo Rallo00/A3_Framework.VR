@@ -25,6 +25,18 @@
 				<Original>Briefing.&lt;br/&gt;New Line.&lt;br/&gt;&lt;br/&gt;Double line.</Original>
 				<Italian>Briefing.&lt;br/&gt;A capo.&lt;br/&gt;&lt;br/&gt;Doppio a capo.</Italian>
 			</Key>
+			<Key ID="STR_END_miscompleted">
+				<Original>MISSION COMPLETED</Original>
+				<Italian>MISSIONE COMPLETATA</Italian>
+			</Key>
+			<Key ID="STR_END_miscompleted2">
+				<Original>You have carried out</Original>
+				<Italian>Avete portato a termine</Italian>
+			</Key>
+			<Key ID="STR_END_operators">
+				<Original>Operators</Original>
+				<Italian>Operatori</Italian>
+			</Key>
 		</Container>
 		<Container name="framework_misc">
 			<Key ID="STR_misc_frameworkloaded">

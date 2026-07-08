@@ -1,6 +1,6 @@
 /* Populate random buildings in given area with infantry soldiers */
 params ["_pos", "_patrolledAreaSize", "_criticalLevel"];
-private _debug = true;
+private _debug = false;
 private _buildingCount = 0;
 private _unitsPerBuilding = 0;
 

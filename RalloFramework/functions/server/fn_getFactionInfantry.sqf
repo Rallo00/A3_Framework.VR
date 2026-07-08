@@ -32,6 +32,7 @@
 *	rhs_faction_vdv				RHS AFRF (Russia VDV DES)
 *	rhssaf_faction_army			RHS SAF (KOV Digital)
 *	Tban						EricJ Taliban Units
+*   PedagneMOD					Pedagne Italian Forces
 */
 params["_faction"];
 _resultArray = [];
@@ -71,5 +72,7 @@ if (_faction == "rhs_faction_vdv") then { _resultArray = ["rhs_vdv_des_sergeant"
 if (_faction == "Tban") then { _resultArray = ["TBan_Fighter6","TBan_Fighter5","TBan_Fighter4","TBan_Fighter3NH","TBan_Fighter2NH","TBan_Fighter1NH","TBan_Fighter3","TBan_Fighter2","TBan_Fighter1"]; };
 //RHS SAF (ChDHZ)
 if (_faction == "rhssaf_faction_army") then { _resultArray = ["rhssaf_army_m10_digital_sq_Lead","rhssaf_army_m10_digital_medic","rhssaf_army_m10_digital_gl","rhssaf_army_m10_digital_rifleman_m70","rhssaf_army_m10_digital_mgun_m84","rhssaf_army_m10_digital_rifleman_m70","rhssaf_army_m10_digital_rifleman_m70","rhssaf_army_m10_digital_spec_aa","rhssaf_army_m10_digital_spec_at","rhssaf_army_m10_digital_sniper_m76"]; };
+//PEDAGNE MOD
+if (_faction == "PedagneMOD") then { _resultArray = ["ASZ_EI_SOF_CBT_sl","ASZ_EI_SOF_CBT_med","ASZ_EI_SOF_CBT_gl","ASZ_EI_SOF_CBT_fuc","ASZ_EI_SOF_CBT_mg","ASZ_EI_SOF_CBT_fuc","ASZ_EI_SOF_CBT_fuc","ASZ_EI_SOF_CBT_satj","ASZ_EI_SOF_CBT_saa","ASZ_EI_SOF_CBT_fuc","ASZ_EI_SOF_CBT_eng"]; };	
 
 _resultArray;
