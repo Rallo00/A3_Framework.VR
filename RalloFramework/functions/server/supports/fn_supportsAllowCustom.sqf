@@ -4,7 +4,9 @@ _vanillaUnitTypesAllowedArray = [ "B_G_Soldier_SL_F","B_Soldier_SL_F","B_W_Soldi
 _usafUnitTypesAllowedArray = ["rhsusf_army_ocp_squadleader","rhsusf_army_ocp_arb_squadleader","rhsusf_army_ucp_squadleader","rhsusf_army_ucp_arb_squadleader","rhsusf_usmc_marpat_d_squadleader","rhsusf_usmc_lar_marpad_d_squadleader","rhsusf_usmc_marpat_wd_squadleader","rhsusf_usmc_lar_marpat_wd_squadleader","rhsusf_army_ocp_teamleader","rhsusf_socom_marsoc_teamleader","rhsusf_army_ocp_arb_teamleader","rhsusf_army_ucp_teamleader","rhsusf_army_ucp_arb_teamleader","rhsusf_socom_marsoc_teamchief","rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_lar_marpat_d_teamleader","rhsusf_usmc_recon_marpat_d_teamleader","rhsusf_usmc_recon_marpat_d_teamleader_fast","rhsusf_usmc_recon_marpat_d_teamleader_lite","rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_lar_marpat_wd_teamleader","rhsusf_usmc_recon_marpat_wd_teamleader","rhsusf_usmc_recon_marpat_wd_teamleader_fast","rhsusf_usmc_recon_marpat_wd_teamleader_lite"];
 //RHS AFRF
 _afrfUnitTypesAllowedArray = ["rhs_msv_emr_efreitor","rhs_msv_efreitor","rhs_vdv_efreitor","rhs_vdv_des_efreitor","rhs_vdv_flora_efreitor","rhs_vdv_mflora_efreitor","rhs_vdv_recon_efreitor","rhs_vmf_emr_efreitor","rhs_vmf_flora_efreitor","rhs_vmf_recon_efreitor","rhs_mvd_izlom_efreitor","rhs_msv_emr_sergeant","rhs_msv_sergeant","rhs_vdv_sergeant","rhs_vdv_des_sergeant","rhs_vdv_flora_sergeant","rhs_vdv_mflora_sergeant","rhs_vdv_recon_sergeant","rhs_vmf_emr_sergeant","rhs_vmf_flora_sergeant","rhs_vmf_recon_sergeant","rhs_mvd_izlom_sergeant"];
-_unitTypesAllowedArray = _vanillaUnitTypesAllowedArray + _usafUnitTypesAllowedArray + _afrfUnitTypesAllowedArray;
+//Pedagne mod
+_pedagneUnitTypesAllowedArray = ["ASZ_EI_SOF_CBT_sl","ASZ_EI_SOF_CBT_tl"];
+_unitTypesAllowedArray = _vanillaUnitTypesAllowedArray + _usafUnitTypesAllowedArray + _afrfUnitTypesAllowedArray + _pedagneUnitTypesAllowedArray;
 //Custom support module to all teamleaders/squadleaders
 {
   if(alive _x) then

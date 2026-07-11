@@ -3,15 +3,17 @@ if (isServer || isDedicated) then
 { 
 	//Configurable
 	enableSaving[false, false];
-	private _debug = false;
+	private _debug = true;
 	FWK_EnemySide = east;
 	FWK_EnemyFaction = "OPF_F";
 	FWK_PlayerFaction = "BLU_F";
 	FWK_PlayerSide = west;
+	FWK_allowCustomSupports = true;
 	publicVariable "FWK_EnemySide";
 	publicVariable "FWK_EnemyFaction";
 	publicVariable "FWK_PlayerFaction";
 	publicVariable "FWK_PlayerSide";
+	publicVariable "FWK_allowCustomSupports";
 	//Scenario Parameters
 	FWK_WeatherRandom = paramsArray select 0;
 	FWK_StaminaEnabled = paramsArray select 1;
@@ -23,6 +25,7 @@ if (isServer || isDedicated) then
 	if(FWK_WeatherRandom == 0) then { [] spawn FWK_fnc_ambientRandomWeather; };
 	if(FWK_SkillAI != 0) then { { _x setSkill FWK_SkillAI } forEach allUnits; };
 	if(FWK_RespawnTickets != 0 && FWK_RespawnTickets != 999) then { [FWK_PlayerSide, FWK_RespawnTickets] call BIS_fnc_respawnTickets; };
+	if(FWK_allowCustomSupports) then { [] spawn FWK_fnc_supportsAllowCustom; };
 	publicVariable "FWK_WeatherRandom";
 	publicVariable "FWK_StaminaEnabled";
 	publicVariable "FWK_DateTime";
