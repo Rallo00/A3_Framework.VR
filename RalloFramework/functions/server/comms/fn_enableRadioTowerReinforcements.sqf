@@ -34,8 +34,9 @@ if(_debug) then { _waveInterval = 5; };
 while { !isNull _tower && alive _tower } do 
 {
     private _playersInside = [_pos, _area, FWK_PlayerSide] call FWK_fnc_getUnitsCount;
+    private _enemyHasOwnership = [_pos, _area] call FWK_fnc_getCurrentOwnership;
 
-    if (_playersInside > 0 && (triggerActivated _trigPlayersDetected)) then 
+    if (_playersInside > 0 && (triggerActivated _trigPlayersDetected) && (_enemyHasOwnership == FWK_EnemySide)) then 
     {
         sleep _waveInterval;
         if (_debug) then { systemChat "Reinforcements triggered."; hint format["Players count: %1\nTower alive: %2\nTrigger detected: %3", _playersInside, alive _tower, triggerActivated _trigPlayersDetected];};
