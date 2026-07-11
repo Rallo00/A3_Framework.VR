@@ -65,13 +65,17 @@
 				<Original>Vehicle drop</Original>
 				<Italian>Lancio del veicolo</Italian>
 			</Key>
-			<Key ID="STR_support_vehicleairdrop_dropping">
-				<Original>All units: package has been dropped.</Original>
-				<Italian>A tutte le unita': carico rilasciato.</Italian>
+			<Key ID="STR_support_confirmed">
+				<Original>All units: support is in bound.</Original>
+				<Italian>A tutte le unita': supporto in arrivo.</Italian>
 			</Key>
-			<Key ID="STR_support_vehicle_airdrop_dropping">
-				<Original>Charon 1-1 dropping package. Good luck.</Original>
-				<Italian>Charon 1-1 al rilascio. Buona fortuna.</Italian>
+			<Key ID="STR_support_vehicle_airdrop_unloaded">
+				<Original>All units: vehicle unloaded. Good luck.</Original>
+				<Italian>A tutte le unita': veicolo sganciato. Buona fortuna.</Italian>
+			</Key>
+			<Key ID="STR_support_groundqrf">
+				<Original>Request Quick Reaction Force</Original>
+				<Italian>Richiedi QRF</Italian>
 			</Key>
 		</Container>
 		<Container name="drone_actions">

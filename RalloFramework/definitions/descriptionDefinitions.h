@@ -48,6 +48,13 @@ class CfgFunctions
 			class teleportToGrid {};			//[unit, destinationGrid] spawn FWK_fnc_teleportToGrid;
 			class warSounds {};				//[] spawn FWK_fnc_warSounds;
 		};
+		class Comms
+		{
+			file = "RalloFramework\functions\server\comms";
+			
+			class nearestRadioTower {};			//[position, createMarker] call FWK_fnc_nearestRadioTower;
+			class enableRadioTowerReinforcements {};	//[position, range] spawn FWK_fnc_enableRadioTowerReinforcements;
+		};
 		class Ambient
 		{
 			file = "RalloFramework\functions\server\ambient";
@@ -82,6 +89,7 @@ class CfgFunctions
 			file = "RalloFramework\functions\server\supports";
 			
 			class supportsAllowCustom {};		//[] spawn FWK_fnc_supportsAllowCustom;
+			class supportsQrf {};				//[position] spawn FWK_fnc_supportsQrf;	
 			class supportsVehicleDrop {};		//[position, isFriendlyVehicle] spawn FWK_fnc_supportsVehicleDrop;
 		};
 	};
@@ -108,19 +116,19 @@ class CfgCommunicationMenu
     {
         text = "$STR_support_vehicledrop";
         submenu = "";
-        expression = "[true] spawn STR_support_vehicleairdrop";
+        expression = "[true] spawn FWK_fnc_supportsVehicleDrop";
         icon = "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa";
         cursor = "\A3\Ui_f\data\IGUI\Cfg\Cursors\iconSupport_ca.paa";
         enable = "1";
-        removeAfterExpressionCall = 1;
+        removeAfterExpressionCall = 0;
 		//for MP [player, "SupportVehicleAirdrop"] remoteExecCall ["BIS_fnc_addCommMenuItem", 0, true];
     };
 	class SupportGroundQRF
     {
-        text = "$STR_support_vehicledrop";
+        text = "$STR_support_groundqrf";
         submenu = "";
-        expression = "[true] spawn STR_support_vehicleairdrop";
-        icon = "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa";
+        expression =  "[position player, true] spawn FWK_fnc_supportsQrf";
+        icon = "\A3\Ui_f\data\GUI\Cfg\CommunicationMenu\call_ca.paa";
         cursor = "\A3\Ui_f\data\IGUI\Cfg\Cursors\iconSupport_ca.paa";
         enable = "1";
         removeAfterExpressionCall = 1;

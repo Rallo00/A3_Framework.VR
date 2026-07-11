@@ -8,22 +8,22 @@ class EditorData
 	toggles=10;
 	class ItemIDProvider
 	{
-		nextID=419;
+		nextID=392;
 	};
 	class MarkerIDProvider
 	{
-		nextID=8;
+		nextID=5;
 	};
 	class LayerIndexProvider
 	{
-		nextID=265;
+		nextID=202;
 	};
 	class Camera
 	{
-		pos[]={6895.7202,60.128239,2065.8286};
-		dir[]={0.013638379,-0.9190101,-0.393998};
-		up[]={0.031792816,0.39423397,-0.91846007};
-		aside[]={-0.99940145,-9.3132257e-10,-0.034594633};
+		pos[]={6952.4414,54.712326,2051.2939};
+		dir[]={0.028758567,-0.61200631,0.79032987};
+		up[]={0.022254992,0.7908529,0.61160159};
+		aside[]={0.99933875,0,-0.036363993};
 	};
 };
 binarizationWanted=0;
@@ -38,9 +38,9 @@ addons[]=
 	"A3_Drones_F_Weapons_F_Gamma_Items",
 	"A3_Weapons_F_Items",
 	"A3_Characters_F_Mark",
-	"A3_Weapons_F_Explosives",
 	"A3_Weapons_F_Ammoboxes",
 	"A3_Structures_F_Mil_Cargo",
+	"A3_Weapons_F_Explosives",
 	"A3_Modules_F_Curator_Mines",
 	"A3_Structures_F_Civ_InfoBoards",
 	"A3_Structures_F_Training",
@@ -58,16 +58,13 @@ addons[]=
 	"A3_Modules_F_Multiplayer",
 	"A3_Drones_F_Air_F_Gamma_UAV_02",
 	"A3_Air_F_Orange_UAV_06",
-	"A3_Soft_F_Beta_Truck_01",
-	"A3_Structures_F_Households_House_Big02",
-	"A3_Structures_F_Households_House_Small01",
-	"A3_Structures_F_Households_Stone_Small"
+	"A3_Structures_F_Ind_Transmitter_Tower"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=17;
+		items=16;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -175,15 +172,8 @@ class AddonsMetaData
 		};
 		class Item15
 		{
-			className="A3_Soft_F_Beta";
-			name="Arma 3 Beta - Unarmored Land Vehicles";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item16
-		{
-			className="A3_Structures_F_Households";
-			name="Arma 3 - Houses";
+			className="A3_Structures_F_Ind";
+			name="Arma 3 - Industrial Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -200,95 +190,6 @@ randomSeed=14707340;
 class ScenarioData
 {
 	author="Rallo";
-	respawnDialog=0;
-	respawn=3;
-};
-class CustomAttributes
-{
-	class Category0
-	{
-		name="Multiplayer";
-		class Attribute0
-		{
-			property="ReviveBleedOutDelay";
-			expression="false";
-			class Value
-			{
-				class data
-				{
-					singleType="SCALAR";
-					value=300;
-				};
-			};
-		};
-		class Attribute1
-		{
-			property="RespawnTemplates";
-			expression="true";
-			class Value
-			{
-				class data
-				{
-					singleType="ARRAY";
-					class value
-					{
-						items=3;
-						class Item0
-						{
-							class data
-							{
-								singleType="STRING";
-								value="Counter";
-							};
-						};
-						class Item1
-						{
-							class data
-							{
-								singleType="STRING";
-								value="MenuPosition";
-							};
-						};
-						class Item2
-						{
-							class data
-							{
-								singleType="STRING";
-								value="Tickets";
-							};
-						};
-					};
-				};
-			};
-		};
-		class Attribute2
-		{
-			property="ReviveMode";
-			expression="false";
-			class Value
-			{
-				class data
-				{
-					singleType="SCALAR";
-					value=1;
-				};
-			};
-		};
-		class Attribute3
-		{
-			property="ReviveRequiredItems";
-			expression="false";
-			class Value
-			{
-				class data
-				{
-					singleType="SCALAR";
-					value=2;
-				};
-			};
-		};
-		nAttributes=4;
-	};
 };
 class Mission
 {
@@ -312,7 +213,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=161;
+		items=155;
 		class Item0
 		{
 			dataType="Group";
@@ -325,13 +226,13 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6929.0479,5.0014391,2120.5269};
-						angles[]={0,0.013158483,0};
+						position[]={6927.8672,5.0014391,2121.6851};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
+						name="p1";
 						isPlayer=1;
 						class Inventory
 						{
@@ -458,36 +359,6 @@ class Mission
 									};
 								};
 							};
-							class backpack
-							{
-								typeName="B_AssaultPack_mcamo";
-								isBackpack=1;
-								class MagazineCargo
-								{
-									items=2;
-									class Item0
-									{
-										name="DemoCharge_Remote_Mag";
-										count=2;
-										ammoLeft=1;
-									};
-									class Item1
-									{
-										name="SmokeShellBlue";
-										count=2;
-										ammoLeft=1;
-									};
-								};
-								class ItemCargo
-								{
-									items=1;
-									class Item0
-									{
-										name="FirstAidKit";
-										count=4;
-									};
-								};
-							};
 							map="ItemMap";
 							compass="ItemCompass";
 							watch="ItemWatch";
@@ -511,7 +382,7 @@ class Mission
 								class data
 								{
 									singleType="BOOL";
-									value=1;
+									value=0;
 								};
 							};
 						};
@@ -580,14 +451,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6929.021,5.8924227,2136.084};
+						position[]={6929.021,5.8924227,2136.0845};
 						angles[]={0,3.1203694,0};
 					};
 					side="Empty";
 					flags=4;
 					class Attributes
 					{
-						init="[this] spawn FWK_fnc_virtualArsenal;";
+						init="[this] spawn FWK_fnc_addVA;";
 					};
 					id=5;
 					type="B_supplyCrate_F";
@@ -621,6 +492,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
+						init="[this] spawn FWK_fnc_supportsAmmoCache;";
 						name="crate";
 					};
 					id=379;
@@ -2661,9 +2533,9 @@ class Mission
 		class Item68
 		{
 			dataType="Marker";
-			position[]={6901.8799,5,2136.4771};
+			position[]={6901.8799,5,2136.4768};
 			name="marker_2";
-			text="fn_ambientMinefield";
+			text="Minefield";
 			type="mil_dot";
 			id=77;
 		};
@@ -3541,7 +3413,7 @@ class Mission
 			dataType="Marker";
 			position[]={6901.5249,5,2105.7661};
 			name="marker_3";
-			text="fn_ambientCraters";
+			text="Craters";
 			type="mil_dot";
 			id=142;
 		};
@@ -3870,7 +3742,6 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6936.0044,5.0014391,2133.9387};
-						angles[]={0,4.7054033,0};
 					};
 					side="West";
 					flags=7;
@@ -3901,7 +3772,6 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6935.9624,5.0014391,2132.0339};
-						angles[]={0,4.702745,0};
 					};
 					side="West";
 					flags=7;
@@ -3932,7 +3802,6 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6935.9819,5.0014391,2130.0974};
-						angles[]={0,4.6725869,0};
 					};
 					side="West";
 					flags=7;
@@ -4088,14 +3957,13 @@ class Mission
 					class PositionInfo
 					{
 						position[]={6933.4819,5.0014391,2299.5051};
-						angles[]={0,3.2040057,0};
+						angles[]={0,3.2040029,0};
 					};
 					side="Civilian";
 					flags=7;
 					class Attributes
 					{
 						init="[this] spawn FWK_fnc_unitKamikaze";
-						disableSimulation=1;
 					};
 					id=311;
 					type="C_Man_casual_8_F";
@@ -5446,231 +5314,76 @@ class Mission
 		};
 		class Item150
 		{
-			dataType="Group";
-			side="West";
-			class Entities
+			dataType="Object";
+			class PositionInfo
 			{
-				items=2;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={6933.8501,5.0014386,2114.4973};
-						angles[]={0,1.5496081,0};
-					};
-					side="West";
-					flags=6;
-					class Attributes
-					{
-					};
-					id=392;
-					type="B_UAV_AI";
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={6933.8501,5.1519065,2114.4978};
-						angles[]={0,1.5496081,0};
-					};
-					side="West";
-					flags=4;
-					class Attributes
-					{
-					};
-					id=393;
-					type="B_UAV_AI";
-					atlOffset=0.15046787;
-				};
+				position[]={7024.5479,21.563423,2065.115};
 			};
+			side="Empty";
+			flags=5;
 			class Attributes
 			{
+				name="testTower";
 			};
-			class CrewLinks
-			{
-				class LinkIDProvider
-				{
-					nextID=2;
-				};
-				class Links
-				{
-					items=2;
-					class Item0
-					{
-						linkID=0;
-						item0=392;
-						item1=394;
-						class CustomData
-						{
-							role=1;
-						};
-					};
-					class Item1
-					{
-						linkID=1;
-						item0=393;
-						item1=394;
-						class CustomData
-						{
-							role=2;
-							turretPath[]={0};
-						};
-					};
-				};
-			};
-			id=391;
+			id=386;
+			type="Land_Communication_F";
 		};
 		class Item151
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={6923.9565,5.1504679,2121.7449};
-				angles[]={0,1.5496081,0};
+				position[]={6588.8447,21.563423,1878.7244};
 			};
-			side="West";
-			flags=6;
+			side="Empty";
+			flags=5;
 			class Attributes
 			{
-				init="[this] spawn FWK_fnc_multicapabilitiesUAV;";
-				reportRemoteTargets=1;
-				reportOwnPosition=1;
 			};
-			id=394;
-			type="B_UAV_01_F";
+			id=387;
+			type="Land_Communication_F";
 		};
 		class Item152
 		{
-			dataType="Marker";
-			position[]={6928.6948,5,2116.7949};
-			name="respawn_west";
-			text="Spawn";
-			type="respawn_inf";
-			colorName="ColorWEST";
-			id=400;
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5475.8354,21.563423,2500.696};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=388;
+			type="Land_Communication_F";
 		};
 		class Item153
 		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={6950.1392,7.2247906,2109.5129};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				init="this forceFlagTexture ""RalloFramework\images\mhqFlag.jpg"";";
-				name="respawn_west_mhq";
-			};
-			id=402;
-			type="B_Truck_01_covered_F";
-		};
-		class Item154
-		{
 			dataType="Trigger";
-			position[]={6955.6851,5,2109.6479};
+			position[]={7056.916,5,2064.1111};
 			class Attributes
 			{
-				text="MHQ Enabler";
 				condition="true";
-				onActivation="[missionNamespace, respawn_west_mhq,""MHQ""] call BIS_fnc_addRespawnPosition;";
-				sizeA=0;
-				sizeB=0;
-			};
-			id=408;
-			type="EmptyDetector";
-		};
-		class Item155
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={6889.5137,7.8839674,2036.4504};
-				angles[]={0,4.7060618,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=412;
-			type="Land_i_House_Big_02_V1_F";
-		};
-		class Item156
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={6889.4233,6.3420548,2047.0968};
-				angles[]={0,4.7168121,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=413;
-			type="Land_i_House_Small_01_V1_F";
-		};
-		class Item157
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={6900.998,6.204607,2025.2892};
-				angles[]={0,3.1546166,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=414;
-			type="Land_u_House_Small_01_V1_F";
-		};
-		class Item158
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={6909.7837,6.8623681,2042.0979};
-				angles[]={0,1.6051738,-0};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=416;
-			type="Land_i_Stone_HouseSmall_V1_F";
-		};
-		class Item159
-		{
-			dataType="Trigger";
-			position[]={6889.6538,5,2041.489};
-			class Attributes
-			{
-				text="fn_enemyBuildingsPopulate";
-				condition="true";
-				onActivation="[getMarkerPos ""ebp_marker"", 20, 3] spawn FWK_fnc_enemyBuildingsPopulate;";
+				onActivation="[position testTower, 40] spawn FWK_fnc_enableRadioTowerReinforcements;";
 				sizeA=0;
 				sizeB=0;
 				isServerOnly=1;
 			};
-			id=417;
+			id=390;
 			type="EmptyDetector";
 		};
-		class Item160
+		class Item154
 		{
-			dataType="Marker";
-			position[]={6899.7568,5,2039.267};
-			name="ebp_marker";
-			text="fn_enemyBuildingsPopulate";
-			type="mil_dot";
-			id=418;
+			dataType="Trigger";
+			position[]={7372.8047,5,2223.4097};
+			class Attributes
+			{
+				sizeA=0;
+				sizeB=0;
+			};
+			id=391;
+			type="EmptyDetector";
 		};
 	};
 	class Connections
